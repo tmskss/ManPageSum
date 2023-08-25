@@ -1,0 +1,82 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-symbolic-ref(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | NOTES | GIT | COLOPHON  
+    GIT-SYMBOLIC-REF(1)            Git Manual            GIT-SYMBOLIC-REF(1)
+## NAME         top
+           git-symbolic-ref - Read, modify and delete symbolic refs
+## SYNOPSIS         top
+           git symbolic-ref [-m <reason>] <name> <ref>
+           git symbolic-ref [-q] [--short] [--no-recurse] <name>
+           git symbolic-ref --delete [-q] <name>
+## DESCRIPTION         top
+           Given one argument, reads which branch head the given symbolic
+           ref refers to and outputs its path, relative to the .git/
+           directory. Typically you would give HEAD as the <name> argument
+           to see which branch your working tree is on.
+           Given two arguments, creates or updates a symbolic ref <name> to
+           point at the given branch <ref>.
+           Given --delete and an additional argument, deletes the given
+           symbolic ref.
+           A symbolic ref is a regular file that stores a string that begins
+           with ref: refs/. For example, your .git/HEAD is a regular file
+           whose contents is ref: refs/heads/master.
+## OPTIONS         top
+           -d, --delete
+               Delete the symbolic ref <name>.
+           -q, --quiet
+               Do not issue an error message if the <name> is not a symbolic
+               ref but a detached HEAD; instead exit with non-zero status
+               silently.
+           --short
+               When showing the value of <name> as a symbolic ref, try to
+               shorten the value, e.g. from refs/heads/master to master.
+           --recurse, --no-recurse
+               When showing the value of <name> as a symbolic ref, if <name>
+               refers to another symbolic ref, follow such a chain of
+               symbolic refs until the result no longer points at a symbolic
+               ref (--recurse, which is the default).  --no-recurse stops
+               after dereferencing only a single level of symbolic ref.
+           -m
+               Update the reflog for <name> with <reason>. This is valid
+               only when creating or updating a symbolic ref.
+## NOTES         top
+           In the past, .git/HEAD was a symbolic link pointing at
+           refs/heads/master. When we wanted to switch to another branch, we
+           did ln -sf refs/heads/newbranch .git/HEAD, and when we wanted to
+           find out which branch we are on, we did readlink .git/HEAD. But
+           symbolic links are not entirely portable, so they are now
+           deprecated and symbolic refs (as described above) are used by
+           default.
+           git symbolic-ref will exit with status 0 if the contents of the
+           symbolic ref were printed correctly, with status 1 if the
+           requested name is not a symbolic ref, or 128 if another error
+           occurs.
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22            GIT-SYMBOLIC-REF(1)
+* * *
+Pages that refer to this page: git(1),  gitglossary(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

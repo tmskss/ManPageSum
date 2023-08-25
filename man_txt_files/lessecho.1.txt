@@ -1,0 +1,68 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# lessecho(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | AUTHOR | COLOPHON  
+    LESSECHO(1)              General Commands Manual             LESSECHO(1)
+## NAME         top
+           lessecho - expand metacharacters
+## SYNOPSIS         top
+           lessecho [-ox] [-cx] [-pn] [-dn] [-mx] [-nn] [-ex] [-a] file ...
+## DESCRIPTION         top
+           lessecho is a program that simply echos its arguments on standard
+           output.  But any metacharacter in the output is preceded by an
+           "escape" character, which by default is a backslash.
+## OPTIONS         top
+           A summary of options is included below.
+           -ex    Specifies "x", rather than backslash, to be the escape
+                  char for metachars.  If x is "-", no escape char is used
+                  and arguments containing metachars are surrounded by
+                  quotes instead.
+           -ox    Specifies "x", rather than double-quote, to be the open
+                  quote character, which is used if the -e- option is
+                  specified.
+           -cx    Specifies "x" to be the close quote character.
+           -pn    Specifies "n" to be the open quote character, as an
+                  integer.
+           -dn    Specifies "n" to be the close quote character, as an
+                  integer.
+           -mx    Specifies "x" to be a metachar.  By default, no characters
+                  are considered metachars.
+           -nn    Specifies "n" to be a metachar, as an integer.
+           -fn    Specifies "n" to be the escape char for metachars, as an
+                  integer.
+           -a     Specifies that all arguments are to be quoted.  The
+                  default is that only arguments containing metacharacters
+                  are quoted.
+## SEE ALSO         top
+           less(1)
+## AUTHOR         top
+           This manual page was written by Thomas Schoepf
+           <schoepf@debian.org>, for the Debian GNU/Linux system (but may be
+           used by others).
+           Report bugs at https://github.com/gwsw/less/issues.
+## COLOPHON         top
+           This page is part of the less (A file pager) project.
+           Information about the project can be found at 
+           ⟨http://www.greenwoodsoftware.com/less/⟩.  If you have a bug
+           report for this manual page, see
+           ⟨http://www.greenwoodsoftware.com/less/faq.html#bugs⟩.  This page
+           was obtained from the tarball less-633.tar.gz fetched from
+           ⟨http://www.greenwoodsoftware.com/less/download.html⟩ on
+           2023-06-23.  If you discover any rendering problems in this HTML
+           version of the page, or you believe there is a better or more up-
+           to-date source for the page, or you have corrections or
+           improvements to the information in this COLOPHON (which is not
+           part of the original manual page), send a mail to
+           man-pages@man7.org
+                            Version 633: 03 May 2023             LESSECHO(1)
+* * *
+Pages that refer to this page: less(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

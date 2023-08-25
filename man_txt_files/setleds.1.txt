@@ -1,0 +1,79 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# setleds(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | BUGS | SEE ALSO | COLOPHON  
+    SETLEDS(1)               General Commands Manual              SETLEDS(1)
+## NAME         top
+           setleds - set the keyboard leds
+## SYNOPSIS         top
+           setleds [-v] [-L] [-D] [-F] [{+|-}num] [{+|-}caps] [{+|-}scroll]
+## DESCRIPTION         top
+           Setleds reports and changes the led flag settings of a VT (namely
+           NumLock, CapsLock and ScrollLock).  Without arguments, setleds
+           prints the current settings.  With arguments, it sets or clears
+           the indicated flags (and leaves the others unchanged). The
+           settings before and after the change are reported if the -v flag
+           is given.
+           The led flag settings are specific for each VT (and the VT
+           corresponding to stdin is used).
+           By default (or with option -F), setleds will only change the VT
+           flags (and their setting may be reflected by the keyboard leds).
+           With option -D, setleds will change both the VT flags and their
+           default settings (so that a subsequent reset will not undo the
+           change).  This might be useful for people who always want to have
+           numlock set.
+           With option -L, setleds will not touch the VT flags, but only
+           change the leds.  From this moment on, the leds will no longer
+           reflect the VT flags (but display whatever is put into them). The
+           command setleds -L (without further arguments) will restore the
+           situation in which the leds reflect the VT flags.
+           One might use setleds in /etc/rc to define the initial and
+           default state of NumLock, e.g. by
+                INITTY=/dev/tty[1-8]
+                for tty in $INITTY; do
+                     setleds -D +num < $tty
+                done
+## OPTIONS         top
+           -num +num
+                  Clear or set NumLock.  (At present, the NumLock setting
+                  influences the interpretation of keypad keys.  Pressing
+                  the NumLock key complements the NumLock setting.)
+           -caps +caps
+                  Clear or set CapsLock.  (At present, the CapsLock setting
+                  complements the Shift key when applied to letters.
+                  Pressing the CapsLock key complements the CapsLock
+                  setting.)
+           -scroll +scroll
+                  Clear or set ScrollLock.  (At present, pressing the
+                  ScrollLock key (or ^S/^Q) stops/starts console output.)
+## BUGS         top
+           In keyboard application mode the NumLock key does not influence
+           the NumLock flag setting.
+## SEE ALSO         top
+           loadkeys(1)
+## COLOPHON         top
+           This page is part of the kbd (Linux keyboard tools) project.
+           Information about the project can be found at 
+           ⟨http://www.kbd-project.org/⟩.  If you have a bug report for this
+           manual page, send it to kbd@lists.altlinux.org.  This page was
+           obtained from the project's upstream Git repository
+           ⟨https://github.com/legionus/kbd.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-23.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    kbd                            24 Sep 1994                    SETLEDS(1)
+* * *
+Pages that refer to this page: kbdinfo(1),  ioctl_console(2)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

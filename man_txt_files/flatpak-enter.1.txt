@@ -1,0 +1,62 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# flatpak-enter(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXAMPLES | SEE ALSO | COLOPHON  
+    FLATPAK ENTER(1)              flatpak enter             FLATPAK ENTER(1)
+## NAME         top
+           flatpak-enter - Enter an application or runtime's sandbox
+## SYNOPSIS         top
+           flatpak enter [OPTION...] INSTANCE COMMAND [ARG...]
+## DESCRIPTION         top
+           Enter a running sandbox.
+           INSTANCE must be either the pid of a process running in a flatpak
+           sandbox, or the ID of a running application, or the instance ID
+           of a running sandbox. You can use flatpak ps to find the instance
+           IDs of running flatpaks.
+           COMMAND is the command to run in the sandbox. Extra arguments are
+           passed on to the command.
+           This creates a new process within the running sandbox, with the
+           same environment. This is useful when you want to debug a problem
+           with a running application.
+           This command works as a regular user if the system support
+           unprivileged user namespace. If that is not available you need to
+           run run it like: sudo -E flatpak enter.
+## OPTIONS         top
+           The following options are understood:
+           -h, --help
+               Show help options and exit.
+           -v, --verbose
+               Print debug information during command processing.
+           --ostree-verbose
+               Print OSTree debug information during command processing.
+## EXAMPLES         top
+           $ flatpak enter 15345 sh
+## SEE ALSO         top
+           flatpak(1), flatpak-run(1) flatpak-ps(1)
+## COLOPHON         top
+           This page is part of the flatpak (a tool for building and
+           distributing desktop applications on Linux) project.  Information
+           about the project can be found at ⟨http://flatpak.org/⟩.  It is
+           not known how to report bugs for this man page; if you know,
+           please send a mail to man-pages@man7.org.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/flatpak/flatpak⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-05-20.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    flatpak                                                 FLATPAK ENTER(1)
+* * *
+Pages that refer to this page: flatpak(1),  flatpak-run(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

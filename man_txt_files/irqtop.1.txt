@@ -1,0 +1,86 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# irqtop(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | INTERACTIVE MODE KEY COMMANDS |
+AUTHORS | REPORTING BUGS | AVAILABILITY  
+    IRQTOP(1)                     User Commands                    IRQTOP(1)
+## NAME         top
+           irqtop - utility to display kernel interrupt information
+## SYNOPSIS         top
+           irqtop [options]
+## DESCRIPTION         top
+           Display kernel interrupt counter information in top(1) style
+           view.
+           The default output is subject to change. So whenever possible,
+           you should avoid using default outputs in your scripts. Always
+           explicitly define expected columns by using --output.
+## OPTIONS         top
+           -o, --output list
+               Specify which output columns to print. Use --help to get a
+               list of all supported columns. The default list of columns
+               may be extended if list is specified in the format +list.
+           -c, --cpu-stat mode
+               Show per-cpu statistics by specified mode. Available modes
+               are: auto, enable, disable. The default option auto detects
+               the width of window, then shows the per-cpu statistics if the
+               width of window is large enough to show a full line of
+               statistics.
+           -C, --cpu-list list
+               Specify cpus in list format to show.
+           -d, --delay seconds
+               Update interrupt output every seconds intervals.
+           -s, --sort column
+               Specify sort criteria by column name. See --help output to
+               get column names. The sort criteria may be changes in
+               interactive mode.
+           -S, --softirq
+               Show softirqs information.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## INTERACTIVE MODE KEY COMMANDS         top
+           i
+               sort by short irq name or number field
+           t
+               sort by total count of interrupts (the default)
+           d
+               sort by delta count of interrupts
+           n
+               sort by long descriptive name field
+           q Q
+               stop updates and exit program
+## AUTHORS         top
+           Zhenwei Pi <pizhenwei@bytedance.com>, Sami Kerola
+           <kerolasa@iki.fi>, Karel Zak <kzak@redhat.com>
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The irqtop command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.39.268-ae62d      2023-06-22                      IRQTOP(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

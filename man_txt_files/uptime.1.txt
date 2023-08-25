@@ -1,0 +1,76 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+Another version of this page is provided by the coreutils project
+* * *
+# uptime(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | FILES | AUTHORS | SEE ALSO |
+REPORTING BUGS | COLOPHON  
+    UPTIME(1)                     User Commands                    UPTIME(1)
+## NAME         top
+           uptime - Tell how long the system has been running.
+## SYNOPSIS         top
+           uptime [options]
+## DESCRIPTION         top
+           uptime gives a one line display of the following information.
+           The current time, how long the system has been running, how many
+           users are currently logged on, and the system load averages for
+           the past 1, 5, and 15 minutes.
+           This is the same information contained in the header line
+           displayed by w(1).
+           System load averages is the average number of processes that are
+           either in a runnable or uninterruptable state.  A process in a
+           runnable state is either using the CPU or waiting to use the CPU.
+           A process in uninterruptable state is waiting for some I/O
+           access, eg waiting for disk.  The averages are taken over the
+           three time intervals.  Load averages are not normalized for the
+           number of CPUs in a system, so a load average of 1 means a single
+           CPU system is loaded all the time while on a 4 CPU system it
+           means it was idle 75% of the time.
+## OPTIONS         top
+           -p, --pretty
+                  show uptime in pretty format
+           -h, --help
+                  display this help text
+           -s, --since
+                  system up since, in yyyy-mm-dd HH:MM:SS format
+           -V, --version
+                  display version information and exit
+## FILES         top
+           /var/run/utmp
+                  information about who is currently logged on
+           /proc  process information
+## AUTHORS         top
+           uptime was written by Larry Greenfield ⟨greenfie@gauss.rutgers.
+           edu⟩ and Michael K. Johnson ⟨johnsonm@sunsite.unc.edu⟩
+## SEE ALSO         top
+           ps(1), top(1), utmp(5), w(1)
+## REPORTING BUGS         top
+           Please send bug reports to ⟨procps@freelists.org⟩
+## COLOPHON         top
+           This page is part of the procps-ng (/proc filesystem utilities)
+           project.  Information about the project can be found at 
+           ⟨https://gitlab.com/procps-ng/procps⟩.  If you have a bug report
+           for this manual page, see
+           ⟨https://gitlab.com/procps-ng/procps/blob/master/Documentation/bugs.md⟩.
+           This page was obtained from the project's upstream Git repository
+           ⟨https://gitlab.com/procps-ng/procps.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-13.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    procps-ng                     December 2012                    UPTIME(1)
+* * *
+Pages that refer to this page: htop(1),  pcp-uptime(1),  tload(1),  top(1),
+w(1),  getloadavg(3),  proc(5),  time_namespaces(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

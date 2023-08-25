@@ -1,0 +1,56 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-init(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-INIT(1)                   StGit Manual                   STG-INIT(1)
+## NAME         top
+           stg-init - Initialize a StGit stack on a branch
+## SYNOPSIS         top
+           stg init [OPTIONS]
+## DESCRIPTION         top
+           Initialize a StGit stack on a branch.
+           Initializing a branch with a StGit stack commits initial, empty
+           stack state for the branch to the repository. Theses stack
+           metadata commits are tracked by the refs/stacks/<branch>
+           reference. Updated stack state is committed by each StGit command
+           that modifies the stack. StGit users do not have to do anything
+           with the refs/stacks/<branch> ref directly.
+           Some StGit commands, such as stg new and stg uncommit, will
+           automatically initialize the stack, so it is often not necessary
+           to explicitly initialize the stack on a branch. Also, branches
+           created with stg branch --create are automatically initialized.
+           The branch must already exist and point to a commit before
+           initializing a StGit stack.
+           StGit stack metadata can be deinitialized from a branch using stg
+           branch --cleanup. See stg-branch(1) for more details.
+## OPTIONS         top
+           -b <branch>, --branch=<branch>
+               Use <branch> instead of current branch
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                    STG-INIT(1)
+* * *
+Pages that refer to this page: stg(1),  stg-branch(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

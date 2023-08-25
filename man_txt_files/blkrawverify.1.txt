@@ -1,0 +1,65 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# blkrawverify(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | AUTHORS | REPORTING BUGS | COPYRIGHT | SEE
+ALSO | COLOPHON  
+    BLKRAWVERIFY(1)                                          BLKRAWVERIFY(1)
+## NAME         top
+           blkrawverify - verifies an output file produced by blkparse
+## SYNOPSIS         top
+           blkrawverify <dev> [<dev>...]
+## DESCRIPTION         top
+           The blkrawverify utility can be used to verify data retrieved via
+           blktrace. It will check for valid event formats, forward
+           progressing sequence numbers and time stamps, also does
+           reasonable checks for other potential issues within individual
+           events.
+           Errors found will be tracked in <dev>.verify.out.
+## AUTHORS         top
+           blkparse was written by Jens Axboe, Alan D. Brunelle and Nathan
+           Scott.  This man page was created from the blktrace documentation
+           by Bas Zoetekouw.
+## REPORTING BUGS         top
+           Report bugs to <linux-btrace@vger.kernel.org>
+## COPYRIGHT         top
+           Copyright © 2006 Jens Axboe, Alan D. Brunelle and Nathan Scott.
+           This is free software.  You may redistribute copies of it under
+           the terms of the GNU General Public License
+           <http://www.gnu.org/licenses/gpl.html>.  There is NO WARRANTY, to
+           the extent permitted by law.
+           This manual page was created for Debian by Bas Zoetekouw.  It was
+           derived from the documentation provided by the authors and it may
+           be used, distributed and modified under the terms of the GNU
+           General Public License, version 2.
+           On Debian systems, the text of the GNU General Public License can
+           be found in /usr/share/common-licenses/GPL-2.
+## SEE ALSO         top
+           btrace(8), blktrace(8), blkparse(1), verify_blkparse(1), btt(1)
+## COLOPHON         top
+           This page is part of the blktrace (Linux block layer I/O tracer)
+           project.  Information about the project can be found at [unknown
+           -- if you know, please contact man-pages@man7.org] It is not
+           known how to report bugs for this man page; if you know, please
+           send a mail to man-pages@man7.org.  This page was obtained from
+           the project's upstream Git repository
+           ⟨https://git.kernel.org/pub/scm/linux/kernel/git/axboe/blktrace.git⟩
+           on 2023-06-23.  (At that time, the date of the most recent commit
+           that was found in the repository was 2021-10-21.)  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    blktrace git-20070306202522  March  6, 2007              BLKRAWVERIFY(1)
+* * *
+Pages that refer to this page: blkparse(1),  bno_plot(1),  btt(1),
+verify_blkparse(1),  blkiomon(8),  blktrace(8),  btrace(8)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

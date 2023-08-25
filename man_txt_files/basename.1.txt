@@ -1,0 +1,76 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# basename(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | EXAMPLES | AUTHOR | REPORTING BUGS | COPYRIGHT
+| SEE ALSO | COLOPHON  
+    BASENAME(1)                   User Commands                  BASENAME(1)
+## NAME         top
+           basename - strip directory and suffix from filenames
+## SYNOPSIS         top
+           basename NAME [SUFFIX]
+           basename OPTION... NAME...
+## DESCRIPTION         top
+           Print NAME with any leading directory components removed.  If
+           specified, also remove a trailing SUFFIX.
+           Mandatory arguments to long options are mandatory for short
+           options too.
+           -a, --multiple
+                  support multiple arguments and treat each as a NAME
+           -s, --suffix=SUFFIX
+                  remove a trailing SUFFIX; implies -a
+           -z, --zero
+                  end each output line with NUL, not newline
+           --help display this help and exit
+           --version
+                  output version information and exit
+## EXAMPLES         top
+           basename /usr/bin/sort
+                  -> "sort"
+           basename include/stdio.h .h
+                  -> "stdio"
+           basename -s .h include/stdio.h
+                  -> "stdio"
+           basename -a any/str1 any/str2
+                  -> "str1" followed by "str2"
+## AUTHOR         top
+           Written by David MacKenzie.
+## REPORTING BUGS         top
+           GNU coreutils online help:
+           <https://www.gnu.org/software/coreutils/>
+           Report any translation bugs to
+           <https://translationproject.org/team/>
+## COPYRIGHT         top
+           Copyright © 2023 Free Software Foundation, Inc.  License GPLv3+:
+           GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+           This is free software: you are free to change and redistribute
+           it.  There is NO WARRANTY, to the extent permitted by law.
+## SEE ALSO         top
+           dirname(1), readlink(1)
+           Full documentation
+           <https://www.gnu.org/software/coreutils/basename>
+           or available locally via: info '(coreutils) basename invocation'
+## COLOPHON         top
+           This page is part of the coreutils (basic file, shell and text
+           manipulation utilities) project.  Information about the project
+           can be found at ⟨http://www.gnu.org/software/coreutils/⟩.  If you
+           have a bug report for this manual page, see
+           ⟨http://www.gnu.org/software/coreutils/⟩.  This page was obtained
+           from the tarball coreutils-9.3.tar.xz fetched from
+           ⟨http://ftp.gnu.org/gnu/coreutils/⟩ on 2023-06-23.  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    GNU coreutils 9.3              April 2023                    BASENAME(1)
+* * *
+Pages that refer to this page: dirname(1),  pmsignal(1),  basename(3)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

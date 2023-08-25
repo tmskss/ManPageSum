@@ -1,0 +1,52 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# flatpak-documents(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | COLOPHON  
+    FLATPAK DOCUMENTS(1)        flatpak documents       FLATPAK DOCUMENTS(1)
+## NAME         top
+           flatpak-documents - List exported files
+## SYNOPSIS         top
+           flatpak documents [OPTION...] [APPID]
+## DESCRIPTION         top
+           Lists exported files, with their document id and the full path to
+           their origin. If an APPID is specified, only the files exported
+           to this app are listed.
+## OPTIONS         top
+           The following options are understood:
+           -h, --help
+               Show help options and exit.
+           -v, --verbose
+               Print debug information during command processing.
+           --ostree-verbose
+               Print OSTree debug information during command processing.
+## SEE ALSO         top
+           flatpak(1), flatpak-document-export(1),
+           flatpak-document-unexport(1), flatpak-document-info(1)
+## COLOPHON         top
+           This page is part of the flatpak (a tool for building and
+           distributing desktop applications on Linux) project.  Information
+           about the project can be found at ⟨http://flatpak.org/⟩.  It is
+           not known how to report bugs for this man page; if you know,
+           please send a mail to man-pages@man7.org.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/flatpak/flatpak⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-05-20.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    flatpak                                             FLATPAK DOCUMENTS(1)
+* * *
+Pages that refer to this page: flatpak(1),  flatpak-document-export(1),
+flatpak-document-info(1),  flatpak-document-unexport(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

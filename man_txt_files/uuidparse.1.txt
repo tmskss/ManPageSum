@@ -1,0 +1,115 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# uuidparse(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OUTPUT | OPTIONS | AUTHORS | SEE ALSO |
+REPORTING BUGS | AVAILABILITY  
+    UUIDPARSE(1)                  User Commands                 UUIDPARSE(1)
+## NAME         top
+           uuidparse - a utility to parse unique identifiers
+## SYNOPSIS         top
+           uuidparse [options] uuid
+## DESCRIPTION         top
+           This command will parse unique identifier inputs from either
+           command line arguments or standard input. The inputs are
+           white-space separated.
+## OUTPUT         top
+       Variants
+           ┌──────────┬──────────────────────────┐
+           │          │                          │
+           │NCS       │ Network Computing System │
+           │          │ identifier. These were   │
+           │          │ the original UUIDs.      │
+           ├──────────┼──────────────────────────┤
+           │          │                          │
+           │DCE       │ The Open Software        │
+           │          │ Foundation’s (OSF)       │
+           │          │ Distributed Computing    │
+           │          │ Environment UUIDs.       │
+           ├──────────┼──────────────────────────┤
+           │          │                          │
+           │Microsoft │ Microsoft Windows        │
+           │          │ platform globally unique │
+           │          │ identifier (GUID).       │
+           ├──────────┼──────────────────────────┤
+           │          │                          │
+           │other     │ Unknown variant. Usually │
+           │          │ invalid input data.      │
+           └──────────┴──────────────────────────┘
+       Types
+           ┌───────────┬──────────────────────────┐
+           │           │                          │
+           │nil        │ Special type for zero in │
+           │           │ type file.               │
+           ├───────────┼──────────────────────────┤
+           │           │                          │
+           │time-based │ The DCE time based.      │
+           ├───────────┼──────────────────────────┤
+           │           │                          │
+           │DCE        │ The DCE time and MAC     │
+           │           │ Address.                 │
+           ├───────────┼──────────────────────────┤
+           │           │                          │
+           │name-based │ RFC 4122 md5sum hash.    │
+           ├───────────┼──────────────────────────┤
+           │           │                          │
+           │random     │ RFC 4122 random.         │
+           ├───────────┼──────────────────────────┤
+           │           │                          │
+           │sha1-based │ RFC 4122 sha-1 hash.     │
+           ├───────────┼──────────────────────────┤
+           │           │                          │
+           │unknown    │ Unknown type. Usually    │
+           │           │ invalid input data.      │
+           └───────────┴──────────────────────────┘
+## OPTIONS         top
+           -J, --json
+               Use JSON output format.
+           -n, --noheadings
+               Do not print a header line.
+           -o, --output
+               Specify which output columns to print. Use --help to get a
+               list of all supported columns.
+           -r, --raw
+               Use the raw output format.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## AUTHORS         top
+           Sami Kerola <kerolasa@iki.fi>
+## SEE ALSO         top
+           uuidgen(1), libuuid(3), RFC 4122
+           <https://tools.ietf.org/html/rfc4122>
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The uuidparse command is part of the util-linux package which can
+           be downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                   UUIDPARSE(1)
+* * *
+Pages that refer to this page: uuidgen(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

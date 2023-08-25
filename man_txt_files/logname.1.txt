@@ -1,0 +1,57 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# logname(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | AUTHOR | REPORTING BUGS | COPYRIGHT | SEE ALSO
+| COLOPHON  
+    LOGNAME(1)                    User Commands                   LOGNAME(1)
+## NAME         top
+           logname - print user´s login name
+## SYNOPSIS         top
+           logname [OPTION]
+## DESCRIPTION         top
+           Print the user's login name.
+           --help display this help and exit
+           --version
+                  output version information and exit
+## AUTHOR         top
+           Written by FIXME: unknown.
+## REPORTING BUGS         top
+           GNU coreutils online help:
+           <https://www.gnu.org/software/coreutils/>
+           Report any translation bugs to
+           <https://translationproject.org/team/>
+## COPYRIGHT         top
+           Copyright © 2023 Free Software Foundation, Inc.  License GPLv3+:
+           GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+           This is free software: you are free to change and redistribute
+           it.  There is NO WARRANTY, to the extent permitted by law.
+## SEE ALSO         top
+           getlogin(3)
+           Full documentation
+           <https://www.gnu.org/software/coreutils/logname>
+           or available locally via: info '(coreutils) logname invocation'
+## COLOPHON         top
+           This page is part of the coreutils (basic file, shell and text
+           manipulation utilities) project.  Information about the project
+           can be found at ⟨http://www.gnu.org/software/coreutils/⟩.  If you
+           have a bug report for this manual page, see
+           ⟨http://www.gnu.org/software/coreutils/⟩.  This page was obtained
+           from the tarball coreutils-9.3.tar.xz fetched from
+           ⟨http://ftp.gnu.org/gnu/coreutils/⟩ on 2023-06-23.  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    GNU coreutils 9.3              April 2023                     LOGNAME(1)
+* * *
+Pages that refer to this page: getlogin(3),  utmp(5)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

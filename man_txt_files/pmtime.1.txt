@@ -1,0 +1,73 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pmtime(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | ENVIRONMENT | SEE ALSO | COLOPHON  
+    PMTIME(1)                General Commands Manual               PMTIME(1)
+## NAME         top
+           pmtime - time control server for Performance Co-Pilot
+## SYNOPSIS         top
+           pmtime [-V?]  [-p port]
+## DESCRIPTION         top
+           pmtime is a graphical user interface for performance monitoring
+           applications using the PCP infrastructure and requiring
+           interactive time control.
+           pmtime is not normally invoked directly by users.  Rather, it is
+           more typical for it to be started by client applications (e.g.
+           pmchart(1), pmstat(1) or pmval(1)).
+           There are two modes of interacting with a pmtime process - live
+           host mode, and historical archive mode.  In archive mode the
+           window presents time controls suitable for manipulating the
+           archive position, allowing full VCR control to move forwards and
+           backwards in time at configurable rates and intervals.  In live
+           mode the pmtime window contains the simpler time controls
+           suitable for live monitoring.
+           Note that the pmtime window is only made visible when explicitly
+           requested.  Multiple client applications can be connected to a
+           single pmtime server - when the final client application exits,
+           pmtime will also exit.
+## OPTIONS         top
+           The available command line options are:
+           -p port, --guiport=port
+                port is the port number which pmtime will use for
+                communication with its clients (monitoring applications).
+           -V, --version
+                Display version number and exit.
+           -?, --help
+                Display usage message and exit.
+## ENVIRONMENT         top
+           When a port number is not explicitly requested on the command
+           line via the -p option, the environment variable PMTIME_PORT can
+           be set to specify the port number from which available-port
+           probing will commence when pmtime is searching for a port number
+           to use.
+           The default starting port number is 43334.
+## SEE ALSO         top
+           PCPIntro(1), pmchart(1), pmstat(1) and pmval(1).
+## COLOPHON         top
+           This page is part of the PCP (Performance Co-Pilot) project.
+           Information about the project can be found at 
+           ⟨http://www.pcp.io/⟩.  If you have a bug report for this manual
+           page, send it to pcp@groups.io.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/performancecopilot/pcp.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-06-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Performance Co-Pilot                                           PMTIME(1)
+* * *
+Pages that refer to this page: pcpcompat(1),  pcpintro(1),  pmchart(1),
+pmstat(1),  pmval(1),  pmview(1),  pcpintro(3),  pmgetoptions(3),  pmtime(3),
+pmview(5)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

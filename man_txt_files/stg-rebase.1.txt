@@ -1,0 +1,84 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-rebase(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-REBASE(1)                 StGit Manual                 STG-REBASE(1)
+## NAME         top
+           stg-rebase - Move the stack base to another point in history
+## SYNOPSIS         top
+           stg rebase [OPTIONS] [committish]
+## DESCRIPTION         top
+           Pop all patches from the current stack, move the stack base to
+           the given new base and push the patches back.
+           Merge conflicts may arise when patches are being pushed-back onto
+           the stack. If this occurs, resolve the conflicts and then
+           continue the rebase with the following sequence:
+               stg add --update
+               stg refresh
+               stg goto top-patch
+           Or to skip the conflicting patch:
+               stg undo --hard
+               stg push next-patch..top-patch
+## OPTIONS         top
+           -i, --interactive
+               Interactively manipulate patches in editor
+           -n, --nopush
+               Do not push back patches after rebasing
+           -m, --merged
+               Check for patches that may have been merged upstream.
+               When pushing-back patches, each patch is checked to see if
+               its changes already exist in the new stack base. If a patch’s
+               changes are detected to have been merged, the patch will
+               still exist in the stack, but become empty after the rebase
+               operation.
+           --committer-date-is-author-date
+               Instead of using the current time as the committer date, use
+               the author date of the commit as the committer date.
+           --autostash
+               Automatically create a temporary stash before the operation
+               begins, and apply it after the operation completes. This
+               allows a rebase to be performed on a dirty work tree. Note
+               however that the final stash application may result in
+               non-trivial conflicts.
+           --conflicts[=<policy>]
+               Either "allow" or "disallow" pushing a patch with conflicts.
+               Using --conflicts=allow (or just --conflicts) allows pushing
+               a patch that may result in unresolved merge conflicts. The
+               patch will be pushed and files with conflicts will be left
+               with conflict markers to be resolved manually; or the
+               operation undone with stg undo --hard. This is the default
+               behavior and also corresponds to the
+               "stgit.push.allow-conflicts" variable being set to "true".
+               Using --conflicts=disallow disallows pushing any patch that
+               would result in merge conflicts. The operation will stop on
+               the last patch that can be pushed without conflicts. This
+               behavior can be configured by setting
+               "stgit.push.allow-conflicts" to "false".
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                  STG-REBASE(1)
+* * *
+Pages that refer to this page: stg(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

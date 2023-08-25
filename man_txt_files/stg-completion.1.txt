@@ -1,0 +1,112 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-completion(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | COMMANDS | OPTIONS | STGIT | COLOPHON  
+    STG-COMPLETION(1)             StGit Manual             STG-COMPLETION(1)
+## NAME         top
+           stg-completion - Support for shell completions
+## SYNOPSIS         top
+           stg completion bash [OPTIONS]
+           stg completion fish [OPTIONS]
+           stg completion zsh [OPTIONS]
+           stg completion list aliases [OPTIONS]
+           stg completion list commands [OPTIONS]
+           stg completion list commands-and-aliases [OPTIONS]
+           stg completion list help aliases
+           stg completion list help commands
+           stg completion list help commands-and-aliases
+           stg completion list help help
+           stg completion man [OPTIONS]
+           stg completion help bash
+           stg completion help fish
+           stg completion help zsh
+           stg completion help list aliases
+           stg completion help list commands
+           stg completion help list commands-and-aliases
+           stg completion help man
+           stg completion help help
+## DESCRIPTION         top
+           Support completions for bash, fish, and zsh. Also provides stg
+           completion list command for dynamically introspecting StGit’s
+           commands and aliases.
+## COMMANDS         top
+           bash
+               Generate bash completion script
+           fish
+               Generate fish shell completion script
+           zsh
+               Generate zsh completion script
+           list aliases
+               List aliases
+           list commands
+               List StGit commands
+           list commands-and-aliases
+               List StGit commands and aliases
+           man
+               Generate man pages in asciidoc format. The generated asciidoc
+               files may be further processed by asciidoc or asciidoctor to
+               produce roff, html, or other output formats.
+               One file is generated for each stg command. The output
+               directory defaults to the current directory, but may be
+               specified with --output. The output files are named
+               stg-<command>.txt.
+## OPTIONS         top
+           -o <path>, --output=<path>
+               Output to <path>
+       BASH OPTIONS
+           -o <path>, --output=<path>
+               Output completion script to <path>
+       FISH OPTIONS
+           -o <path>, --output=<path>
+               Output completion script to <path>
+       ZSH OPTIONS
+           -o <path>, --output=<path>
+               Output completion script to <path>
+       LIST ALIASES OPTIONS
+           --show-expansion
+               Show alias expansion
+           --style=(name-only|asciidoc|fish|zsh)
+               Choose output format style
+           -o <path>, --output=<path>
+               Output to <path>
+       LIST COMMANDS OPTIONS
+           --style=(name-only|asciidoc|fish|zsh)
+               Choose output format style
+           -o <path>, --output=<path>
+               Output to <path>
+       LIST COMMANDS-AND-ALIASES OPTIONS
+           --style=(name-only|asciidoc|fish|zsh)
+               Choose output format style
+           -o <path>, --output=<path>
+               Output to <path>
+       MAN OPTIONS
+           -o <dir>, --output=<dir>
+               Output man pages to <dir>
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023              STG-COMPLETION(1)
+* * *
+Pages that refer to this page: stg(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

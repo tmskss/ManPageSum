@@ -1,0 +1,62 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-log(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-LOG(1)                    StGit Manual                    STG-LOG(1)
+## NAME         top
+           stg-log - Display or optionally clear the stack changelog
+## SYNOPSIS         top
+           stg log [OPTIONS] [--] [patch]...
+           stg log --clear
+## DESCRIPTION         top
+           Show the history of changes to the stack. If one or more patch
+           names are given, only the changes affecting those patches are
+           shown.
+           The stg-undo(1) and stg-redo(1) commands may be used to step back
+           and forth through historical stack states. The stg-reset(1)
+           command may be used to reset the stack directly to a historic
+           state.
+           The --clear option may be used to delete the stack’s change
+           history. Undo and redo are unavailable on a stack without change
+           history. Clearing the stack state history cannot be undone.
+## OPTIONS         top
+           -b <branch>, --branch=<branch>
+               Use <branch> instead of current branch
+           -d, --diff
+               Show stack state diffs
+           -n <n>, --number=<n>
+               Limit output to <n> commits
+           -f, --full
+               Show using full commit log format
+           -g, --graphical
+               Run gitk instead of printing to stdout
+           --clear
+               Clear the stack history
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                     STG-LOG(1)
+* * *
+Pages that refer to this page: stg(1),  stg-reset(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

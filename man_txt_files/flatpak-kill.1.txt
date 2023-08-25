@@ -1,0 +1,53 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# flatpak-kill(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXAMPLES | SEE ALSO | COLOPHON  
+    FLATPAK KILL(1)               flatpak kill               FLATPAK KILL(1)
+## NAME         top
+           flatpak-kill - Stop a running application
+## SYNOPSIS         top
+           flatpak kill INSTANCE
+## DESCRIPTION         top
+           Stop a running Flatpak instance.
+           INSTANCE can be either the numeric instance ID or the application
+           ID of a running Flatpak. You can use flatpak ps to find the
+           instance IDs of running flatpaks.
+## OPTIONS         top
+           The following options are understood:
+           -h, --help
+               Show help options and exit.
+           -v, --verbose
+               Print debug information during command processing.
+           --ostree-verbose
+               Print OSTree debug information during command processing.
+## EXAMPLES         top
+           $ flatpak kill org.gnome.Todo
+## SEE ALSO         top
+           flatpak(1), flatpak-run(1), flatpak-ps(1)
+## COLOPHON         top
+           This page is part of the flatpak (a tool for building and
+           distributing desktop applications on Linux) project.  Information
+           about the project can be found at ⟨http://flatpak.org/⟩.  It is
+           not known how to report bugs for this man page; if you know,
+           please send a mail to man-pages@man7.org.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/flatpak/flatpak⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-05-20.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    flatpak                                                  FLATPAK KILL(1)
+* * *
+Pages that refer to this page: flatpak(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

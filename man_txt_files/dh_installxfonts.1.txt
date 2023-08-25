@@ -1,0 +1,63 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# dh_installxfonts(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | NOTES | SEE ALSO | AUTHOR | COLOPHON  
+    DH_INSTALLXFONTS(1)             Debhelper            DH_INSTALLXFONTS(1)
+## NAME         top
+           dh_installxfonts - register X fonts
+## SYNOPSIS         top
+           dh_installxfonts [debhelper options]
+## DESCRIPTION         top
+           dh_installxfonts is a debhelper program that is responsible for
+           registering X fonts, so their corresponding fonts.dir,
+           fonts.alias, and fonts.scale be rebuilt properly at install time.
+           Before calling this program, you should have installed any X
+           fonts provided by your package into the appropriate location in
+           the package build directory, and if you have fonts.alias or
+           fonts.scale files, you should install them into the correct
+           location under etc/X11/fonts in your package build directory.
+           Your package should depend on xfonts-utils so that the
+           update-fonts-* commands are available. (This program adds that
+           dependency to ${misc:Depends}.)
+           This program automatically generates the postinst and postrm
+           commands needed to register X fonts. These commands are inserted
+           into the maintainer scripts by dh_installdeb. See
+           dh_installdeb(1) for an explanation of how this works.
+## NOTES         top
+           See update-fonts-alias(8), update-fonts-scale(8), and
+           update-fonts-dir(8) for more information about X font
+           installation.
+           See Debian policy, section 11.8.5. for details about doing fonts
+           the Debian way.
+## SEE ALSO         top
+           debhelper(7)
+           This program is a part of debhelper.
+## AUTHOR         top
+           Joey Hess <joeyh@debian.org>
+## COLOPHON         top
+           This page is part of the debhelper (helper programs for
+           debian/rules) project.  Information about the project can be
+           found at [unknown -- if you know, please contact man-
+           pages@man7.org] If you have a bug report for this manual page,
+           send it to submit@bugs.debian.org.  This page was obtained from
+           the project's upstream Git repository
+           ⟨https://salsa.debian.org/debian/debhelper.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-03-05.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    13.6.1                         2022-01-30            DH_INSTALLXFONTS(1)
+* * *
+Pages that refer to this page: debhelper(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

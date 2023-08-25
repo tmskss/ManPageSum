@@ -1,0 +1,78 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# nfs4_getfacl(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | AUTHORS | CONTACT | SEE ALSO | COLOPHON  
+    NFS4_GETFACL(1)        NFSv4 Access Control Lists        NFS4_GETFACL(1)
+## NAME         top
+           nfs4_getfacl - get NFSv4 file/directory access control lists
+## SYNOPSIS         top
+           nfs4_getfacl [-HR] file ...
+## DESCRIPTION         top
+           nfs4_getfacl will display the NFSv4 Access Control List (ACL) for
+           the files given as arguments, provided they are on mounted NFSv4
+           filesystems which support ACLs.
+           If the -H/--more-help flag is specified, nfs4_getfacl will print
+           some information about NFSv4 ACLs and the fields used in ACEs.
+           If the -R/--recursive flag is specified, nfs4_getfacl will list
+           the NFSv4 ACLs of all files and directories recursively.
+           If the -c/--omit-header flag is specified, nfs4_getfacl will not
+           display the comment header (Do not print filename).
+           If the --dacl flag is specified, nfs4_getfacl will retrieve the
+           dacl. This functionality is only available if the server supports
+           NFSv4 minor version 1 or newer.
+           If the --sacl flag is specified, nfs4_getfacl will retrieve the
+           sacl. This functionality is only available if the server supports
+           NFSv4 minor version 1 or newer.
+           The output format for an NFSv4 file ACL, e.g., is:
+                  # file: /somedir
+                  A::OWNER@:rwatTnNcCy
+                  A::alice@nfsdomain.org:rxtncy
+                  A::bob@nfsdomain.org:rwadtTnNcCy
+                  A:g:GROUP@:rtncy
+                  D:g:GROUP@:waxTC
+                  A::EVERYONE@:rtncy
+                  D::EVERYONE@:waxTC
+           In the example output above, the user `alice@nfsdomain.org' has
+           the equivalent of "read" and "execute" permissions,
+           `bob@nfsdomain.org' has "read" and "write", and both `GROUP@' and
+           `EVERYONE@' have "read".
+           The ACL listings of multiple files are separated by blank lines.
+           Refer to the nfs4_acl(5) manpage for detailed information about
+           NFSv4 ACL terminology and syntax.
+## AUTHORS         top
+           nfs4_getfacl was written by people at CITI, the Center for
+           Information Technology Integration (http://www.citi.umich.edu ).
+           This manpage was written by David Richter.
+## CONTACT         top
+           Please send bug reports, feature requests, and comments to
+           <linux-nfs@vger.kernel.org>.
+## SEE ALSO         top
+           nfs4_setfacl(1), nfs4_acl(5), RFC3530 (NFSv4.0), NFSv4.1 Minor
+           Version Draft.
+## COLOPHON         top
+           This page is part of the nfs4-acl-tools (NFSv4 ACL tools)
+           project.  Information about the project can be found at 
+           ⟨http://linux-nfs.org/wiki/index.php/Main_Page⟩.  If you have a
+           bug report for this manual page, see
+           ⟨http://linux-nfs.org/wiki/index.php/Main_Page⟩.  This page was
+           obtained from the project's upstream Git repository
+           ⟨git://git.linux-nfs.org/projects/bfields/nfs4-acl-tools.git⟩ on
+           2023-06-23.  (At that time, the date of the most recent commit
+           that was found in the repository was 2022-11-22.)  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    Linux                  version 0.3.4, August 2018        NFS4_GETFACL(1)
+* * *
+Pages that refer to this page: nfs4_setfacl(1),  nfs4_acl(5)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

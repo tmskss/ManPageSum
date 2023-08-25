@@ -1,6 +1,5 @@
 # ManPageSum
-
-## Project description
+## Project description
 Summarize linux man pages using a fine-tuned version of an AI model
 
 ## Usage

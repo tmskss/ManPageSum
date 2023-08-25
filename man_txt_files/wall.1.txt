@@ -1,0 +1,80 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# wall(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | NOTES | HISTORY | SEE ALSO |
+REPORTING BUGS | AVAILABILITY  
+    WALL(1)                       User Commands                      WALL(1)
+## NAME         top
+           wall - write a message to all users
+## SYNOPSIS         top
+           wall [-n] [-t timeout] [-g group] [message | file]
+## DESCRIPTION         top
+           wall displays a message, or the contents of a file, or otherwise
+           its standard input, on the terminals of all currently logged in
+           users. The command will wrap lines that are longer than 79
+           characters. Short lines are whitespace padded to have 79
+           characters. The command will always put a carriage return and new
+           line at the end of each line.
+           Only the superuser can write on the terminals of users who have
+           chosen to deny messages or are using a program which
+           automatically denies messages.
+           Reading from a file is refused when the invoker is not superuser
+           and the program is set-user-ID or set-group-ID.
+## OPTIONS         top
+           -n, --nobanner
+               Suppress the banner.
+           -t, --timeout timeout
+               Abandon the write attempt to the terminals after timeout
+               seconds. This timeout must be a positive integer. The default
+               value is 300 seconds, which is a legacy from the time when
+               people ran terminals over modem lines.
+           -g, --group group
+               Limit printing message to members of group defined as a group
+               argument. The argument can be group name or GID.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## NOTES         top
+           Some sessions, such as wdm(1x), that have in the beginning of
+           utmp(5) ut_type data a ':' character will not get the message
+           from wall. This is done to avoid write errors.
+## HISTORY         top
+           A wall command appeared in Version 7 AT&T UNIX.
+## SEE ALSO         top
+           mesg(1), talk(1), write(1), shutdown(8)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The wall command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                        WALL(1)
+* * *
+Pages that refer to this page: mesg(1),  systemctl(1),  systemd-ask-
+password(1),  systemd-tty-ask-password-agent(1),  poweroff(8),  shutdown(8),
+systemd-ask-password-console.service(8),  telinit(8)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

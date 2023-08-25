@@ -1,0 +1,63 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pmdagpfs(1) -- Linux manual page
+NAME | DESCRIPTION | INSTALLATION | FILES | PCP ENVIRONMENT | SEE ALSO |
+COLOPHON  
+    PMDAGPFS(1)              General Commands Manual             PMDAGPFS(1)
+## NAME         top
+           pmdagpfs - gpfs filesystem statistics performance metrics domain
+           agent (PMDA)
+## DESCRIPTION         top
+           pmdagpfs is a Performance Metrics Domain Agent (PMDA) which
+           exports metric values from the /usr/lpp/mmfs/bin/mmpmon program
+           to provide information on mounted gpfs filesystems.
+## INSTALLATION         top
+           Install the gpfs PMDA by using the Install script as root:
+               # cd $PCP_PMDAS_DIR/gpfs
+               # ./Install
+           To uninstall, do the following as root:
+               # cd $PCP_PMDAS_DIR/gpfs
+               # ./Remove
+           pmdagpfs is launched by pmcd(1) and should never be executed
+           directly. The Install and Remove scripts notify pmcd(1) when the
+           agent is installed or removed.
+## FILES         top
+           $PCP_PMDAS_DIR/gpfs/Install
+               installation script for the pmdagpfs agent
+           $PCP_PMDAS_DIR/gpfs/Remove
+               undo installation script for the pmdagpfs agent
+           $PCP_LOG_DIR/pmcd/gpfs.log
+               default log file for error messages from pmdagpfs
+## PCP ENVIRONMENT         top
+           Environment variables with the prefix PCP_ are used to
+           parameterize the file and directory names used by PCP. On each
+           installation, the file /etc/pcp.conf contains the local values
+           for these variables.  The $PCP_CONF variable may be used to
+           specify an alternative configuration file, as described in
+           pcp.conf(5).
+## SEE ALSO         top
+           PCPIntro(1), pmcd(1) and mmpmon(8).
+## COLOPHON         top
+           This page is part of the PCP (Performance Co-Pilot) project.
+           Information about the project can be found at 
+           ⟨http://www.pcp.io/⟩.  If you have a bug report for this manual
+           page, send it to pcp@groups.io.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/performancecopilot/pcp.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-06-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Performance Co-Pilot               PCP                       PMDAGPFS(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

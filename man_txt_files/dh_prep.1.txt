@@ -1,0 +1,62 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# dh_prep(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | AUTHOR | COLOPHON  
+    DH_PREP(1)                      Debhelper                     DH_PREP(1)
+## NAME         top
+           dh_prep - perform cleanups in preparation for building a binary
+           package
+## SYNOPSIS         top
+           dh_prep [debhelper options] [-Xitem]
+## DESCRIPTION         top
+           dh_prep is a debhelper program that performs some file cleanups
+           in preparation for building a binary package. (This is what
+           dh_clean -k used to do.) It removes the package build
+           directories, debian/tmp, and some temp files that are generated
+           when building a binary package.
+           It is typically run at the top of the binary-arch and binary-
+           indep targets, or at the top of a target such as install that
+           they depend on.
+## OPTIONS         top
+           -Xitem --exclude=item
+               Exclude files that contain item anywhere in their filename
+               from being deleted, even if they would normally be deleted.
+               You may use this option multiple times to build up a list of
+               things to exclude.
+## SEE ALSO         top
+           debhelper(7)
+           This program is a part of debhelper.
+## AUTHOR         top
+           Joey Hess <joeyh@debian.org>
+## COLOPHON         top
+           This page is part of the debhelper (helper programs for
+           debian/rules) project.  Information about the project can be
+           found at [unknown -- if you know, please contact man-
+           pages@man7.org] If you have a bug report for this manual page,
+           send it to submit@bugs.debian.org.  This page was obtained from
+           the project's upstream Git repository
+           ⟨https://salsa.debian.org/debian/debhelper.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-03-05.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    13.6.1                         2022-01-30                     DH_PREP(1)
+* * *
+Pages that refer to this page: dh_clean(1),  dh_installcatalogs(1),
+dh_installemacsen(1),  dh_installinit(1),  dh_installinitramfs(1),
+dh_installmodules(1),  dh_installsystemd(1),  dh_installsystemduser(1),
+dh_installsysusers(1),  dh_installtmpfiles(1),  dh_installudev(1),
+dh_installwm(1),  dh_systemd_enable(1),  dh_systemd_start(1),  dh_ucf(1),
+dh_usrlocal(1),  debhelper(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

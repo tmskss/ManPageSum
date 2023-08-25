@@ -1,0 +1,65 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# gendiff(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | SEE ALSO | AUTHOR | COLOPHON  
+    GENDIFF(1)                                                    GENDIFF(1)
+## NAME         top
+           gendiff - utility to aid in error-free diff file generation
+## SYNOPSIS         top
+           gendiff <directory> <diff-extension>
+## DESCRIPTION         top
+           gendiff is a rather simple script which aids in generating a diff
+           file from a single directory.  It takes a directory name and a
+           "diff-extension" as its only arguments.  The diff extension
+           should be a unique sequence of characters added to the end of all
+           original, unmodified files.  The output of the program is a diff
+           file which may be applied with the patch program to recreate the
+           changes.
+           The usual sequence of events for creating a diff is to create two
+           identical directories, make changes in one directory, and then
+           use the diff utility to create a list of differences between the
+           two.  Using gendiff eliminates the need for the extra, original
+           and unmodified directory copy.  Instead, only the individual
+           files that are modified need to be saved.
+           Before editing a file, copy the file, appending the extension you
+           have chosen to the filename.  I.e.  if you were going to edit
+           somefile.cpp and have chosen the extension "fix", copy it to
+           somefile.cpp.fix before editing it.  Then edit the first copy
+           (somefile.cpp).
+           After editing all the files you need to edit in this fashion,
+           enter the directory one level above where your source code
+           resides, and then type
+                      $ gendiff somedirectory .fix > mydiff-fix.patch
+           You should redirect the output to a file (as illustrated) unless
+           you want to see the results on stdout.
+## SEE ALSO         top
+           diff(1), patch(1)
+## AUTHOR         top
+                  Marc Ewing <marc@redhat.com>
+## COLOPHON         top
+           This page is part of the rpm (RPM Package Manager) project.
+           Information about the project can be found at 
+           ⟨https://github.com/rpm-software-management/rpm⟩.  It is not known
+           how to report bugs for this man page; if you know, please send a
+           mail to man-pages@man7.org.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/rpm-software-management/rpm.git⟩ on
+           2023-06-23.  (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-20.)  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+                                 Mon Jan 10 2000                  GENDIFF(1)
+* * *
+Pages that refer to this page: rpmbuild(8)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

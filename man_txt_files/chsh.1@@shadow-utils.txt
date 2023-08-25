@@ -1,0 +1,71 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+Go to the version of this page provided by the util-linux project
+* * *
+# chsh(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | NOTE | FILES | SEE ALSO | COLOPHON  
+    CHSH(1)                       User Commands                      CHSH(1)
+## NAME         top
+           chsh - change login shell
+## SYNOPSIS         top
+           chsh [options] [LOGIN]
+## DESCRIPTION         top
+           The chsh command changes the user login shell. This determines
+           the name of the user's initial login command. A normal user may
+           only change the login shell for her own account; the superuser
+           may change the login shell for any account.
+## OPTIONS         top
+           The options which apply to the chsh command are:
+           -h, --help
+               Display help message and exit.
+           -R, --root CHROOT_DIR
+               Apply changes in the CHROOT_DIR directory and use the
+               configuration files from the CHROOT_DIR directory. Only
+               absolute paths are supported.
+           -s, --shell SHELL
+               The name of the user's new login shell. Setting this field to
+               blank causes the system to select the default login shell.
+           If the -s option is not selected, chsh operates in an interactive
+           fashion, prompting the user with the current login shell. Enter
+           the new value to change the shell, or leave the line blank to use
+           the current one. The current shell is displayed between a pair of
+           [ ] marks.
+## NOTE         top
+           For this reason, placing /bin/rsh in /etc/shells is discouraged
+           since accidentally changing to a restricted shell would prevent
+           the user from ever changing her login shell back to its original
+           value.
+## FILES         top
+           /etc/passwd
+               User account information.
+           /etc/shells
+           /etc/login.defs
+               Shadow password suite configuration.
+## SEE ALSO         top
+           chfn(1), login.defs(5), passwd(5).
+## COLOPHON         top
+           This page is part of the shadow-utils (utilities for managing
+           accounts and shadow password files) project.  Information about
+           the project can be found at 
+           ⟨https://github.com/shadow-maint/shadow⟩.  If you have a bug
+           report for this manual page, send it to
+           pkg-shadow-devel@alioth-lists.debian.net.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/shadow-maint/shadow⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    shadow-utils 4.11.1            06/23/2023                        CHSH(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

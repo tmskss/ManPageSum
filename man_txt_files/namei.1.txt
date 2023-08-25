@@ -1,0 +1,96 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# namei(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | BUGS | AUTHORS | SEE ALSO |
+REPORTING BUGS | AVAILABILITY  
+    NAMEI(1)                      User Commands                     NAMEI(1)
+## NAME         top
+           namei - follow a pathname until a terminal point is found
+## SYNOPSIS         top
+           namei [options] pathname...
+## DESCRIPTION         top
+           namei interprets its arguments as pathnames to any type of Unix
+           file (symlinks, files, directories, and so forth). namei then
+           follows each pathname until an endpoint is found (a file, a
+           directory, a device node, etc). If it finds a symbolic link, it
+           shows the link, and starts following it, indenting the output to
+           show the context.
+           This program is useful for finding "too many levels of symbolic
+           links" problems.
+           For each line of output, namei uses the following characters to
+           identify the file type found:
+                  f: = the pathname currently being resolved
+                   d = directory
+                   l = symbolic link (both the link and its contents are output)
+                   s = socket
+                   b = block device
+                   c = character device
+                   p = FIFO (named pipe)
+                   - = regular file
+                   ? = an error of some kind
+           namei prints an informative message when the maximum number of
+           symbolic links this system can have has been exceeded.
+## OPTIONS         top
+           -l, --long
+               Use the long listing format (same as -m -o -v).
+           -m, --modes
+               Show the mode bits of each file type in the style of ls(1),
+               for example 'rwxr-xr-x'.
+           -n, --nosymlinks
+               Don’t follow symlinks.
+           -o, --owners
+               Show owner and group name of each file.
+           -v, --vertical
+               Vertically align the modes and owners.
+           -x, --mountpoints
+               Show mountpoint directories with a 'D' rather than a 'd'.
+           -Z, --context
+               Show security context of the file or "?" if not available.
+               The support for security contexts is optional and does not
+               have to be compiled to the namei binary.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## BUGS         top
+           To be discovered.
+## AUTHORS         top
+           The original namei program was written by Roger Southwick
+           <rogers@amadeus.wr.tek.com>.
+           The program was rewritten by Karel Zak Karel Zak
+           <kzak@redhat.com>.
+## SEE ALSO         top
+           ls(1), stat(1), symlink(7)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The namei command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.39.268-ae62d      2023-06-22                       NAMEI(1)
+* * *
+Pages that refer to this page: symlink(2),  symlink(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

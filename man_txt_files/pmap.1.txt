@@ -1,0 +1,79 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pmap(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXIT STATUS | SEE ALSO | STANDARDS |
+REPORTING BUGS | COLOPHON  
+    PMAP(1)                       User Commands                      PMAP(1)
+## NAME         top
+           pmap - report memory map of a process
+## SYNOPSIS         top
+           pmap [options] pid [...]
+## DESCRIPTION         top
+           The pmap command reports the memory map of a process or
+           processes.
+## OPTIONS         top
+           -x, --extended
+                  Show the extended format.
+           -d, --device
+                  Show the device format.
+           -q, --quiet
+                  Do not display some header or footer lines.
+           -A, --range low,high
+                  Limit results to the given range to low and high address
+                  range.  Notice that the low and high arguments are single
+                  string separated with comma.
+           -X     Show even more details than the -x option. WARNING: format
+                  changes according to /proc/PID/smaps
+           -XX    Show everything the kernel provides
+           -p, --show-path
+                  Show full path to files in the mapping column
+           -c, --read-rc
+                  Read the default configuration
+           -C, --read-rc-from file
+                  Read the configuration from file
+           -n, --create-rc
+                  Create new default configuration
+           -N, --create-rc-to file
+                  Create new configuration to file
+           -h, --help
+                  Display help text and exit.
+           -V, --version
+                  Display version information and exit.
+## EXIT STATUS         top
+                  0      Success.
+                  1      Failure.
+                  42     Did not find all processes asked for.
+## SEE ALSO         top
+           ps(1), pgrep(1)
+## STANDARDS         top
+           No standards apply, but pmap looks an awful lot like a SunOS
+           command.
+## REPORTING BUGS         top
+           Please send bug reports to ⟨procps@freelists.org⟩
+## COLOPHON         top
+           This page is part of the procps-ng (/proc filesystem utilities)
+           project.  Information about the project can be found at 
+           ⟨https://gitlab.com/procps-ng/procps⟩.  If you have a bug report
+           for this manual page, see
+           ⟨https://gitlab.com/procps-ng/procps/blob/master/Documentation/bugs.md⟩.
+           This page was obtained from the project's upstream Git repository
+           ⟨https://gitlab.com/procps-ng/procps.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-13.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    procps-ng                      2020-06-04                        PMAP(1)
+* * *
+Pages that refer to this page: proc(5)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,106 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# dtrace(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXAMPLES | SEMAPHORES | SEE ALSO |
+BUGS | COLOPHON  
+    DTRACE(1)                General Commands Manual               DTRACE(1)
+## NAME         top
+           dtrace - Dtrace compatible user application static probe
+           generation tool.
+## SYNOPSIS         top
+           dtrace -s file [OPTIONS]
+## DESCRIPTION         top
+           The dtrace command converts probe descriptions defined in file.d
+           into a probe header file via the -h option or a probe description
+           file via the -G option.
+## OPTIONS         top
+           -h     generate a systemtap header file.
+           -G     generate a systemtap probe definition object file.
+           -o file
+                  is the name of the output file.  If the -G option is given
+                  then the output file will be called file.o; if the -h
+                  option is given then the output file will be called
+                  file.h.
+           -C     run the cpp preprocessor on the input file when the -h
+                  option is given.
+           -I file
+                  give this include path to cpp when the -C option is given.
+           -k     keep temporary files, for example the C language source
+                  for the -G option.
+## EXAMPLES         top
+           Systemtap is source compatible with dtrace user application
+           static probe support.  Given a file test.d containing:
+                  provider sdt_probes
+                  {
+                    probe test_0 (int type);
+                    probe test_1 (struct astruct node);
+                  };
+                  struct astruct {int a; int b;};
+           Then the command "dtrace -s test.d -G" will create the probe
+           definition file test.o and the command "dtrace -stest.d -h" will
+           create the probe header file test.h Subsequently the application
+           can use the generated macros this way:
+                  #include "test.h"
+                   ...
+                  struct astruct s;
+                   ...
+                  SDT_PROBES_TEST_0(value);
+                   ...
+                  if (SDT_PROBES_TEST_1_ENABLED())
+                      SDT_PROBES_TEST_1(expensive_function(s));
+## SEMAPHORES         top
+           Semaphores are flag variables used by probes as a way of
+           bypassing potentially costly processing to prepare arguments for
+           probes that may not even be active.  They are automatically
+           set/cleared by systemtap when a relevant script is running, so
+           the argument setup cost is only paid when necessary.  These
+           semaphore variables are defined within the the "test.o" object
+           file, which must therefore be linked into an application.
+           Sometimes, semaphore variables are not necessary nor helpful.
+           Skipping them can simplify the build process, by omitting the
+           extra "test.o" file.  To skip dependence upon semaphore
+           variables, include "<sys/sdt.h>" within the application before
+           "test.h":
+                  #include <sys/sdt.h>
+                  #include "test.h"
+                   ...
+                  struct astruct s;
+                   ...
+                  SDT_PROBES_TEST_0(value);
+                   ...
+                  if (SDT_PROBES_TEST_1_ENABLED())
+                     SDT_PROBES_TEST_1(cheap_function(s));
+           In this mode, the ENABLED() test is fixed at 1.
+## SEE ALSO         top
+           stap(1),
+           stappaths(7)
+## BUGS         top
+           Use the Bugzilla link of the project web page or our mailing
+           list.  http://sourceware.org/systemtap/ ,
+           <systemtap@sourceware.org>.
+           error::reporting(7stap),
+           https://sourceware.org/systemtap/wiki/HowToReportBugs 
+## COLOPHON         top
+           This page is part of the systemtap (a tracing and live-system
+           analysis tool) project.  Information about the project can be
+           found at ⟨https://sourceware.org/systemtap/⟩.  If you have a bug
+           report for this manual page, send it to systemtap@sourceware.org.
+           This page was obtained from the project's upstream Git repository
+           ⟨git://sourceware.org/git/systemtap.git⟩ on 2023-06-24.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-20.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+                                                                   DTRACE(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,55 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-write-tree(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | GIT | COLOPHON  
+    GIT-WRITE-TREE(1)              Git Manual              GIT-WRITE-TREE(1)
+## NAME         top
+           git-write-tree - Create a tree object from the current index
+## SYNOPSIS         top
+           git write-tree [--missing-ok] [--prefix=<prefix>/]
+## DESCRIPTION         top
+           Creates a tree object using the current index. The name of the
+           new tree object is printed to standard output.
+           The index must be in a fully merged state.
+           Conceptually, git write-tree sync()s the current index contents
+           into a set of tree files. In order to have that match what is
+           actually in your directory right now, you need to have done a git
+           update-index phase before you did the git write-tree.
+## OPTIONS         top
+           --missing-ok
+               Normally git write-tree ensures that the objects referenced
+               by the directory exist in the object database. This option
+               disables this check.
+           --prefix=<prefix>/
+               Writes a tree object that represents a subdirectory <prefix>.
+               This can be used to write the tree object for a subproject
+               that is in the named subdirectory.
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22              GIT-WRITE-TREE(1)
+* * *
+Pages that refer to this page: git(1),  git-commit-tree(1),  git-merge-
+tree(1),  git-read-tree(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

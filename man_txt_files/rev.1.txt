@@ -1,0 +1,60 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# rev(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | REPORTING BUGS |
+AVAILABILITY  
+    REV(1)                        User Commands                       REV(1)
+## NAME         top
+           rev - reverse lines characterwise
+## SYNOPSIS         top
+           rev [option] [file...]
+## DESCRIPTION         top
+           The rev utility copies the specified files to standard output,
+           reversing the order of characters in every line. If no files are
+           specified, standard input is read.
+           This utility is a line-oriented tool and it uses in-memory
+           allocated buffer for a whole wide-char line. If the input file is
+           huge and without line breaks then allocating the memory for the
+           file may be unsuccessful.
+## OPTIONS         top
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+           -0, --zero
+               Zero termination. Use the byte '\0' as line separator.
+## SEE ALSO         top
+           tac(1)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The rev command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                         REV(1)
+* * *
+Pages that refer to this page: tac(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,51 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# fgconsole(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | NOTES | SEE ALSO | COLOPHON  
+    FGCONSOLE(1)             General Commands Manual            FGCONSOLE(1)
+## NAME         top
+           fgconsole - print the number of the active VT.
+## SYNOPSIS         top
+           fgconsole [ -h --help | -V --version | -n --next-available ]
+## DESCRIPTION         top
+           If the active Virtual Terminal is /dev/ttyN, then prints N on
+           standard output.
+           If the console is a serial console, then "serial" is printed
+           instead.
+           -h --help
+                  Prints short usage message and exits.
+           -V --version
+                  Prints version number and exits.
+           --next-available
+                  Will show the next unallocated virtual terminal. Normally
+                  6 virtual terminals are allocated, with number 7 used for
+                  X; this will return "8" in this case.
+## NOTES         top
+           Under devfs, the consoles are in /dev/vc/N.  devfsd may maintain
+           symlinks for compatibility.
+## SEE ALSO         top
+           chvt(1).
+## COLOPHON         top
+           This page is part of the kbd (Linux keyboard tools) project.
+           Information about the project can be found at 
+           ⟨http://www.kbd-project.org/⟩.  If you have a bug report for this
+           manual page, send it to kbd@lists.altlinux.org.  This page was
+           obtained from the project's upstream Git repository
+           ⟨https://github.com/legionus/kbd.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-23.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    kbd                         14 February 2002                FGCONSOLE(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

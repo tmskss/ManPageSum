@@ -1,0 +1,57 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# valgrind-listener(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | AUTHOR | COLOPHON  
+    VALGRIND-LISTENER(1)        valgrind-listener       VALGRIND-LISTENER(1)
+## NAME         top
+           valgrind-listener - listens on a socket for Valgrind commentary
+## SYNOPSIS         top
+           valgrind-listener [options]
+## DESCRIPTION         top
+           valgrind-listener accepts (multiple) connections from valgrind
+           processes that use the --log-socket option on the specified port
+           and copies the commentary it is sent to stdout.
+## OPTIONS         top
+           -e --exit-at-zero
+               When the number of connected processes falls back to zero,
+               exit. Without this, it will run forever, that is, until you
+               send it Control-C.
+           --max-connect=INTEGER
+               By default, the listener can connect to up to 50 processes.
+               Occasionally, that number is too small. Use this option to
+               provide a different limit. E.g.  --max-connect=100.
+           portnumber
+               Changes the port it listens on from the default (1500). The
+               specified port must be in the range 1024 to 65535. The same
+               restriction applies to port numbers specified by a
+               --log-socket to Valgrind itself.
+## SEE ALSO         top
+           valgrind(1), $INSTALL/share/doc/valgrind/html/index.html or
+           http://www.valgrind.org/docs/manual/index.html.
+## AUTHOR         top
+           Julian Seward.
+## COLOPHON         top
+           This page is part of the valgrind (a system for debugging and
+           profiling Linux programs) project.  Information about the project
+           can be found at ⟨http://www.valgrind.org/⟩.  If you have a bug
+           report for this manual page, see
+           ⟨http://www.valgrind.org/support/bug_reports.html⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨http://sourceware.org/git/valgrind.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-15.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Release 3.22.0.GIT             06/23/2023           VALGRIND-LISTENER(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

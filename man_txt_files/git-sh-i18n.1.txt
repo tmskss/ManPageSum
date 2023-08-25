@@ -1,0 +1,56 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-sh-i18n(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | FUNCTIONS | GIT | COLOPHON  
+    GIT-SH-I18N(1)                 Git Manual                 GIT-SH-I18N(1)
+## NAME         top
+           git-sh-i18n - Git's i18n setup code for shell scripts
+## SYNOPSIS         top
+           . "$(git --exec-path)/git-sh-i18n"
+## DESCRIPTION         top
+           This is not a command the end user would want to run. Ever. This
+           documentation is meant for people who are studying the
+           Porcelain-ish scripts and/or are writing new ones.
+           The 'git sh-i18n scriptlet is designed to be sourced (using .) by
+           Git’s porcelain programs implemented in shell script. It provides
+           wrappers for the GNU gettext and eval_gettext functions
+           accessible through the gettext.sh script, and provides
+           pass-through fallbacks on systems without GNU gettext.
+## FUNCTIONS         top
+           gettext
+               Currently a dummy fall-through function implemented as a
+               wrapper around printf(1). Will be replaced by a real gettext
+               implementation in a later version.
+           eval_gettext
+               Currently a dummy fall-through function implemented as a
+               wrapper around printf(1) with variables expanded by the
+               git-sh-i18n--envsubst(1) helper. Will be replaced by a real
+               gettext implementation in a later version.
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22                 GIT-SH-I18N(1)
+* * *
+Pages that refer to this page: git(1),  git-sh-i18n--envsubst(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

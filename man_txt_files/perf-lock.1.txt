@@ -1,0 +1,167 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# perf-lock(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | COMMON OPTIONS | REPORT OPTIONS | INFO OPTIONS
+| COLOPHON  
+    PERF-LOCK(1)                   perf Manual                  PERF-LOCK(1)
+## NAME         top
+           perf-lock - Analyze lock events
+## SYNOPSIS         top
+           perf lock {record|report|script|info|contention}
+## DESCRIPTION         top
+           You can analyze various lock behaviours and statistics with this
+           perf lock command.
+               'perf lock record <command>' records lock events
+               between start and end <command>. And this command
+               produces the file "perf.data" which contains tracing
+               results of lock events.
+               'perf lock report' reports statistical data.
+               'perf lock script' shows raw lock events.
+               'perf lock info' shows metadata like threads or addresses
+               of lock instances.
+               'perf lock contention' shows contention statistics.
+## COMMON OPTIONS         top
+           -i, --input=<file>
+               Input file name. (default: perf.data unless stdin is a fifo)
+           -v, --verbose
+               Be more verbose (show symbol address, etc).
+           -q, --quiet
+               Do not show any warnings or messages. (Suppress -v)
+           -D, --dump-raw-trace
+               Dump raw trace in ASCII.
+           -f, --force
+               Don’t complain, do it.
+           --vmlinux=<file>
+               vmlinux pathname
+           --kallsyms=<file>
+               kallsyms pathname
+## REPORT OPTIONS         top
+           -k, --key=<value>
+               Sorting key. Possible values: acquired (default), contended,
+               avg_wait, wait_total, wait_max, wait_min.
+           -F, --field=<value>
+               Output fields. By default it shows all the fields but users
+               can customize that using this. Possible values: acquired,
+               contended, avg_wait, wait_total, wait_max, wait_min.
+           -c, --combine-locks
+               Merge lock instances in the same class (based on name).
+           -t, --threads
+               The -t option is to show per-thread lock stat like below:
+                   $ perf lock report -t -F acquired,contended,avg_wait
+                   Name   acquired  contended   avg wait (ns)
+                              perf     240569          9            5784
+                           swapper     106610         19             543
+                            :15789      17370          2           14538
+                      ContainerMgr       8981          6             874
+                             sleep       5275          1           11281
+                   ContainerThread       4416          4             944
+                   RootPressureThr       3215          5            1215
+                       rcu_preempt       2954          0               0
+                      ContainerMgr       2560          0               0
+                           unnamed       1873          0               0
+                   EventManager_De       1845          1             636
+                   futex-default-S       1609          0               0
+           -E, --entries=<value>
+               Display this many entries.
+## INFO OPTIONS         top
+           -t, --threads
+               dump thread list in perf.data
+           -m, --map
+               dump map of lock instances (address:name table)
+           CONTENTION OPTIONS
+               .ft C
+               -k::
+               --key=<value>::
+                       Sorting key. Possible values: contended, wait_total (default),
+                       wait_max, wait_min, avg_wait.
+               -F::
+               --field=<value>::
+                       Output fields. By default it shows all but the wait_min fields
+                       and users can customize that using this.  Possible values:
+                       contended, wait_total, wait_max, wait_min, avg_wait.
+               -t::
+               --threads::
+                       Show per-thread lock contention stat
+               -b::
+               --use-bpf::
+                       Use BPF program to collect lock contention stats instead of
+                       using the input data.
+               -a::
+               --all-cpus::
+                       System-wide collection from all CPUs.
+               -C::
+               --cpu=<value>::
+                       Collect samples only on the list of CPUs provided. Multiple CPUs can be
+                       provided as a comma-separated list with no space: 0,1. Ranges of CPUs
+                       are specified with -: 0-2.  Default is to monitor all CPUs.
+               -p::
+               --pid=<value>::
+                       Record events on existing process ID (comma separated list).
+               --tid=<value>::
+                       Record events on existing thread ID (comma separated list).
+               -M::
+               --map-nr-entries=<value>::
+                       Maximum number of BPF map entries (default: 16384).
+                       This will be aligned to a power of 2.
+               --max-stack=<value>::
+                       Maximum stack depth when collecting lock contention (default: 8).
+               --stack-skip=<value>::
+                       Number of stack depth to skip when finding a lock caller (default: 3).
+               -E::
+               --entries=<value>::
+                       Display this many entries.
+               -l::
+               --lock-addr::
+                       Show lock contention stat by address
+               -o::
+               --lock-owner::
+                       Show lock contention stat by owners.  Implies --threads and
+                       requires --use-bpf.
+               -Y::
+               --type-filter=<value>::
+                       Show lock contention only for given lock types (comma separated list).
+                       Available values are:
+                         semaphore, spinlock, rwlock, rwlock:R, rwlock:W, rwsem, rwsem:R, rwsem:W,
+                         rtmutex, rwlock-rt, rwlock-rt:R, rwlock-rt:W, pcpu-sem, pcpu-sem:R, pcpu-sem:W,
+                         mutex
+                       Note that RW-variant of locks have :R and :W suffix.  Names without the
+                       suffix are shortcuts for the both variants.  Ex) rwsem = rwsem:R + rwsem:W.
+               -L::
+               --lock-filter=<value>::
+                       Show lock contention only for given lock addresses or names (comma separated list).
+               -S::
+               --callstack-filter=<value>::
+                       Show lock contention only if the callstack contains the given string.
+                       Note that it matches the substring so 'rq' would match both 'raw_spin_rq_lock'
+                       and 'irq_enter_rcu'.
+               SEE ALSO
+               .ft
+           perf(1)
+## COLOPHON         top
+           This page is part of the perf (Performance analysis tools for
+           Linux (in Linux source tree)) project.  Information about the
+           project can be found at 
+           ⟨https://perf.wiki.kernel.org/index.php/Main_Page⟩.  If you have a
+           bug report for this manual page, send it to
+           linux-kernel@vger.kernel.org.  This page was obtained from the
+           project's upstream Git repository
+           ⟨http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git⟩
+           on 2023-06-23.  (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.)  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    perf                           2023-04-06                   PERF-LOCK(1)
+* * *
+Pages that refer to this page: perf(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

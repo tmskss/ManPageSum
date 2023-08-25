@@ -1,0 +1,156 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# expand(1p) -- Linux manual page
+PROLOG | NAME | SYNOPSIS | DESCRIPTION | OPTIONS | OPERANDS | STDIN | INPUT
+FILES | ENVIRONMENT VARIABLES | ASYNCHRONOUS EVENTS | STDOUT | STDERR | OUTPUT
+FILES | EXTENDED DESCRIPTION | EXIT STATUS | CONSEQUENCES OF ERRORS |
+APPLICATION USAGE | EXAMPLES | RATIONALE | FUTURE DIRECTIONS | SEE ALSO |
+COPYRIGHT  
+    EXPAND(1P)              POSIX Programmer's Manual             EXPAND(1P)
+## PROLOG         top
+           This manual page is part of the POSIX Programmer's Manual.  The
+           Linux implementation of this interface may differ (consult the
+           corresponding Linux manual page for details of Linux behavior),
+           or the interface may not be implemented on Linux.
+## NAME         top
+           expand — convert tabs to spaces
+## SYNOPSIS         top
+           expand [-t tablist] [file...]
+## DESCRIPTION         top
+           The expand utility shall write files or the standard input to the
+           standard output with <tab> characters replaced with one or more
+           <space> characters needed to pad to the next tab stop. Any
+           <backspace> characters shall be copied to the output and cause
+           the column position count for tab stop calculations to be
+           decremented; the column position count shall not be decremented
+           below zero.
+## OPTIONS         top
+           The expand utility shall conform to the Base Definitions volume
+           of POSIX.1‐2017, Section 12.2, Utility Syntax Guidelines.
+           The following option shall be supported:
+           -t tablist
+                     Specify the tab stops. The application shall ensure
+                     that the argument tablist consists of either a single
+                     positive decimal integer or a list of tabstops. If a
+                     single number is given, tabs shall be set that number
+                     of column positions apart instead of the default 8.
+                     If a list of tabstops is given, the application shall
+                     ensure that it consists of a list of two or more
+                     positive decimal integers, separated by <blank> or
+                     <comma> characters, in ascending order. The <tab>
+                     characters shall be set at those specific column
+                     positions. Each tab stop N shall be an integer value
+                     greater than zero, and the list is in strictly
+                     ascending order. This is taken to mean that, from the
+                     start of a line of output, tabbing to position N shall
+                     cause the next character output to be in the (N+1)th
+                     column position on that line.
+                     In the event of expand having to process a <tab> at a
+                     position beyond the last of those specified in a
+                     multiple tab-stop list, the <tab> shall be replaced by
+                     a single <space> in the output.
+## OPERANDS         top
+           The following operand shall be supported:
+           file      The pathname of a text file to be used as input.
+## STDIN         top
+           See the INPUT FILES section.
+## INPUT FILES         top
+           Input files shall be text files.
+## ENVIRONMENT VARIABLES         top
+           The following environment variables shall affect the execution of
+           expand:
+           LANG      Provide a default value for the internationalization
+                     variables that are unset or null. (See the Base
+                     Definitions volume of POSIX.1‐2017, Section 8.2,
+                     Internationalization Variables for the precedence of
+                     internationalization variables used to determine the
+                     values of locale categories.)
+           LC_ALL    If set to a non-empty string value, override the values
+                     of all the other internationalization variables.
+           LC_CTYPE  Determine the locale for the interpretation of
+                     sequences of bytes of text data as characters (for
+                     example, single-byte as opposed to multi-byte
+                     characters in arguments and input files), the
+                     processing of <tab> and <space> characters, and for the
+                     determination of the width in column positions each
+                     character would occupy on an output device.
+           LC_MESSAGES
+                     Determine the locale that should be used to affect the
+                     format and contents of diagnostic messages written to
+                     standard error.
+           NLSPATH   Determine the location of message catalogs for the
+                     processing of LC_MESSAGES.
+## ASYNCHRONOUS EVENTS         top
+           Default.
+## STDOUT         top
+           The standard output shall be equivalent to the input files with
+           <tab> characters converted into the appropriate number of <space>
+           characters.
+## STDERR         top
+           The standard error shall be used only for diagnostic messages.
+## OUTPUT FILES         top
+           None.
+## EXTENDED DESCRIPTION         top
+           None.
+## EXIT STATUS         top
+           The following exit values shall be returned:
+            0    Successful completion
+           >0    An error occurred.
+## CONSEQUENCES OF ERRORS         top
+           The expand utility shall terminate with an error message and non-
+           zero exit status upon encountering difficulties accessing one of
+           the file operands.
+           The following sections are informative.
+## APPLICATION USAGE         top
+           None.
+## EXAMPLES         top
+           None.
+## RATIONALE         top
+           The expand utility is useful for preprocessing text files (before
+           sorting, looking at specific columns, and so on) that contain
+           <tab> characters.
+           See the Base Definitions volume of POSIX.1‐2017, Section 3.103,
+           Column Position.
+           The tablist option-argument consists of integers in ascending
+           order. Utility Syntax Guideline 8 mandates that expand shall
+           accept the integers (within the single argument) separated using
+           either <comma> or <blank> characters.
+           Earlier versions of this standard allowed the following form in
+           the SYNOPSIS:
+               expand [-tabstop][-tab1,tab2,...,tabn][file ...]
+           This form is no longer specified by POSIX.1‐2008 but may be
+           present in some implementations.
+## FUTURE DIRECTIONS         top
+           None.
+## SEE ALSO         top
+           tabs(1p), unexpand(1p)
+           The Base Definitions volume of POSIX.1‐2017, Section 3.103,
+           Column Position, Chapter 8, Environment Variables, Section 12.2,
+           Utility Syntax Guidelines
+## COPYRIGHT         top
+           Portions of this text are reprinted and reproduced in electronic
+           form from IEEE Std 1003.1-2017, Standard for Information
+           Technology -- Portable Operating System Interface (POSIX), The
+           Open Group Base Specifications Issue 7, 2018 Edition, Copyright
+           (C) 2018 by the Institute of Electrical and Electronics
+           Engineers, Inc and The Open Group.  In the event of any
+           discrepancy between this version and the original IEEE and The
+           Open Group Standard, the original IEEE and The Open Group
+           Standard is the referee document. The original Standard can be
+           obtained online at http://www.opengroup.org/unix/online.html .
+           Any typographical or formatting errors that appear in this page
+           are most likely to have been introduced during the conversion of
+           the source files to man page format. To report such errors, see
+           https://www.kernel.org/doc/man-pages/reporting_bugs.html .
+    IEEE/The Open Group               2017                        EXPAND(1P)
+* * *
+Pages that refer to this page: pr(1p),  tabs(1p),  unexpand(1p)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

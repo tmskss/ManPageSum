@@ -1,0 +1,46 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pmsleep(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | DIAGNOSTICS | SEE ALSO | COLOPHON  
+    PMSLEEP(1)               General Commands Manual              PMSLEEP(1)
+## NAME         top
+           pmpause, pmsleep - portable subsecond-capable sleep
+## SYNOPSIS         top
+           $PCP_BINADM_DIR/pmpause
+           $PCP_BINADM_DIR/pmsleep interval
+## DESCRIPTION         top
+           pmpause sleeps indefinitely, until interrupted by SIGKILL.
+           pmsleep sleeps for the specified interval.  The interval argument
+           follows the syntax described in PCPIntro(1) for -t, and in the
+           simplest form may be an unsigned integer or floating point
+           constant (the implied units in this case are seconds).
+## DIAGNOSTICS         top
+           The exit status is 0 for success, or 1 for a malformed command
+           line.  If the underlying nanosleep(2) system call fails, an errno
+           is returned.
+## SEE ALSO         top
+           sleep(1), pause(2) and nanosleep(2).
+## COLOPHON         top
+           This page is part of the PCP (Performance Co-Pilot) project.
+           Information about the project can be found at 
+           ⟨http://www.pcp.io/⟩.  If you have a bug report for this manual
+           page, send it to pcp@groups.io.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/performancecopilot/pcp.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-06-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Performance Co-Pilot               PCP                        PMSLEEP(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

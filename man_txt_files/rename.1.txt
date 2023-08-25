@@ -1,0 +1,119 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# rename(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | WARNING | EDGE CASES | INTERACTIVE
+MODE | EXIT STATUS | EXAMPLES | SEE ALSO | REPORTING BUGS | AVAILABILITY  
+    RENAME(1)                     User Commands                    RENAME(1)
+## NAME         top
+           rename - rename files
+## SYNOPSIS         top
+           rename [options] expression replacement file...
+## DESCRIPTION         top
+           rename will rename the specified files by replacing the first
+           occurrence of expression in their name by replacement.
+## OPTIONS         top
+           -s, --symlink
+               Do not rename a symlink but change where it points.
+           -v, --verbose
+               Show which files were renamed, if any.
+           -n, --no-act
+               Do not make any changes; add --verbose to see what would be
+               made.
+           -a, --all
+               Replace all occurrences of expression rather than only the
+               first one.
+           -l, --last
+               Replace the last occurrence of expression rather than the
+               first one.
+           -o, --no-overwrite
+               Do not overwrite existing files. When --symlink is active, do
+               not overwrite symlinks pointing to existing targets.
+           -i, --interactive
+               Ask before overwriting existing files.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## WARNING         top
+           The renaming has no safeguards by default or without any one of
+           the options --no-overwrite, --interactive or --no-act. If the
+           user has permission to rewrite file names, the command will
+           perform the action without any questions. For example, the result
+           can be quite drastic when the command is run as root in the /lib
+           directory. Always make a backup before running the command,
+           unless you truly know what you are doing.
+## EDGE CASES         top
+           If the expression is empty, then by default replacement will be
+           added to the start of the filename. With --all, replacement will
+           be inserted in between every two characters of the filename, as
+           well as at the start and end.
+           Normally, only the final path component of a filename is updated.
+           (Or with --symlink, only the final path component of the link.)
+           But if either expression or replacement contains a /, the full
+           path is updated. This can cause a file to be moved between
+           folders. Creating folders, and moving files between filesystems,
+           is not supported.
+## INTERACTIVE MODE         top
+           As most standard utilities rename can be used with a terminal
+           device (tty in short) in canonical mode, where the line is
+           buffered by the tty and you press ENTER to validate the user
+           input. If you put your tty in cbreak mode however, rename
+           requires only a single key press to answer the prompt. To set
+           cbreak mode, run for example:
+               sh -c 'stty -icanon min 1; "$0" "$@"; stty icanon' rename -i from to files
+## EXIT STATUS         top
+           0
+               all requested rename operations were successful
+           1
+               all rename operations failed
+           2
+               some rename operations failed
+           4
+               nothing was renamed
+           64
+               unanticipated error occurred
+## EXAMPLES         top
+           Given the files foo1, ..., foo9, foo10, ..., foo278, the commands
+               rename foo foo00 foo?
+               rename foo foo0 foo??
+           will turn them into foo001, ..., foo009, foo010, ..., foo278. And
+               rename .htm .html *.htm
+           will fix the extension of your html files. Provide an empty
+           string for shortening:
+               rename '_with_long_name' '' file_with_long_name.*
+           will remove the substring in the filenames.
+## SEE ALSO         top
+           mv(1)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The rename command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                      RENAME(1)
+* * *
+Pages that refer to this page: rename(2),  strverscmp(3)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

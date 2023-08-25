@@ -1,0 +1,129 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# exec(1p) -- Linux manual page
+PROLOG | NAME | SYNOPSIS | DESCRIPTION | OPTIONS | OPERANDS | STDIN | INPUT
+FILES | ENVIRONMENT VARIABLES | ASYNCHRONOUS EVENTS | STDOUT | STDERR | OUTPUT
+FILES | EXTENDED DESCRIPTION | EXIT STATUS | CONSEQUENCES OF ERRORS |
+APPLICATION USAGE | EXAMPLES | RATIONALE | FUTURE DIRECTIONS | SEE ALSO |
+COPYRIGHT  
+    EXEC(1P)                POSIX Programmer's Manual               EXEC(1P)
+## PROLOG         top
+           This manual page is part of the POSIX Programmer's Manual.  The
+           Linux implementation of this interface may differ (consult the
+           corresponding Linux manual page for details of Linux behavior),
+           or the interface may not be implemented on Linux.
+## NAME         top
+           exec — execute commands and open, close, or copy file descriptors
+## SYNOPSIS         top
+           exec [command [argument...]]
+## DESCRIPTION         top
+           The exec utility shall open, close, and/or copy file descriptors
+           as specified by any redirections as part of the command.
+           If exec is specified without command or arguments, and any file
+           descriptors with numbers greater than 2 are opened with
+           associated redirection statements, it is unspecified whether
+           those file descriptors remain open when the shell invokes another
+           utility.  Scripts concerned that child shells could misuse open
+           file descriptors can always close them explicitly, as shown in
+           one of the following examples.
+           If exec is specified with command, it shall replace the shell
+           with command without creating a new process. If arguments are
+           specified, they shall be arguments to command.  Redirection
+           affects the current shell execution environment.
+## OPTIONS         top
+           None.
+## OPERANDS         top
+           See the DESCRIPTION.
+## STDIN         top
+           Not used.
+## INPUT FILES         top
+           None.
+## ENVIRONMENT VARIABLES         top
+           None.
+## ASYNCHRONOUS EVENTS         top
+           Default.
+## STDOUT         top
+           Not used.
+## STDERR         top
+           The standard error shall be used only for diagnostic messages.
+## OUTPUT FILES         top
+           None.
+## EXTENDED DESCRIPTION         top
+           None.
+## EXIT STATUS         top
+           If command is specified, exec shall not return to the shell;
+           rather, the exit status of the process shall be the exit status
+           of the program implementing command, which overlaid the shell. If
+           command is not found, the exit status shall be 127. If command is
+           found, but it is not an executable utility, the exit status shall
+           be 126. If a redirection error occurs (see Section 2.8.1,
+           Consequences of Shell Errors), the shell shall exit with a value
+           in the range 1-125. Otherwise, exec shall return a zero exit
+           status.
+## CONSEQUENCES OF ERRORS         top
+           Default.
+           The following sections are informative.
+## APPLICATION USAGE         top
+           None.
+## EXAMPLES         top
+           Open readfile as file descriptor 3 for reading:
+               exec 3< readfile
+           Open writefile as file descriptor 4 for writing:
+               exec 4> writefile
+           Make file descriptor 5 a copy of file descriptor 0:
+               exec 5<&0
+           Close file descriptor 3:
+               exec 3<&-
+           Cat the file maggie by replacing the current shell with the cat
+           utility:
+               exec cat maggie
+## RATIONALE         top
+           Most historical implementations were not conformant in that:
+               foo=bar exec cmd
+           did not pass foo to cmd.
+## FUTURE DIRECTIONS         top
+           None.
+## SEE ALSO         top
+           Section 2.14, Special Built-In Utilities
+## COPYRIGHT         top
+           Portions of this text are reprinted and reproduced in electronic
+           form from IEEE Std 1003.1-2017, Standard for Information
+           Technology -- Portable Operating System Interface (POSIX), The
+           Open Group Base Specifications Issue 7, 2018 Edition, Copyright
+           (C) 2018 by the Institute of Electrical and Electronics
+           Engineers, Inc and The Open Group.  In the event of any
+           discrepancy between this version and the original IEEE and The
+           Open Group Standard, the original IEEE and The Open Group
+           Standard is the referee document. The original Standard can be
+           obtained online at http://www.opengroup.org/unix/online.html .
+           Any typographical or formatting errors that appear in this page
+           are most likely to have been introduced during the conversion of
+           the source files to man page format. To report such errors, see
+           https://www.kernel.org/doc/man-pages/reporting_bugs.html .
+    IEEE/The Open Group               2017                          EXEC(1P)
+* * *
+Pages that refer to this page: fcntl.h(0p),  stdarg.h(0p),  unistd.h(0p),
+awk(1p),  c99(1p),  command(1p),  fort77(1p),  make(1p),  newgrp(1p),  sh(1p),
+xargs(1p),  aio_error(3p),  aio_read(3p),  aio_return(3p),  aio_write(3p),
+alarm(3p),  atexit(3p),  chmod(3p),  close(3p),  confstr(3p),  environ(3p),
+exit(3p),  fcntl(3p),  fexecve(3p),  fork(3p),  fstatvfs(3p),  getenv(3p),
+getitimer(3p),  getopt(3p),  getpgid(3p),  getpgrp(3p),  getpid(3p),
+getppid(3p),  getrlimit(3p),  getsid(3p),  glob(3p),  lio_listio(3p),
+mknod(3p),  mlock(3p),  mlockall(3p),  mmap(3p),  nice(3p),  open(3p),
+posix_spawn(3p),  posix_trace_create(3p),  posix_trace_event(3p),
+posix_trace_eventid_equal(3p),  posix_typed_mem_open(3p),  pthread_atfork(3p),
+pthread_sigmask(3p),  putenv(3p),  readdir(3p),  semop(3p),  setegid(3p),
+setenv(3p),  seteuid(3p),  setgid(3p),  setlocale(3p),  setpgid(3p),
+setpgrp(3p),  setregid(3p),  setuid(3p),  shmat(3p),  shmdt(3p),
+shm_open(3p),  sigaction(3p),  sigaltstack(3p),  sighold(3p),  signal(3p),
+sigpending(3p),  system(3p),  times(3p),  ulimit(3p),  umask(3p),  wait(3p),
+waitid(3p),  wordexp(3p)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

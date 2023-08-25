@@ -1,0 +1,50 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# deallocvt(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | COLOPHON  
+    DEALLOCVT(1)             General Commands Manual            DEALLOCVT(1)
+## NAME         top
+           deallocvt - deallocate unused virtual consoles
+## SYNOPSIS         top
+           deallocvt [option...]  [N ...]
+## DESCRIPTION         top
+           The command deallocvt deallocates kernel memory and data
+           structures for all unused virtual consoles.  If one or more
+           arguments N ...  are given, only the corresponding consoles
+           /dev/ttyN are deallocated.
+           A virtual console is unused if it is not the foreground console,
+           and no process has it open for reading or writing, and no text
+           has been selected on its screen.
+## OPTIONS         top
+           -V, --version
+                  print program version and exit.
+           -h, --help
+                  show this text and exit.
+## SEE ALSO         top
+           chvt(1), openvt(1)
+## COLOPHON         top
+           This page is part of the kbd (Linux keyboard tools) project.
+           Information about the project can be found at 
+           ⟨http://www.kbd-project.org/⟩.  If you have a bug report for this
+           manual page, send it to kbd@lists.altlinux.org.  This page was
+           obtained from the project's upstream Git repository
+           ⟨https://github.com/legionus/kbd.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-23.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    kbd                            17 Mar 1997                  DEALLOCVT(1)
+* * *
+Pages that refer to this page: chvt(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

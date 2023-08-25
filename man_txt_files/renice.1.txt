@@ -1,0 +1,114 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# renice(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | FILES | NOTES | HISTORY | EXAMPLES |
+SEE ALSO | REPORTING BUGS | AVAILABILITY  
+    RENICE(1)                     User Commands                    RENICE(1)
+## NAME         top
+           renice - alter priority of running processes
+## SYNOPSIS         top
+           renice [--priority|--relative] priority [-g|-p|-u] identifier...
+## DESCRIPTION         top
+           renice alters the scheduling priority of one or more running
+           processes. The first argument is the priority value to be used.
+           The other arguments are interpreted as process IDs (by default),
+           process group IDs, user IDs, or user names. renice'ing a process
+           group causes all processes in the process group to have their
+           scheduling priority altered. renice'ing a user causes all
+           processes owned by the user to have their scheduling priority
+           altered.
+           If no -n, --priority or --relative option is used, then the
+           priority is set as absolute.
+## OPTIONS         top
+           -n priority
+               Specify the absolute or relative (depending on environment
+               variable POSIXLY_CORRECT) scheduling priority to be used for
+               the process, process group, or user. Use of the option -n is
+               optional, but when used, it must be the first argument. See
+               NOTES for more information.
+           --priority priority
+               Specify an absolute scheduling priority. Priority is set to
+               the given value. This is the default, when no option is
+               specified.
+           --relative priority
+               Specify a relative scheduling priority. Same as the standard
+               POSIX -n option. Priority gets incremented/decremented by the
+               given value.
+           -g, --pgrp
+               Interpret the succeeding arguments as process group IDs.
+           -p, --pid
+               Interpret the succeeding arguments as process IDs (the
+               default).
+           -u, --user
+               Interpret the succeeding arguments as usernames or UIDs.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## FILES         top
+           /etc/passwd
+               to map user names to user IDs
+## NOTES         top
+           Users other than the superuser may only alter the priority of
+           processes they own. Furthermore, an unprivileged user can only
+           increase the "nice value" (i.e., choose a lower priority) and
+           such changes are irreversible unless (since Linux 2.6.12) the
+           user has a suitable "nice" resource limit (see ulimit(1p) and
+           getrlimit(2)).
+           The superuser may alter the priority of any process and set the
+           priority to any value in the range -20 to 19. Useful priorities
+           are: 19 (the affected processes will run only when nothing else
+           in the system wants to), 0 (the "base" scheduling priority),
+           anything negative (to make things go very fast).
+           For historical reasons in this implementation, the -n option did
+           not follow the POSIX specification. Therefore, instead of setting
+           a relative priority, it sets an absolute priority by default. As
+           this may not be desirable, this behavior can be controlled by
+           setting the environment variable POSIXLY_CORRECT to be fully
+           POSIX compliant. See the -n option for details. See --relative
+           and --priority for options that do not change behavior depending
+           on environment variables.
+## HISTORY         top
+           The renice command appeared in 4.0BSD.
+## EXAMPLES         top
+           The following command would change the priority of the processes
+           with PIDs 987 and 32, plus all processes owned by the users
+           daemon and root:
+           renice +1 987 -u daemon root -p 32
+## SEE ALSO         top
+           nice(1), chrt(1), getpriority(2), setpriority(2), credentials(7),
+           sched(7)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The renice command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                      RENICE(1)
+* * *
+Pages that refer to this page: chrt(1),  kill(1@@procps-ng),  nice(1),
+skill(1),  taskset(1),  uclampset(1),  getpriority(2),  nice(2)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

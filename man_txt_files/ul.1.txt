@@ -1,0 +1,82 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# ul(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | ENVIRONMENT | HISTORY | BUGS | SEE
+ALSO | REPORTING BUGS | AVAILABILITY  
+    UL(1)                         User Commands                        UL(1)
+## NAME         top
+           ul - do underlining
+## SYNOPSIS         top
+           ul [options] [file...]
+## DESCRIPTION         top
+           ul reads the named files (or standard input if none are given)
+           and translates occurrences of underscores to the sequence which
+           indicates underlining for the terminal in use, as specified by
+           the environment variable TERM. The terminfo database is read to
+           determine the appropriate sequences for underlining. If the
+           terminal is incapable of underlining but is capable of a standout
+           mode, then that is used instead. If the terminal can overstrike,
+           or handles underlining automatically, ul degenerates to cat(1).
+           If the terminal cannot underline, underlining is ignored.
+## OPTIONS         top
+           -i, --indicated
+               Underlining is indicated by a separate line containing
+               appropriate dashes `-'; this is useful when you want to look
+               at the underlining which is present in an nroff output stream
+               on a crt-terminal.
+           -t, -T, --terminal terminal
+               Override the environment variable TERM with the specified
+               terminal type.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## ENVIRONMENT         top
+           The following environment variable is used:
+           TERM
+               The TERM variable is used to relate a tty device with its
+               device capability description (see terminfo(5)). TERM is set
+               at login time, either by the default terminal type specified
+               in /etc/ttys or as set during the login process by the user
+               in their login file (see setenv(3)).
+## HISTORY         top
+           The ul command appeared in 3.0BSD.
+## BUGS         top
+           nroff usually outputs a series of backspaces and underlines
+           intermixed with the text to indicate underlining. No attempt is
+           made to optimize the backward motion.
+## SEE ALSO         top
+           colcrt(1), login(1), man(1), nroff(1), setenv(3), terminfo(5)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The ul command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                          UL(1)
+* * *
+Pages that refer to this page: colcrt(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

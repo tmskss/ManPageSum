@@ -1,0 +1,53 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+Go to the version of this page provided by the coreutils project
+* * *
+# groups(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | NOTE | FILES | SEE ALSO | COLOPHON  
+    GROUPS(1)                     User Commands                    GROUPS(1)
+## NAME         top
+           groups - display current group names
+## SYNOPSIS         top
+           groups [user]
+## DESCRIPTION         top
+           The groups command displays the current group names or ID values.
+           If the value does not have a corresponding entry in /etc/group,
+           the value will be displayed as the numerical group value. The
+           optional user parameter will display the groups for the named
+           user.
+## NOTE         top
+           Systems which do not support supplementary groups (see
+           initgroups(3)) will have the information from /etc/group
+           reported. The user must use newgrp or sg to change his current
+           real and effective group ID.
+## FILES         top
+           /etc/group
+               Group account information.
+## SEE ALSO         top
+           newgrp(1), getgid(2), getgroups(2), getuid(2), initgroups(3).
+## COLOPHON         top
+           This page is part of the shadow-utils (utilities for managing
+           accounts and shadow password files) project.  Information about
+           the project can be found at 
+           ⟨https://github.com/shadow-maint/shadow⟩.  If you have a bug
+           report for this manual page, send it to
+           pkg-shadow-devel@alioth-lists.debian.net.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/shadow-maint/shadow⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    shadow-utils 4.11.1            06/23/2023                      GROUPS(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

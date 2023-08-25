@@ -1,0 +1,77 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# gencnval(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | ENVIRONMENT | FILES | VERSION |
+COPYRIGHT | SEE ALSO | COLOPHON  
+    GENCNVAL(1)                  ICU 73.1 Manual                 GENCNVAL(1)
+## NAME         top
+           gencnval - compile the converters aliases file
+## SYNOPSIS         top
+           gencnval [ -h, -?, --help ] [ -v, --verbose ] [ -c, --copyright ]
+           [ -s, --sourcedir source ] [ -d, --destdir destination ] [
+           converterfile ]
+## DESCRIPTION         top
+           gencnval converts the ICU aliases file converterfile into the
+           binary file cnvalias.icu.  This binary file can then be read
+           directly by ICU, or used by pkgdata(1) for incorporation into a
+           larger archive or library.
+           If converterfile is not provided, the default ICU convrtrs.txt
+           file is used.
+## OPTIONS         top
+           -h, -?, --help
+                  Print help about usage and exit.
+           -v, --verbose
+                  Display verbose output. This information can include
+                  information about conflicting aliases and the converters
+                  the aliases resolve to.
+           -c, --copyright
+                  Include a copyright notice in the binary data.
+           -s, --sourcedir source
+                  Set the source directory to source.  The default source
+                  directory is specified by the environment variable
+                  ICU_DATA.
+           -d, --destdir destination
+                  Set the destination directory to destination.  The default
+                  destination directory is specified by the environment
+                  variable ICU_DATA.
+## ENVIRONMENT         top
+           ICU_DATA
+                  Specifies the directory containing ICU data. Defaults to
+                  ${prefix}/share/icu/73.1/.  Some tools in ICU depend on
+                  the presence of the trailing slash. It is thus important
+                  to make sure that it is present if ICU_DATA is set.
+## FILES         top
+           icu/source/data/mappings/convrtrs.txt
+                  Description of ICU's converters and their aliases. This
+                  data file is not normally installed, and it is available
+                  as a part of ICU source code.
+## VERSION         top
+           73.1
+## COPYRIGHT         top
+           Copyright (C) 2000-2004 IBM, Inc. and others.
+## SEE ALSO         top
+           pkgdata(1)
+## COLOPHON         top
+           This page is part of the ICU (International Components for
+           Unicode) project.  Information about the project can be found at
+           ⟨http://site.icu-project.org/home⟩.  If you have a bug report for
+           this manual page, see ⟨http://site.icu-project.org/bugs⟩.  This
+           page was obtained from the project's upstream Git repository
+           ⟨https://github.com/unicode-org/icu⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    ICU MANPAGE                   11 March 2004                  GENCNVAL(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

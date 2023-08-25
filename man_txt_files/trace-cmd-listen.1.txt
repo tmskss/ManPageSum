@@ -1,0 +1,93 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# trace-cmd-listen(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | AUTHOR | RESOURCES |
+COPYING | NOTES | COLOPHON  
+    TRACE-CMD-LISTEN(1)         libtracefs Manual        TRACE-CMD-LISTEN(1)
+## NAME         top
+           trace-cmd-listen - listen for incoming connection to record
+           tracing.
+## SYNOPSIS         top
+           trace-cmd listen -p port [OPTIONS]
+## DESCRIPTION         top
+           The trace-cmd(1) listen sets up a port to listen to waiting for
+           connections from other hosts that run trace-cmd-record(1) with
+           the -N option. When a connection is made, and the remote host
+           sends data, it will create a file called trace.HOST:PORT.dat.
+           Where HOST is the name of the remote host, and PORT is the port
+           that the remote host used to connect with.
+## OPTIONS         top
+           -p port
+               This option will specify the port to listen to.
+           -D
+               This options causes trace-cmd listen to go into a daemon mode
+               and run in the background.
+           -V
+               Listen on a vsocket instead. This is useful for tracing
+               between host and guest VMs.
+           -d dir
+               This option specifies a directory to write the data files
+               into.
+           -o filename
+               This option overrides the default trace in the
+               trace.HOST:PORT.dat that is created when a remote host
+               connects.
+           -l filename
+               This option writes the output messages to a log file instead
+               of standard output.
+           --verbose[=level]
+               Set the log level. Supported log levels are "none",
+               "critical", "error", "warning", "info", "debug", "all" or
+               their identifiers "0", "1", "2", "3", "4", "5", "6". Setting
+               the log level to specific value enables all logs from that
+               and all previous levels. The level will default to "info" if
+               one is not specified.
+                   Example: enable all critical, error and warning logs
+                   trace-cmd listen --verbose=warning
+## SEE ALSO         top
+           trace-cmd(1), trace-cmd-record(1), trace-cmd-report(1),
+           trace-cmd-start(1), trace-cmd-stop(1), trace-cmd-extract(1),
+           trace-cmd-reset(1), trace-cmd-split(1), trace-cmd-list(1)
+## AUTHOR         top
+           Written by Steven Rostedt, <rostedt@goodmis.org[1]>
+## RESOURCES         top
+           https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git/ 
+## COPYING         top
+           Copyright (C) 2010 Red Hat, Inc. Free use of this software is
+           granted under the terms of the GNU Public License (GPL).
+## NOTES         top
+            1. rostedt@goodmis.org
+               mailto:rostedt@goodmis.org
+## COLOPHON         top
+           This page is part of the trace-cmd (a front-end for Ftrace)
+           project.  Information about the project can be found at 
+           ⟨https://www.trace-cmd.org/⟩.  If you have a bug report for this
+           manual page, see ⟨https://www.trace-cmd.org/⟩.  This page was
+           obtained from the project's upstream Git repository
+           ⟨https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git⟩ on
+           2023-06-23.  (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-07.)  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    libtracefs                     06/22/2023            TRACE-CMD-LISTEN(1)
+* * *
+Pages that refer to this page: trace-cmd(1),  trace-cmd-attach(1),  trace-cmd-
+check-events(1),  trace-cmd-clear(1),  trace-cmd-extract(1),  trace-cmd-
+hist(1),  trace-cmd-list(1),  trace-cmd-mem(1),  trace-cmd-options(1),  trace-
+cmd-profile(1),  trace-cmd-record(1),  trace-cmd-report(1),  trace-cmd-
+reset(1),  trace-cmd-restore(1),  trace-cmd-set(1),  trace-cmd-show(1),
+trace-cmd-snapshot(1),  trace-cmd-split(1),  trace-cmd-stack(1),  trace-cmd-
+start(1),  trace-cmd-stat(1),  trace-cmd-stop(1),  trace-cmd-stream(1),
+trace-cmd.dat.v6(5),  trace-cmd.dat.v7(5)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

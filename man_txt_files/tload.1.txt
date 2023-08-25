@@ -1,0 +1,63 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# tload(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | FILES | SEE ALSO | BUGS | AUTHORS |
+REPORTING BUGS | COLOPHON  
+    TLOAD(1)                      User Commands                     TLOAD(1)
+## NAME         top
+           tload - graphic representation of system load average
+## SYNOPSIS         top
+           tload [options] [tty]
+## DESCRIPTION         top
+           tload prints a graph of the current system load average to the
+           specified tty (or the tty of the tload process if none is
+           specified).
+## OPTIONS         top
+           -s, --scale number
+                  The scale option allows a vertical scale to be specified
+                  for the display (in characters between graph ticks); thus,
+                  a smaller value represents a larger scale, and vice versa.
+           -d, --delay seconds
+                  The delay sets the delay between graph updates in seconds.
+           -h, --help
+                  Display this help text.
+           -V, --version
+                  Display version information and exit.
+## FILES         top
+           /proc/loadavg load average information
+## SEE ALSO         top
+           ps(1), top(1), uptime(1), w(1)
+## BUGS         top
+           The -d delay option sets the time argument for an alarm(2); if -d
+           0 is specified, the alarm is set to 0, which will never send the
+           SIGALRM and update the display.
+## AUTHORS         top
+           Branko Lankester, David Engel ⟨david@ods.com⟩, and Michael K.
+           Johnson ⟨johnsonm@redhat.com⟩.
+## REPORTING BUGS         top
+           Please send bug reports to ⟨procps@freelists.org⟩
+## COLOPHON         top
+           This page is part of the procps-ng (/proc filesystem utilities)
+           project.  Information about the project can be found at 
+           ⟨https://gitlab.com/procps-ng/procps⟩.  If you have a bug report
+           for this manual page, see
+           ⟨https://gitlab.com/procps-ng/procps/blob/master/Documentation/bugs.md⟩.
+           This page was obtained from the project's upstream Git repository
+           ⟨https://gitlab.com/procps-ng/procps.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-13.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    procps-ng                      2020-06-04                       TLOAD(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

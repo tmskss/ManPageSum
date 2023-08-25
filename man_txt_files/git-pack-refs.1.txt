@@ -1,0 +1,94 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-pack-refs(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | BUGS | GIT | COLOPHON  
+    GIT-PACK-REFS(1)               Git Manual               GIT-PACK-REFS(1)
+## NAME         top
+           git-pack-refs - Pack heads and tags for efficient repository
+           access
+## SYNOPSIS         top
+           git pack-refs [--all] [--no-prune] [--include <pattern>] [--exclude <pattern>]
+## DESCRIPTION         top
+           Traditionally, tips of branches and tags (collectively known as
+           refs) were stored one file per ref in a (sub)directory under
+           $GIT_DIR/refs directory. While many branch tips tend to be
+           updated often, most tags and some branch tips are never updated.
+           When a repository has hundreds or thousands of tags, this
+           one-file-per-ref format both wastes storage and hurts
+           performance.
+           This command is used to solve the storage and performance problem
+           by storing the refs in a single file, $GIT_DIR/packed-refs. When
+           a ref is missing from the traditional $GIT_DIR/refs directory
+           hierarchy, it is looked up in this file and used if found.
+           Subsequent updates to branches always create new files under
+           $GIT_DIR/refs directory hierarchy.
+           A recommended practice to deal with a repository with too many
+           refs is to pack its refs with --all once, and occasionally run
+           git pack-refs. Tags are by definition stationary and are not
+           expected to change. Branch heads will be packed with the initial
+           pack-refs --all, but only the currently active branch heads will
+           become unpacked, and the next pack-refs (without --all) will
+           leave them unpacked.
+## OPTIONS         top
+           --all
+               The command by default packs all tags and refs that are
+               already packed, and leaves other refs alone. This is because
+               branches are expected to be actively developed and packing
+               their tips does not help performance. This option causes all
+               refs to be packed as well, with the exception of hidden refs,
+               broken refs, and symbolic refs. Useful for a repository with
+               many branches of historical interests.
+           --no-prune
+               The command usually removes loose refs under $GIT_DIR/refs
+               hierarchy after packing them. This option tells it not to.
+           --include <pattern>
+               Pack refs based on a glob(7) pattern. Repetitions of this
+               option accumulate inclusion patterns. If a ref is both
+               included in --include and --exclude, --exclude takes
+               precedence. Using --include will preclude all tags from being
+               included by default. Symbolic refs and broken refs will never
+               be packed. When used with --all, it will be a noop. Use
+               --no-include to clear and reset the list of patterns.
+           --exclude <pattern>
+               Do not pack refs matching the given glob(7) pattern.
+               Repetitions of this option accumulate exclusion patterns. Use
+               --no-exclude to clear and reset the list of patterns. If a
+               ref is already packed, including it with --exclude will not
+               unpack it.
+           When used with --all, pack only loose refs which do not match any
+           of the provided --exclude patterns.
+           When used with --include, refs provided to --include, minus refs
+           that are provided to --exclude will be packed.
+## BUGS         top
+           Older documentation written before the packed-refs mechanism was
+           introduced may still say things like ".git/refs/heads/<branch>
+           file exists" when it means "branch <branch> exists".
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22               GIT-PACK-REFS(1)
+* * *
+Pages that refer to this page: git(1),  git-maintenance(1),  gitrepository-
+layout(5),  gitglossary(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

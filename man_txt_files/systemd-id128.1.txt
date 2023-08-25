@@ -1,0 +1,86 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# systemd-id128(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXIT STATUS | SEE ALSO | NOTES |
+COLOPHON  
+    SYSTEMD-ID128(1)              systemd-id128             SYSTEMD-ID128(1)
+## NAME         top
+           systemd-id128 - Generate and print sd-128 identifiers
+## SYNOPSIS         top
+           systemd-id128 [OPTIONS...] new
+           systemd-id128 [OPTIONS...] machine-id
+           systemd-id128 [OPTIONS...] boot-id
+           systemd-id128 [OPTIONS...] invocation-id
+## DESCRIPTION         top
+           id128 may be used to conveniently print sd-id128(3) UUIDs. What
+           identifier is printed depends on the specific verb.
+           With new, a new random identifier will be generated.
+           With machine-id, the identifier of the current machine will be
+           printed. See machine-id(5).
+           With boot-id, the identifier of the current boot will be printed.
+           Both machine-id and boot-id may be combined with the
+           --app-specific=app-id switch to generate application-specific
+           IDs. See sd_id128_get_machine(3) for the discussion when this is
+           useful.
+           With invocation-id, the identifier of the current service
+           invocation will be printed. This is available in systemd
+           services. See systemd.exec(5).
+           With show, well-known IDs are printed (for now, only GPT
+           partition type UUIDs), along with brief identifier strings. When
+           no arguments are specified, all known IDs are shown. When
+           arguments are specified, they must be the identifiers or ID
+           values of one or more known IDs, which are then printed. Combine
+           with --uuid to list the IDs in UUID style, i.e. the way GPT
+           partition type UUIDs are usually shown.
+## OPTIONS         top
+           The following options are understood:
+           -p, --pretty
+               Generate output as programming language snippets.
+           -a app-id, --app-specific=app-id
+               With this option, an identifier that is the result of hashing
+               the application identifier app-id and the machine identifier
+               will be printed. The app-id argument must be a valid sd-id128
+               string identifying the application.
+           -u, --uuid
+               Generate output as an UUID formatted in the "canonical
+               representation", with five groups of digits separated by
+               hyphens. See the wikipedia[1] for more discussion.
+           -h, --help
+               Print a short help text and exit.
+           --version
+               Print a short version string and exit.
+## EXIT STATUS         top
+           On success, 0 is returned, a non-zero failure code otherwise.
+## SEE ALSO         top
+           systemd(1), sd-id128(3), sd_id128_get_machine(3)
+## NOTES         top
+            1. wikipedia
+               https://en.wikipedia.org/wiki/Universally_unique_identifier#Format
+## COLOPHON         top
+           This page is part of the systemd (systemd system and service
+           manager) project.  Information about the project can be found at
+           ⟨http://www.freedesktop.org/wiki/Software/systemd⟩.  If you have
+           a bug report for this manual page, see
+           ⟨http://www.freedesktop.org/wiki/Software/systemd/#bugreports⟩.
+           This page was obtained from the project's upstream Git repository
+           ⟨https://github.com/systemd/systemd.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-23.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    systemd 253                                             SYSTEMD-ID128(1)
+* * *
+Pages that refer to this page: sd-id128(3),  sd_id128_get_machine(3),
+sd_id128_randomize(3),  systemd.directives(7),  systemd.index(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,88 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# look(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | ENVIRONMENT | FILES | HISTORY |
+EXAMPLES | SEE ALSO | REPORTING BUGS | AVAILABILITY  
+    LOOK(1)                       User Commands                      LOOK(1)
+## NAME         top
+           look - display lines beginning with a given string
+## SYNOPSIS         top
+           look [options] string [file]
+## DESCRIPTION         top
+           The look utility displays any lines in file which contain string
+           as a prefix. As look performs a binary search, the lines in file
+           must be sorted (where sort(1) was given the same options -d
+           and/or -f that look is invoked with).
+           If file is not specified, the file /usr/share/dict/words is used,
+           only alphanumeric characters are compared and the case of
+           alphabetic characters is ignored.
+## OPTIONS         top
+           -a, --alternative
+               Use the alternative dictionary file.
+           -d, --alphanum
+               Use normal dictionary character set and order, i.e., only
+               blanks and alphanumeric characters are compared. This is on
+               by default if no file is specified.
+               Note that blanks have been added to dictionary character set
+               for compatibility with sort -d command since version 2.28.
+           -f, --ignore-case
+               Ignore the case of alphabetic characters. This is on by
+               default if no file is specified.
+           -t, --terminate character
+               Specify a string termination character, i.e., only the
+               characters in string up to and including the first occurrence
+               of character are compared.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+           The look utility exits 0 if one or more lines were found and
+           displayed, 1 if no lines were found, and >1 if an error occurred.
+## ENVIRONMENT         top
+           WORDLIST
+               Path to a dictionary file. The environment variable has
+               greater priority than the dictionary path defined in the
+               FILES segment.
+## FILES         top
+           /usr/share/dict/words
+               the dictionary
+           /usr/share/dict/web2
+               the alternative dictionary
+## HISTORY         top
+           The look utility appeared in Version 7 AT&T Unix.
+## EXAMPLES         top
+               sort -d /etc/passwd -o /tmp/look.dict
+               look -t: root:foobar /tmp/look.dict
+## SEE ALSO         top
+           grep(1), sort(1)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The look command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                        LOOK(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

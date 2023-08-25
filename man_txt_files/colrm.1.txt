@@ -1,0 +1,60 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# colrm(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | HISTORY | SEE ALSO | REPORTING BUGS
+| AVAILABILITY  
+    COLRM(1)                      User Commands                     COLRM(1)
+## NAME         top
+           colrm - remove columns from a file
+## SYNOPSIS         top
+           colrm [first [last]]
+## DESCRIPTION         top
+           colrm removes selected columns from a file. Input is taken from
+           standard input. Output is sent to standard output.
+           If called with one parameter the columns of each line will be
+           removed starting with the specified first column. If called with
+           two parameters the columns from the first column to the last
+           column will be removed.
+           Column numbering starts with column 1.
+## OPTIONS         top
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## HISTORY         top
+           The colrm command appeared in 3.0BSD.
+## SEE ALSO         top
+           awk(1p), column(1), expand(1), paste(1)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The colrm command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                       COLRM(1)
+* * *
+Pages that refer to this page: column(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

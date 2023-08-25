@@ -1,0 +1,57 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-prune-packed(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | GIT | COLOPHON  
+    GIT-PRUNE-PACKED(1)            Git Manual            GIT-PRUNE-PACKED(1)
+## NAME         top
+           git-prune-packed - Remove extra objects that are already in pack
+           files
+## SYNOPSIS         top
+           git prune-packed [-n | --dry-run] [-q | --quiet]
+## DESCRIPTION         top
+           This program searches the $GIT_OBJECT_DIRECTORY for all objects
+           that currently exist in a pack file as well as the independent
+           object directories.
+           All such extra objects are removed.
+           A pack is a collection of objects, individually compressed, with
+           delta compression applied, stored in a single file, with an
+           associated index file.
+           Packs are used to reduce the load on mirror systems, backup
+           engines, disk storage, etc.
+## OPTIONS         top
+           -n, --dry-run
+               Don’t actually remove any objects, only show those that would
+               have been removed.
+           -q, --quiet
+               Squelch the progress indicator.
+## SEE ALSO         top
+           git-pack-objects(1) git-repack(1)
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22            GIT-PRUNE-PACKED(1)
+* * *
+Pages that refer to this page: git(1),  git-pack-objects(1),  git-pack-
+redundant(1),  git-repack(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,72 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# manconv(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | AUTHOR | BUGS | COLOPHON  
+    MANCONV(1)                 Manual pager utils                 MANCONV(1)
+## NAME         top
+           manconv - convert manual page from one encoding to another
+## SYNOPSIS         top
+           manconv -f [from-code[:from-code...]] -t to-code [-dqhV]
+           [filename]
+## DESCRIPTION         top
+           manconv converts a manual page from one encoding to another, like
+           iconv.  Unlike iconv, it can try multiple possible input
+           encodings in sequence.  This is useful for manual pages installed
+           in directories without an explicit encoding declaration, since
+           they may be in UTF-8 or in a legacy character set.
+           If an encoding declaration is found on the first line of the
+           manual page, that declaration overrides any input encodings
+           specified on manconv's command line.  Encoding declarations have
+           the following form:
+                  '\" -*- coding: UTF-8 -*-
+           or (if manual page preprocessors are also to be declared):
+                  '\" t -*- coding: ISO-8859-1 -*-
+## OPTIONS         top
+           -f encodings, --from-code encodings
+                  Try each of encodings (a colon-separated list) in sequence
+                  as the input encoding.  The default is to guess likely
+                  input encodings based on the file name.
+           -t encoding, --to-code encoding
+                  Convert the manual page to encoding.
+           -q, --quiet
+                  Do not issue error messages when the page cannot be
+                  converted.
+           -d, --debug
+                  Print debugging information.
+           -h, --help
+                  Print a help message and exit.
+           -V, --version
+                  Display version information.
+## SEE ALSO         top
+           iconv(1), man(1), man-recode(1)
+## AUTHOR         top
+           Colin Watson (cjwatson@debian.org).
+## BUGS         top
+           https://gitlab.com/man-db/man-db/-/issues
+           https://savannah.nongnu.org/bugs/?group=man-db
+## COLOPHON         top
+           This page is part of the man-db (manual pager suite) project.
+           Information about the project can be found at 
+           ⟨http://www.nongnu.org/man-db/⟩.  If you have a bug report for
+           this manual page, send it to man-db-devel@nongnu.org.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://gitlab.com/cjwatson/man-db⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-05-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    2.11.2                         2023-01-08                     MANCONV(1)
+* * *
+Pages that refer to this page: dh_installman(1),  man(1),  man-recode(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

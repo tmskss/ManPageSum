@@ -1,0 +1,82 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+Another version of this page is provided by the shadow-utils project
+* * *
+# chsh(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | VALID SHELLS | EXIT STATUS | AUTHORS
+| SEE ALSO | REPORTING BUGS | AVAILABILITY  
+    CHSH(1)                       User Commands                      CHSH(1)
+## NAME         top
+           chsh - change your login shell
+## SYNOPSIS         top
+           chsh [-s shell] [-l] [-h] [-V] [username]
+## DESCRIPTION         top
+           chsh is used to change your login shell. If a shell is not given
+           on the command line, chsh prompts for one.
+           chsh supports non-local entries (kerberos, LDAP, etc.) if linked
+           with libuser, otherwise use ypchsh(1), lchsh(1) or any other
+           implementation for non-local entries.
+## OPTIONS         top
+           -s, --shell shell
+               Specify your login shell.
+           -l, --list-shells
+               Print the list of shells listed in /etc/shells and exit.
+           -h, --help
+               Display help text and exit. The short options -h have been
+               used since version 2.30; old versions use deprecated -u.
+           -V, --version
+               Print version and exit. The short options -V have been used
+               since version 2.39; old versions use deprecated -v.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## VALID SHELLS         top
+           chsh will accept the full pathname of any executable file on the
+           system.
+           The default behavior for non-root users is to accept only shells
+           listed in the /etc/shells file, and issue a warning for root
+           user. It can also be configured at compile-time to only issue a
+           warning for all users.
+## EXIT STATUS         top
+           Returns 0 if operation was successful, 1 if operation failed or
+           command syntax was not valid.
+## AUTHORS         top
+           Salvatore Valente <svalente@mit.edu>
+## SEE ALSO         top
+           login(1), login.defs(5), passwd(5), shells(5)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The chsh command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                        CHSH(1)
+* * *
+Pages that refer to this page: chfn(1),  chfn(1@@shadow-utils),  intro(1),
+passwd(5),  shells(5),  groupadd(8),  groupdel(8),  groupmems(8),
+groupmod(8),  useradd(8),  userdel(8),  usermod(8)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

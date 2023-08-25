@@ -1,0 +1,47 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-get-tar-commit-id(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | GIT | COLOPHON  
+    GIT-GET-TAR-COMMIT-ID(1)       Git Manual       GIT-GET-TAR-COMMIT-ID(1)
+## NAME         top
+           git-get-tar-commit-id - Extract commit ID from an archive created
+           using git-archive
+## SYNOPSIS         top
+           git get-tar-commit-id
+## DESCRIPTION         top
+           Read a tar archive created by git archive from the standard input
+           and extract the commit ID stored in it. It reads only the first
+           1024 bytes of input, thus its runtime is not influenced by the
+           size of the tar archive very much.
+           If no commit ID is found, git get-tar-commit-id quietly exists
+           with a return code of 1. This can happen if the archive had not
+           been created using git archive or if the first parameter of git
+           archive had been a tree ID instead of a commit ID or tag.
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22       GIT-GET-TAR-COMMIT-ID(1)
+* * *
+Pages that refer to this page: git(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

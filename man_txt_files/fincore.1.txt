@@ -1,0 +1,83 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# fincore(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | AUTHORS | SEE ALSO | REPORTING BUGS
+| AVAILABILITY  
+    FINCORE(1)                    User Commands                   FINCORE(1)
+## NAME         top
+           fincore - count pages of file contents in core
+## SYNOPSIS         top
+           fincore [options] file...
+## DESCRIPTION         top
+           fincore counts pages of file contents being resident in memory
+           (in core), and reports the numbers. If an error occurs during
+           counting, then an error message is printed to the stderr and
+           fincore continues processing the rest of files listed in a
+           command line.
+           The default output is subject to change. So whenever possible,
+           you should avoid using default outputs in your scripts. Always
+           explicitly define expected columns by using --output columns-list
+           in environments where a stable output is required.
+## OPTIONS         top
+           -n, --noheadings
+               Do not print a header line in status output.
+           -b, --bytes
+               Print the sizes in bytes rather than in a human-readable
+               format.
+               By default, the unit, sizes are expressed in, is byte, and
+               unit prefixes are in power of 2^10 (1024). Abbreviations of
+               symbols are exhibited truncated in order to reach a better
+               readability, by exhibiting alone the first letter of them;
+               examples: "1 KiB" and "1 MiB" are respectively exhibited as
+               "1 K" and "1 M", then omitting on purpose the mention "iB",
+               which is part of these abbreviations.
+           -o, --output list
+               Define output columns. See the --help output to get a list of
+               the currently supported columns. The default list of columns
+               may be extended if list is specified in the format +list.
+           -r, --raw
+               Produce output in raw format. All potentially unsafe
+               characters are hex-escaped (\x<code>).
+           -J, --json
+               Use JSON output format.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## AUTHORS         top
+           Masatake YAMATO <yamato@redhat.com>
+## SEE ALSO         top
+           mincore(2), getpagesize(2), getconf(1p)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The fincore command is part of the util-linux package which can
+           be downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                     FINCORE(1)
+* * *
+Pages that refer to this page: mincore(2),  posix_fadvise(2)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,92 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pmlogmv(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | DIAGNOSTICS | SEE ALSO | COLOPHON  
+    PMLOGMV(1)               General Commands Manual              PMLOGMV(1)
+## NAME         top
+           pmlogmv - move (rename) Performance Co-Pilot archive files
+## SYNOPSIS         top
+           pmlogmv [-cfNV?]  oldname newname
+## DESCRIPTION         top
+           A Performance Co-Pilot (PCP) archive consists of multiple files
+           as created by pmlogger(1).  pmlogmv allows all the files of a
+           single PCP archive to be moved or renamed as a group in a single
+           operation.
+           The oldname argument identifies the target archive, and may be
+           either the basename that is common to all files in that archive
+           or one of the archive's files.  The new archive's basename is
+           newname.
+           Because PCP archives are important records of system activity,
+           special care is taken to ensure the integrity of an archive's
+           files.  For recoverable problems encountered during the execution
+           of pmlogmv, all the files associated with oldname will be
+           preserved, and no new files with the newname prefix will be
+           created.  ``Recoverable problems'' include signals that can be
+           caught (such as SIGHUP, SIGINT, SIGQUIT and SIGTERM), permissions
+           issues, new files already existing, file system full events, etc.
+           The implementation of pmlogmv tries to use hard links in the file
+           system and so follows the semantic restrictions of ln(2) which
+           for most systems means the directories containing both the
+           oldname and the newname PCP archive files need to be within the
+           same file system.  When this is not possible, pmlogmv falls back
+           to using cp(1) to copy oldname to newname.
+## OPTIONS         top
+           The available command line options are:
+           -c, --checksum
+                Paranoid checking mode when cp(1) is needed and each file's
+                checksum is computed for the original file and the copied
+                file, and the checksums must match before the copy is
+                considered acceptable.  The checksum command is chosen by
+                trying the following in turn until one is found to be
+                executable: md5sum(1), sha256sum(1), sha1sum(1) and sum(1).
+                If no executable checksum command is found, a warning is
+                issued and the checksum check is skipped.
+           -f, --force
+                Normally pmlogmv takes a conservative view in respect of
+                newname and will not proceed if newname contains any
+                characters that are likely to cause a problem for sh(1).
+                This includes ``glob'' characters like ``?'', ``*'' and
+                ``['', shell syntax meta characters like ``('', ``|'', ``;''
+                and ``&'', shell I/O redirection characters like ``<'' and
+                ``>'', the dollar sign, a space, etc.
+                The -f flag forces pmlogmv to proceed, even if newname
+                contains any of these ``unsafe'' characters.
+           -N, --showme
+                Perform a dry-run, checking and reporting what changes would
+                be made without making any changes.
+           -V, --verbose
+                Enable verbose mode.
+           -?, --help
+                Display usage message and exit.
+## DIAGNOSTICS         top
+           All error and warning messages are intended to be easily
+           understood and errors produce a non-zero exit status.
+## SEE ALSO         top
+           cp(1), ln(1), md5sum(1), PCPIntro(1), pmlogger(1), sha1sum(1),
+           sha256sum(1) and LOGARCHIVE(5).
+## COLOPHON         top
+           This page is part of the PCP (Performance Co-Pilot) project.
+           Information about the project can be found at 
+           ⟨http://www.pcp.io/⟩.  If you have a bug report for this manual
+           page, send it to pcp@groups.io.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/performancecopilot/pcp.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-06-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Performance Co-Pilot               PCP                        PMLOGMV(1)
+* * *
+Pages that refer to this page: pmgetopt(1),  pmlogger_daily(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

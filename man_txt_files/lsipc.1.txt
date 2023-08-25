@@ -1,0 +1,130 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# lsipc(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXIT STATUS | HISTORY | AUTHORS |
+SEE ALSO | REPORTING BUGS | AVAILABILITY  
+    LSIPC(1)                      User Commands                     LSIPC(1)
+## NAME         top
+           lsipc - show information on IPC facilities currently employed in
+           the system
+## SYNOPSIS         top
+           lsipc [options]
+## DESCRIPTION         top
+           lsipc shows information on the System V inter-process
+           communication facilities for which the calling process has read
+           access.
+## OPTIONS         top
+           -i, --id id
+               Show full details on just the one resource element identified
+               by id. This option needs to be combined with one of the three
+               resource options: -m, -q or -s. It is possible to override
+               the default output format for this option with the --list,
+               --raw, --json or --export option.
+           -g, --global
+               Show system-wide usage and limits of IPC resources. This
+               option may be combined with one of the three resource
+               options: -m, -q or -s. The default is to show information
+               about all resources.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+       Resource options
+           -m, --shmems
+               Write information about active shared memory segments.
+           -q, --queues
+               Write information about active message queues.
+           -s, --semaphores
+               Write information about active semaphore sets.
+       Output formatting
+           -c, --creator
+               Show creator and owner.
+           -e, --export
+               Produce output in the form of key="value" pairs. All
+               potentially unsafe value characters are hex-escaped
+               (\x<code>). See also option --shell.
+           -J, --json
+               Use the JSON output format.
+           -l, --list
+               Use the list output format. This is the default, except when
+               --id is used.
+           -n, --newline
+               Display each piece of information on a separate line.
+           --noheadings
+               Do not print a header line.
+           --notruncate
+               Don’t truncate output.
+           -o, --output list
+               Specify which output columns to print. Use --help to get a
+               list of all supported columns.
+           -b, --bytes
+               Print size in bytes rather than in human readable format.
+           -r, --raw
+               Raw output (no columnation).
+           -t, --time
+               Write time information. The time of the last control
+               operation that changed the access permissions for all
+               facilities, the time of the last msgsnd(2) and msgrcv(2)
+               operations on message queues, the time of the last shmat(2)
+               and shmdt(2) operations on shared memory, and the time of the
+               last semop(2) operation on semaphores.
+           --time-format type
+               Display dates in short, full or iso format. The default is
+               short, this time format is designed to be space efficient and
+               human readable.
+           -P, --numeric-perms
+               Print numeric permissions in PERMS column.
+           -y, --shell
+               The column name will be modified to contain only characters
+               allowed for shell variable identifiers. This is usable, for
+               example, with --export. Note that this feature has been
+               automatically enabled for --export in version 2.37, but due
+               to compatibility issues, now it’s necessary to request this
+               behavior by --shell.
+## EXIT STATUS         top
+           0
+               if OK,
+           1
+               if incorrect arguments specified,
+           2
+               if a serious error occurs.
+## HISTORY         top
+           The lsipc utility is inspired by the ipcs(1) utility.
+## AUTHORS         top
+           Ondrej Oprala <ooprala@redhat.com>, Karel Zak <kzak@redhat.com>
+## SEE ALSO         top
+           ipcmk(1), ipcrm(1), msgrcv(2), msgsnd(2), semget(2), semop(2),
+           shmat(2), shmdt(2), shmget(2), sysvipc(7)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The lsipc command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                       LSIPC(1)
+* * *
+Pages that refer to this page: sysvipc(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

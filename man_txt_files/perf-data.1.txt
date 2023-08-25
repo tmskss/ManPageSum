@@ -1,0 +1,65 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# perf-data(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | COMMANDS | OPTIONS FOR CONVERT | SEE ALSO |
+COLOPHON  
+    PERF-DATA(1)                   perf Manual                  PERF-DATA(1)
+## NAME         top
+           perf-data - Data file related processing
+## SYNOPSIS         top
+           perf data [<common options>] <command> [<options>]",
+## DESCRIPTION         top
+           Data file related processing.
+## COMMANDS         top
+           convert
+               Converts perf data file into another format. It’s possible to
+               set data-convert debug variable to get debug messages from
+               conversion, like: perf --debug data-convert data convert ...
+## OPTIONS FOR CONVERT         top
+           --to-ctf
+               Triggers the CTF conversion, specify the path of CTF data
+               directory.
+           --to-json
+               Triggers JSON conversion. Specify the JSON filename to
+               output.
+           --tod
+               Convert time to wall clock time.
+           -i
+               Specify input perf data file path.
+           -f, --force
+               Don’t complain, do it.
+           -v, --verbose
+               Be more verbose (show counter open errors, etc).
+           --all
+               Convert all events, including non-sample events (comm, fork,
+               ...), to output. Default is off, only convert samples.
+## SEE ALSO         top
+           perf(1) [1] Common Trace Format - http://www.efficios.com/ctf 
+## COLOPHON         top
+           This page is part of the perf (Performance analysis tools for
+           Linux (in Linux source tree)) project.  Information about the
+           project can be found at 
+           ⟨https://perf.wiki.kernel.org/index.php/Main_Page⟩.  If you have a
+           bug report for this manual page, send it to
+           linux-kernel@vger.kernel.org.  This page was obtained from the
+           project's upstream Git repository
+           ⟨http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git⟩
+           on 2023-06-23.  (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.)  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    perf                           2021-04-29                   PERF-DATA(1)
+* * *
+Pages that refer to this page: perf(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

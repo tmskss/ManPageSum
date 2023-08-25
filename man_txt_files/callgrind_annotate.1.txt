@@ -1,0 +1,88 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# callgrind_annotate(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | SEE ALSO | AUTHOR | COLOPHON  
+    CALLGRIND ANNOTATE(1)      callgrind_annotate      CALLGRIND ANNOTATE(1)
+## NAME         top
+           callgrind_annotate - post-processing tool for the Callgrind
+## SYNOPSIS         top
+           callgrind_annotate [options]
+                              [callgrind-out-file [source-files...]]
+## DESCRIPTION         top
+           callgrind_annotate takes an output file produced by the Valgrind
+           tool Callgrind and prints the information in an easy-to-read
+           form.
+## OPTIONS         top
+           -h --help
+               Show summary of options.
+           --version
+               Show version of callgrind_annotate.
+           --show=A,B,C [default: all]
+               Only show figures for events A,B,C.
+           --threshold=<0--100> [default: 99%]
+               Percentage of counts (of primary sort event) we are
+               interested in.
+               callgrind_annotate stops printing functions when the sum of
+               the cost percentage of the printed functions is bigger or
+               equal to the given threshold percentage.
+           --sort=A,B,C
+               Sort columns by events A,B,C [event column order].
+               Optionally, each event is followed by a : and a threshold, to
+               specify different thresholds depending on the event.
+               callgrind_annotate stops printing functions when the sum of
+               the cost percentage of the printed functions for all the
+               events is bigger or equal to the given event threshold
+               percentages.
+               When one or more thresholds are given via this option, the
+               value of --threshold is ignored.
+           --show-percs=<no|yes> [default: no]
+               When enabled, a percentage is printed next to all event
+               counts. This helps gauge the relative importance of each
+               function and line.
+           --auto=<yes|no> [default: yes]
+               Annotate all source files containing functions that helped
+               reach the event count threshold.
+           --context=N [default: 8]
+               Print N lines of context before and after annotated lines.
+           --inclusive=<yes|no> [default: no]
+               Add subroutine costs to functions calls.
+           --tree=<none|caller|calling|both> [default: none]
+               Print for each function their callers, the called functions
+               or both.
+           -I, --include=<dir>
+               Add dir to the list of directories to search for source
+               files.
+## SEE ALSO         top
+           valgrind(1), $INSTALL/share/doc/valgrind/html/index.html or
+           http://www.valgrind.org/docs/manual/index.html.
+## AUTHOR         top
+           Josef Weidendorfer <Josef.Weidendorfer@gmx.de>.
+           This manual page was written by Philipp Frauenfelder
+           <pfrauenf@debian.org>.
+## COLOPHON         top
+           This page is part of the valgrind (a system for debugging and
+           profiling Linux programs) project.  Information about the project
+           can be found at ⟨http://www.valgrind.org/⟩.  If you have a bug
+           report for this manual page, see
+           ⟨http://www.valgrind.org/support/bug_reports.html⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨http://sourceware.org/git/valgrind.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-15.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Release 3.22.0.GIT             06/23/2023          CALLGRIND ANNOTATE(1)
+* * *
+Pages that refer to this page: valgrind(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

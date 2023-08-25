@@ -1,0 +1,59 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-pop(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-POP(1)                    StGit Manual                    STG-POP(1)
+## NAME         top
+           stg-pop - Pop (unapply) one or more applied patches
+## SYNOPSIS         top
+           stg pop [OPTIONS] [patch]...
+           stg pop [OPTIONS] --all
+           stg pop [OPTIONS] -n <number>
+## DESCRIPTION         top
+           Pop (unapply) one or more applied patches.
+           By default, the topmost applied patch is popped.
+           If ranges of patches are specified, pop and push operations are
+           performed such that only the patches specified on the command
+           line are unapplied at the end of the operation. It is possible
+           for some of these intermediate push operations to fail due to
+           conflicts if patches are popped out of last-pushed first-popped
+           order.
+## OPTIONS         top
+           -a, --all
+               Pop all applied patches
+           -n <number>, --number=<number>
+               Pop the specified <number> of patches.
+               A negative number indicates to pop all but that number of
+               patches
+           -s, --spill
+               Keep patches' modifications in working tree after popping
+           -k, --keep
+               Keep the local changes
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                     STG-POP(1)
+* * *
+Pages that refer to this page: stg(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

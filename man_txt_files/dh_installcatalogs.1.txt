@@ -1,0 +1,75 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# dh_installcatalogs(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | FILES | OPTIONS | NOTES | SEE ALSO | AUTHOR |
+COLOPHON  
+    DH_INSTALLCATALOGS(1)           Debhelper          DH_INSTALLCATALOGS(1)
+## NAME         top
+           dh_installcatalogs - install and register SGML Catalogs
+## SYNOPSIS         top
+           dh_installcatalogs [debhelper options] [-n]
+## DESCRIPTION         top
+           dh_installcatalogs is a debhelper program that installs and
+           registers SGML catalogs. It complies with the Debian XML/SGML
+           policy.
+           Catalogs will be registered in a supercatalog, in
+           /etc/sgml/package.cat.
+           This command automatically adds maintainer script snippets for
+           registering and unregistering the catalogs and supercatalogs
+           (unless -n is used). These snippets are inserted into the
+           maintainer scripts and the triggers file by dh_installdeb; see
+           dh_installdeb(1) for an explanation of Debhelper maintainer
+           script snippets.
+           A dependency on sgml-base will be added to ${misc:Depends}, so be
+           sure your package uses that variable in debian/control.
+## FILES         top
+           debian/package.sgmlcatalogs
+               Lists the catalogs to be installed per package. Each line in
+               that file should be of the form "source dest", where source
+               indicates where the catalog resides in the source tree, and
+               dest indicates the destination location for the catalog under
+               the package build area. dest should start with
+               /usr/share/sgml/.
+               Supports substitution variables in compat 13 and later as
+               documented in debhelper(7).
+## OPTIONS         top
+           -n, --no-scripts
+               Do not modify postinst/postrm/prerm scripts nor add an
+               activation trigger.
+## NOTES         top
+           Note that this command is not idempotent. dh_prep(1) should be
+           called between invocations of this command. Otherwise, it may
+           cause multiple instances of the same text to be added to
+           maintainer scripts.
+## SEE ALSO         top
+           debhelper(7)
+           /usr/share/doc/sgml-base-doc/
+## AUTHOR         top
+           Adam Di Carlo <aph@debian.org>
+## COLOPHON         top
+           This page is part of the debhelper (helper programs for
+           debian/rules) project.  Information about the project can be
+           found at [unknown -- if you know, please contact man-
+           pages@man7.org] If you have a bug report for this manual page,
+           send it to submit@bugs.debian.org.  This page was obtained from
+           the project's upstream Git repository
+           ⟨https://salsa.debian.org/debian/debhelper.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-03-05.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    13.6.1                         2022-01-30          DH_INSTALLCATALOGS(1)
+* * *
+Pages that refer to this page: debhelper(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

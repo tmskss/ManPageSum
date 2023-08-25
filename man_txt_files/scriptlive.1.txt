@@ -1,0 +1,100 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# scriptlive(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXAMPLES | AUTHORS | COPYRIGHT | SEE
+ALSO | REPORTING BUGS | AVAILABILITY  
+    SCRIPTLIVE(1)                 User Commands                SCRIPTLIVE(1)
+## NAME         top
+           scriptlive - re-run session typescripts, using timing information
+## SYNOPSIS         top
+           scriptlive [options] [-t] timingfile [-I|-B] typescript
+## DESCRIPTION         top
+           This program re-runs a typescript, using stdin typescript and
+           timing information to ensure that input happens in the same
+           rhythm as it originally appeared when the script was recorded.
+           The session is executed in a newly created pseudoterminal with
+           the user’s $SHELL (or defaults to /bin/bash).
+           Be careful! Do not forget that the typescript may contains
+           arbitrary commands. It is recommended to use "scriptreplay
+           --stream in --log-in typescript" (or with --log-io instead of
+           --log-in) to verify the typescript before it is executed by
+           scriptlive.
+           The timing information is what script(1) outputs to file
+           specified by --log-timing. The typescript has to contain stdin
+           information and it is what script1 outputs to file specified by
+           --log-in or --log-io.
+## OPTIONS         top
+           -I, --log-in file
+               File containing script's terminal input.
+           -B, --log-io file
+               File containing script's terminal output and input.
+           -t, --timing file
+               File containing script's timing output. This option overrides
+               old-style arguments.
+           -T, --log-timing file
+               Aliased to -t, maintained for compatibility with script(1)
+               command-line options.
+           -d, --divisor number
+               Speed up the replay displaying this number of times. The
+               argument is a floating-point number. It’s called divisor
+               because it divides the timings by this factor. This option
+               overrides old-style arguments.
+           -m, --maxdelay number
+               Set the maximum delay between updates to number of seconds.
+               The argument is a floating-point number. This can be used to
+               avoid long pauses in the typescript replay.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## EXAMPLES         top
+               % script --log-timing file.tm --log-in script.in
+               Script started, file is script.out
+               % date
+               <etc, etc>
+               % exit
+               Script done, file is script.out
+               % scriptlive --log-timing file.tm --log-in script.in
+## AUTHORS         top
+           Karel Zak <kzak@redhat.com>
+## COPYRIGHT         top
+           Copyright © 2019 Karel Zak
+           This is free software; see the source for copying conditions.
+           There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR
+           A PARTICULAR PURPOSE.
+           Released under the GNU General Public License version 2 or later.
+## SEE ALSO         top
+           script(1), scriptreplay(1)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The scriptlive command is part of the util-linux package which
+           can be downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                  SCRIPTLIVE(1)
+* * *
+Pages that refer to this page: script(1),  scriptreplay(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

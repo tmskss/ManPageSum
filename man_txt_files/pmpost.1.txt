@@ -1,0 +1,67 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pmpost(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | FILES | PCP ENVIRONMENT | UNIX SEE ALSO |
+WINDOWS SEE ALSO | SEE ALSO | COLOPHON  
+    PMPOST(1)                General Commands Manual               PMPOST(1)
+## NAME         top
+           pmpost - append messages to the Performance Co-Pilot notice board
+## SYNOPSIS         top
+           $PCP_BINADM_DIR/pmpost message
+## DESCRIPTION         top
+           pmpost will append the text message to the end of the Performance
+           Co-Pilot (PCP) notice board file ($PCP_LOG_DIR/NOTICES) in an
+           atomic manner that guards against corruption of the notice board
+           file by concurrent invocations of pmpost.
+           The PCP notice board is intended to be a persistent store and
+           clearing house for important messages relating to the operation
+           of the PCP and the notification of performance alerts from
+           pmie(1) when other notification options are either unavailable or
+           unsuitable.
+           Before being written, messages are prefixed by the current time,
+           and when the current day is different to the last time the notice
+           board file was written, pmpost will prepend the message with the
+           full date.
+           If the notice board file does not exist, pmpost will create it.
+           pmpost would usually run from long-running PCP daemons executing
+           under the (typically unprivileged) $PCP_USER and $PCP_GROUP
+           accounts.  The file should be owned and writable by the $PCP_USER
+           user, and readable by others.
+## FILES         top
+           $PCP_LOG_DIR/NOTICES
+                the PCP notice board file
+## PCP ENVIRONMENT         top
+           The file /etc/pcp.conf contains the local values for PCP_
+           variables.
+## UNIX SEE ALSO         top
+           logger(1).
+## WINDOWS SEE ALSO         top
+           pcp-eventlog(1).
+## SEE ALSO         top
+           pmie(1), pcp.conf(5) and pcp.env(5).
+## COLOPHON         top
+           This page is part of the PCP (Performance Co-Pilot) project.
+           Information about the project can be found at 
+           ⟨http://www.pcp.io/⟩.  If you have a bug report for this manual
+           page, send it to pcp@groups.io.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/performancecopilot/pcp.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-06-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Performance Co-Pilot               PCP                         PMPOST(1)
+* * *
+Pages that refer to this page: pcpintro(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

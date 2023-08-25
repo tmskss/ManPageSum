@@ -1,0 +1,54 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-diff(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-DIFF(1)                   StGit Manual                   STG-DIFF(1)
+## NAME         top
+           stg-diff - Show a diff
+## SYNOPSIS         top
+           stg diff [OPTIONS] [path]...
+## DESCRIPTION         top
+           Show the diff (default) or diffstat between the current working
+           copy or a tree-ish object and another tree-ish object (defaulting
+           to HEAD). File names can also be given to restrict the diff
+           output. The tree-ish object has the format accepted by the
+           stg-id(1) command.
+## OPTIONS         top
+           -r <revspec>, --range=<revspec>
+               Show diff between specified revisions. Revisions ranges are
+               specified as rev1[..[rev2]]. The revisions may be standard
+               Git revision specifiers or patches.
+           -s, --stat
+               Show the stat instead of the diff
+           -O <option>, --diff-opt=<option>
+               Pass additional <option> to git diff.
+               See the git-diff(1) man page. This option may be specified
+               multiple times.
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                    STG-DIFF(1)
+* * *
+Pages that refer to this page: stg(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

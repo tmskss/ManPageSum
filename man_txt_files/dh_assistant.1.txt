@@ -1,0 +1,274 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# dh_assistant(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | COMMANDS | COMMAND TAGS | JSON OUTPUT | SEE
+ALSO | COLOPHON  
+    DH_ASSISTANT(1)                 Debhelper                DH_ASSISTANT(1)
+## NAME         top
+           dh_assistant - tool for supporting debhelper tools and provide
+           introspection
+## SYNOPSIS         top
+           dh_assistant command [additional options]
+## DESCRIPTION         top
+           dh_assistant is a debhelper program that provides introspection
+           into the debhelper stack to assist third-party tools (e.g.
+           linters) or third-party debhelper implementations not using the
+           debhelper script API (e.g., because they are not written in
+           Perl).
+## COMMANDS         top
+           The dh_assistant supports the following commands:
+       active-compat-level (JSON)
+           Synopsis: dh_assistant active-compat-level
+           Outputs information about which compat level the package is
+           using.
+           For packages without valid debhelper compatibility information
+           (whether missing, ambiguous, not supported or simply invalid),
+           this command operates on a "best effort" basis and may abort when
+           error instead of providing data.
+           The returned JSON dictionary contains the following key-value
+           pairs:
+           active-compat-level
+               The compat level that debhelper will be using.  This is the
+               same as DH_COMPAT when present or else declared-compat-level.
+               This can be null when no compat level can be detected.
+           declared-compat-level
+               The compat level that the package declared as its default
+               compat level.  This can be null if the package does not
+               declare any compat level at all.
+           declared-compat-level-source
+               Defines how the compat level was declared.  This is null (for
+               the same reason as declared-compat-level) or one of:
+               debian/compat
+                   The compatibility level was declared in the first line
+                   debian/compat file.
+               Build-Depends: debhelper-compat (= <C>)
+                   The compatibility was declared in the debian/control via
+                   a build dependency on the debhelper-compat (= <C>)
+                   package in the Build-Depends field.  In the output, the C
+                   is replaced by the actual compatibility level.  A full
+                   example value would be:
+                      Build-Depends: debhelper-compat (= 13)
+       supported-compat-levels (JSON, CRFA)
+           Synopsis: dh_assistant supported-compat-levels
+           Outputs information about which compat levels, this build of
+           debhelper knows about.
+           This command accepts no options or arguments.
+       which-build-system (JSON)
+           Synopsis: dh_assistant which-build-system [build step]
+           [build system options]
+           Output information about which build system would be used for a
+           particular build step.  The build step must be one of configure,
+           build, test, install or clean and must be the first argument
+           after which-build-system when provided.  If omitted, it defaults
+           to configure as it is the most reliable step to use auto-
+           detection on in a clean source directory.  Note that build steps
+           do not always agree when using auto-detection - particularly if
+           the configure step has not been run.
+           Additionally, the clean step can also provide "surprising"
+           results for builds that rely on a separate build directory.  In
+           such cases, debhelper will return the first build system that
+           uses a separate build directory rather than the one build system
+           that configure would detect.  This is generally a cosmetic issue
+           as both build systems are all basically a glorified rm -fr
+           builddir and more precise detection is functionally irrelevant as
+           far as debhelper is concerned.
+           The option accepts all debhelper build system arguments - i.e.,
+           options you can pass to all of the dh_auto_* commands plus (for
+           the install step) the --destdir option.  These options affect the
+           output and auto-detection in various ways.  Passing -S or
+           --buildsystem overrides the auto-detection (as it does for
+           dh_auto_*) but it still provides introspection into the chosen
+           build system.
+           Things that are useful to know about the output:
+           •   The key build-system is the build system that would be used
+               by debhelper for the given step (with the given options,
+               debhelper compat level, environment variables and the given
+               working directory).  When -S and --buildsystem are omitted,
+               this is the result of debhelper's auto-detection logic.
+               The value is valid as a parameter for the --buildsystem
+               option.
+               The special value none is used to denote that no build system
+               would be used.  This value is not present in --list parameter
+               for the dh_auto_* commands, but since debhelper/12.9 the
+               value is accepted for the --buildsystem option.
+               Note that auto-detection is subject to limitations in regards
+               to third-party build systems.  While debhelper does support
+               auto-detecting some third-party build systems, they must be
+               installed for the detection to work.  If they are not
+               installed, the detection logic silently skips that build
+               system (often resulting in build-system being none in the
+               output).
+           •   The build-directory and buildpath values serve different but
+               related purposes.  The build-directory generally mirrors the
+               --builddirectory option where as buildpath is the output
+               directory that debhelper will use.  Therefore the former will
+               often be null when --builddirectory has not been passed while
+               the latter will generally not be null (except when build-
+               system is none).
+           •   The dest-directory (--destdir) is undefined for all build
+               steps except the install build step (will be output as null
+               or absent).  For the same reason, --destdir should only be
+               passed for install build step.
+               Note that if not specified, this value is currently null by
+               default.
+           •   The parallel value is subject to DEB_BUILD_OPTIONS.  Notably,
+               if that does not include the parallel keyword, then parallel
+               field in the output will always be 1.
+           •   Most fields in the output can be null.  Particular if there
+               is no build system is detected (or when --buildsystem=none).
+               Additionally, many of the fields can be null even if there is
+               a build system if the build system does not use/set/define
+               that variable.
+       detect-hook-targets (JSON)
+           Synopsis: dh_assistant detect-hook-targets
+           Detects possible override targets and hook targets that dh(1)
+           might use (provided that the relevant command is in the
+           sequence).
+           The detection is based on scanning the rules file for any target
+           that might look like a hook target and can therefore list targets
+           that are in fact not hook targets (or are but will never be
+           triggered for other reasons).
+           The detection uses a similar logic for scanning the rules file
+           and is therefore subject to makefile conditionals (i.e., the
+           truth value of makefile conditionals can change whether a hook
+           target is visible in the output of this command).  In theory, you
+           would have to setup up the environment to look like it would
+           during a build for getting the most accurate output.  Though, a
+           lot of packages will not have conditional hook targets, so the
+           "out of the box" behaviour will work well in most cases.
+           The output looks something like this:
+               {
+                  "commands-not-in-path": [
+                     "dh_foo"
+                  ],
+                  "hook-targets": [
+                     {
+                        "command": "dh_strip_nondeterminism",
+                        "is-empty": true,
+                        "package-section-param": null,
+                        "target-name": "override_dh_strip_nondeterminism"
+                     },
+                     {
+                        "command": "dh_foo",
+                        "is-empty": false,
+                        "package-section-param": "-a",
+                        "target-name": "override_dh_foo-arch"
+                     }
+                  ]
+               }
+           In more details:
+           commands-not-in-path
+               This attribute lists all the commands related to hook
+               targets, which dh_assistant could not find in PATH.  These
+               are usually caused by either the command not being installed
+               on the system where dh_assistant is run or by the command not
+               existing at all.
+               If you are using this command to verify an hook target is
+               present, please double check that the command is spelled
+               correctly.
+           hook-targets
+               List over hook targets found along with additional
+               information about them.
+               command
+                   Attribute that lists which command this hook target is
+                   related too.
+               target-name
+                   The actual target name detected in the debian/rules file.
+               is-empty
+                   A boolean that determines whether dh(1) will optimize the
+                   hook out at runtime (see "Completely empty targets" in
+                   dh(1)). Note that empty override targets will still cause
+                   dh(1)  to skip the original command.
+               package-section-param
+                   This attribute defines what package selection parameter
+                   should be passed to dh_* commands used in the hook
+                   target.  It can either be -a, -i or (if no parameter
+                   should be used) "null".
+           This command accepts no options or arguments.
+       log-installed-files
+           Synopsis: [1mdh_assistant -ppkg [22m[--on-behalf-of-cmd=dh_foo][24m path ...
+           Mark one or more paths as installed for a given package.  This is
+           useful for telling dh_missing(1) that the paths have been
+           installed manually.
+           The --on-behalf-of-cmd option can be used by third-party tools to
+           have dh_assistant list them as the installer of the provided
+           paths.  The convention is to use the basename of the tool itself
+           as its name (e.g. dh_install).
+           Please keep in mind that:
+           •   No glob or substitution expansion is done by dh_assistant on
+               the provided paths.  If you want to use globs, have the shell
+               perform the expansion first.
+           •   Paths must be given as relative to the source root directory
+               (e.g., debian/tmp/...)
+           •   You can provide a directory.  If you do, the directory and
+               anything recursively below it will be considered as
+               installed.  Note that it is fine to provide the directory
+               even if paths inside of it has been excluded as long as the
+               directory is fully "covered".
+           •   Do not worry about providing the same filename twice in
+               different invocations to dh_assistant due to -arch / -indep
+               overrides.  While it will be recorded multiple internally,
+               dh_missing(1) will deduplicate when it parses the records.
+           Note this command only marks paths as installed. It does not
+           actually install them - the caller should ensure that the paths
+           are in fact handled (or installed).
+## COMMAND TAGS         top
+           Most commands have one or more of the following "tags" associated
+           with them.  Their meaning is defined here.
+           JSON
+               The command provides JSON output. See "JSON OUTPUT" for
+               details.
+           CRFA
+               Mnemonic "Can be Run From Anywhere"
+               Most commands must be run inside a source package root
+               directory (a directory containing debian/control) because
+               debhelper will need the package metadata to lookup the
+               information.  Any command with this tag are exempt from this
+               requirement and is expected to work regardless of where they
+               are run.
+## JSON OUTPUT         top
+           Most commands uses JSON format as output.  Consumers need to be
+           aware that:
+           •   Additional keys may be added at any time.  For backwards
+               compatibility, the absence of a key should in general be
+               interpreted as null unless another default is documented or
+               would be "obvious" for that case.
+           •   Many keys can be null/undefined in special cases.  As an
+               example, some information may be unavailable when this
+               command is run directly from the debhelper source (git
+               repository).
+           The output will be prettified when stdout is detected as a
+           terminal.  If you need to pipe the output to a pager/file (etc.)
+           and still want it prettified, please use an external JSON
+           formatter. An example of this:
+                dh_assistant supported-compat-levels | json_pp | less
+## SEE ALSO         top
+           debhelper(7)
+           This program is a part of debhelper.
+## COLOPHON         top
+           This page is part of the debhelper (helper programs for
+           debian/rules) project.  Information about the project can be
+           found at [unknown -- if you know, please contact man-
+           pages@man7.org] If you have a bug report for this manual page,
+           send it to submit@bugs.debian.org.  This page was obtained from
+           the project's upstream Git repository
+           ⟨https://salsa.debian.org/debian/debhelper.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-03-05.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    13.11.1                        2022-12-14                DH_ASSISTANT(1)
+* * *
+Pages that refer to this page: dh(1),  debhelper(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

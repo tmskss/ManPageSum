@@ -1,0 +1,56 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-float(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-FLOAT(1)                  StGit Manual                  STG-FLOAT(1)
+## NAME         top
+           stg-float - Push patches to the top, even if applied
+## SYNOPSIS         top
+           stg float [OPTIONS] <patch>...
+           stg float [OPTIONS] <-S|--series> <file>
+## DESCRIPTION         top
+           Push patches to the top, even if applied.
+           Float one or more patches to be the topmost applied patches. The
+           patches to be floated may currently be either applied or
+           unapplied. The necessary pop and push operations will be
+           performed to float the named patches. Patches not specified will
+           remain applied or unapplied as they were prior to the float
+           operation.
+## OPTIONS         top
+           --noapply
+               Reorder patches without reapplying any patches
+           -S <file>, --series=<file>
+               Rearrange according to a series <file>
+           -k, --keep
+               Keep the local changes
+           --committer-date-is-author-date
+               Instead of using the current time as the committer date, use
+               the author date of the commit as the committer date.
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                   STG-FLOAT(1)
+* * *
+Pages that refer to this page: stg(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

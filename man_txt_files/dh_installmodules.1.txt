@@ -1,0 +1,66 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# dh_installmodules(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | FILES | OPTIONS | NOTES | SEE ALSO | AUTHOR |
+COLOPHON  
+    DH_INSTALLMODULES(1)            Debhelper           DH_INSTALLMODULES(1)
+## NAME         top
+           dh_installmodules - register kernel modules
+## SYNOPSIS         top
+           dh_installmodules [debhelper options] [-n] [--name=name]
+## DESCRIPTION         top
+           dh_installmodules is a debhelper program that is responsible for
+           registering kernel modules.
+           Kernel modules are searched for in the package build directory
+           and if found, preinst, postinst and postrm commands are
+           automatically generated to run depmod and register the modules
+           when the package is installed.  These commands are inserted into
+           the maintainer scripts by dh_installdeb(1).
+## FILES         top
+           debian/package.modprobe
+               Installed to etc/modprobe.d/package.conf in the package build
+               directory.
+## OPTIONS         top
+           -n, --no-scripts
+               Do not modify preinst/postinst/postrm scripts.
+           --name=name
+               When this parameter is used, dh_installmodules looks for and
+               installs files named debian/package.name.modprobe instead of
+               the usual debian/package.modprobe
+## NOTES         top
+           Note that this command is not idempotent. dh_prep(1) should be
+           called between invocations of this command. Otherwise, it may
+           cause multiple instances of the same text to be added to
+           maintainer scripts.
+## SEE ALSO         top
+           debhelper(7)
+           This program is a part of debhelper.
+## AUTHOR         top
+           Joey Hess <joeyh@debian.org>
+## COLOPHON         top
+           This page is part of the debhelper (helper programs for
+           debian/rules) project.  Information about the project can be
+           found at [unknown -- if you know, please contact man-
+           pages@man7.org] If you have a bug report for this manual page,
+           send it to submit@bugs.debian.org.  This page was obtained from
+           the project's upstream Git repository
+           ⟨https://salsa.debian.org/debian/debhelper.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-03-05.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    13.6.1                         2022-01-30           DH_INSTALLMODULES(1)
+* * *
+Pages that refer to this page: debhelper(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

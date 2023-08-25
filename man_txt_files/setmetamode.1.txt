@@ -1,0 +1,60 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# setmetamode(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | ARGUMENTS | OPTIONS | SEE ALSO | COLOPHON  
+    SETMETAMODE(1)           General Commands Manual          SETMETAMODE(1)
+## NAME         top
+           setmetamode - define the keyboard meta key handling
+## SYNOPSIS         top
+           setmetamode [ options ] [ argument ]
+## DESCRIPTION         top
+           Without argument, setmetamode prints the current Meta key mode.
+           With argument, it sets the Meta key mode as indicated.  The
+           setting before and after the change are reported.
+           The Meta key mode is specific for each VT (and the VT
+           corresponding to stdin is used).  One might use setmetamode in
+           /etc/rc to define the initial state of the Meta key mode, e.g. by
+                INITTY=/dev/tty[1-8]
+                for tty in $INITTY; do
+                     setmetamode escprefix < $tty
+                done
+## ARGUMENTS         top
+           esc, prefix, escprefix
+                  The Meta key sends an Escape prefix.
+           meta, bit, metabit
+                  The Meta key sets the high order bit of the character.
+## OPTIONS         top
+           -C, --console=DEV
+                  the console device to be used;
+           -V, --version
+                  print version number;
+           -h, --help
+                  print this usage message.
+## SEE ALSO         top
+           loadkeys(1), kbdinfo(1)
+## COLOPHON         top
+           This page is part of the kbd (Linux keyboard tools) project.
+           Information about the project can be found at 
+           ⟨http://www.kbd-project.org/⟩.  If you have a bug report for this
+           manual page, send it to kbd@lists.altlinux.org.  This page was
+           obtained from the project's upstream Git repository
+           ⟨https://github.com/legionus/kbd.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-23.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    kbd                            30 Jan 1994                SETMETAMODE(1)
+* * *
+Pages that refer to this page: ioctl_console(2)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,65 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# flatpak-permission-set(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXAMPLES | SEE ALSO | COLOPHON  
+    FLATPAK PERMISSION-(1)   flatpak permission-set   FLATPAK PERMISSION-(1)
+## NAME         top
+           flatpak-permission-set - Set permissions
+## SYNOPSIS         top
+           flatpak permission-set [OPTION...] TABLE ID APP_ID
+                                  [PERMISSION...]
+## DESCRIPTION         top
+           Set the permissions for an application in an entry in the
+           permission store. The entry is identified by TABLE and ID, the
+           application is identified by APP_ID. The PERMISSION strings must
+           be in a format suitable for the table.
+           The permission store is used by portals. Each portal generally
+           has its own table in the permission store, and the format of the
+           table entries is specific to each portal.
+## OPTIONS         top
+           The following options are understood:
+           -h, --help
+               Show help options and exit.
+           --data=DATA
+               Associate DATA with the entry. The data must be a serialized
+               GVariant.
+           -v, --verbose
+               Print debug information during command processing.
+           --ostree-verbose
+               Print OSTree debug information during command processing.
+## EXAMPLES         top
+           $ flatpak permission-set --data "{'always-ask':<true>}"
+           desktop-used-apps text/plain org.mozilla.Firefox org.gnome.gedit
+           0 3
+## SEE ALSO         top
+           flatpak(1), flatpak-permissions(1), flatpak-permission-remove(1),
+           flatpak-permission-reset(1), flatpak-permission-show(1)
+## COLOPHON         top
+           This page is part of the flatpak (a tool for building and
+           distributing desktop applications on Linux) project.  Information
+           about the project can be found at ⟨http://flatpak.org/⟩.  It is
+           not known how to report bugs for this man page; if you know,
+           please send a mail to man-pages@man7.org.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/flatpak/flatpak⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-05-20.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    flatpak                                           FLATPAK PERMISSION-(1)
+* * *
+Pages that refer to this page: flatpak(1),  flatpak-permission-remove(1),
+flatpak-permission-reset(1),  flatpak-permissions(1),  flatpak-permission-
+show(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

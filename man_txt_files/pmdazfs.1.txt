@@ -1,0 +1,61 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pmdazfs(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | INSTALLATION | SEE ALSO | COLOPHON  
+    PMDAZFS(1)               General Commands Manual              PMDAZFS(1)
+## NAME         top
+           pmdazfs - ZFS filesystem performance metrics domain agent (PMDA)
+           for Linux
+## SYNOPSIS         top
+           $PCP_PMDAS_DIR/linux_zfs/pmdazfs [-d domain] [-l logfile]
+## DESCRIPTION         top
+           pmdazfs is a Performance Metrics Domain Agent (PMDA) which
+           extracts performance metrics describing the state of the ZFS
+           filesystem from the stats files located in /proc.
+           The zfs PMDA exports metrics that measure information about
+           caching (ARC, L2ARC, ZIL, VDEV), buffering, RAIDZ, dnode
+           operations and pools IO.
+           A brief description of the pmdazfs command line options follows:
+           -d   The performance metrics domain number must be set to a
+                unique value.
+           -l   Location of the log file.  By default, a log file named
+                zfs.log is written in the current directory of pmcd(1) when
+                pmdazfs is started, i.e.  $PCP_LOG_DIR/pmcd.  If the log
+                file cannot be created or is not writable, output is written
+                to the standard error instead.
+## INSTALLATION         top
+           OpenZFS is not included in PCP, and has to be installed on the
+           system from the available packages or source.  Once OpenZFS is
+           installed and configured, the stats files should appear in /proc
+           and PMDA can be added to PMCD using the Install script:
+                # cd $PCP_PMDAS_DIR/zfs
+                # ./Install
+           To remove PMDA use the Remove script:
+                # cd $PCP_PMDAS_DIR/zfs
+                # ./Remove
+## SEE ALSO         top
+           PCPIntro(1), pmcd(1), pcp.conf(5) and pcp.env(5).
+## COLOPHON         top
+           This page is part of the PCP (Performance Co-Pilot) project.
+           Information about the project can be found at 
+           ⟨http://www.pcp.io/⟩.  If you have a bug report for this manual
+           page, send it to pcp@groups.io.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/performancecopilot/pcp.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-06-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Performance Co-Pilot               PCP                        PMDAZFS(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

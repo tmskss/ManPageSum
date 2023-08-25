@@ -1,0 +1,66 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-uncommit(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-UNCOMMIT(1)               StGit Manual               STG-UNCOMMIT(1)
+## NAME         top
+           stg-uncommit - Convert regular Git commits into StGit patches
+## SYNOPSIS         top
+           stg uncommit <patchname-1> [<patchname-2> ...]
+           stg uncommit -n number [<patchname-prefix>]
+           stg uncommit -t <committish> [-x]
+## DESCRIPTION         top
+           Convert one or more Git commits from the base of the current
+           stack into StGit patches. The original Git commits are not
+           modified; the StGit stack extends to incorporate these commits as
+           the bottommost applied patches. This is the opposite of
+           stg-commit(1).
+           By default, the number of patches to uncommit is determined by
+           the number of patch names provided on the command line. The first
+           provided name is used for the first patch to uncommit, i.e. for
+           the newest patch.
+           The -n/--number option specifies the number of patches to
+           uncommit. In this case, at most one patch name may be specified.
+           It is used as prefix to which the patch number is appended. If no
+           patch names are provided on the command line, StGit automatically
+           generates names based on the first lines of the commit messages.
+           The -t/--to option specifies that all commits up to and including
+           the given commit should be uncommitted. The -x/--exclusive option
+           may be used to exclude the "to" commit.
+           Only commits with exactly one parent can be uncommitted; in other
+           words, merge commits may not be uncommitted.
+## OPTIONS         top
+           -n <number>, --number=<number>
+               Uncommit the specified number of commits
+           -t <committish>, --to=<committish>
+               Uncommit to the specified committish
+           -x, --exclusive
+               Exclude the commit specified by the --to option
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                STG-UNCOMMIT(1)
+* * *
+Pages that refer to this page: stg(1),  stg-commit(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

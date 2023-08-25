@@ -1,0 +1,81 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# colcrt(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | HISTORY | BUGS | EXAMPLES | SEE ALSO
+| REPORTING BUGS | AVAILABILITY  
+    COLCRT(1)                     User Commands                    COLCRT(1)
+## NAME         top
+           colcrt - filter nroff output for CRT previewing
+## SYNOPSIS         top
+           colcrt [options] [file ...]
+## DESCRIPTION         top
+           colcrt provides virtual half-line and reverse line feed sequences
+           for terminals without such capability, and on which overstriking
+           is destructive. Half-line characters and underlining (changed to
+           dashing `-') are placed on new lines in between the normal output
+           lines.
+## OPTIONS         top
+           -, --no-underlining
+               Suppress all underlining. This option is especially useful
+               for previewing allboxed tables from tbl(1).
+           -2, --half-lines
+               Causes all half-lines to be printed, effectively double
+               spacing the output. Normally, a minimal space output format
+               is used which will suppress empty lines. The program never
+               suppresses two consecutive empty lines, however. The -2
+               option is useful for sending output to the line printer when
+               the output contains superscripts and subscripts which would
+               otherwise be partially invisible.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## HISTORY         top
+           The colcrt command appeared in 3.0BSD.
+## BUGS         top
+           Should fold underlines onto blanks even with the - option so that
+           a true underline character would show.
+           Can’t back up more than 102 lines.
+           General overstriking is lost; as a special case '|' overstruck
+           with '-' or underline becomes '+'.
+           Lines are trimmed to 132 characters.
+           Some provision should be made for processing superscripts and
+           subscripts in documents which are already double-spaced.
+## EXAMPLES         top
+           A typical use of colcrt would be:
+              tbl exum2.n | nroff -ms | colcrt - | more
+## SEE ALSO         top
+           col(1), more(1), nroff(1), troff(1), ul(1)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The colcrt command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                      COLCRT(1)
+* * *
+Pages that refer to this page: ul(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,65 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-count-objects(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | GIT | COLOPHON  
+    GIT-COUNT-OBJECTS(1)           Git Manual           GIT-COUNT-OBJECTS(1)
+## NAME         top
+           git-count-objects - Count unpacked number of objects and their
+           disk consumption
+## SYNOPSIS         top
+           git count-objects [-v] [-H | --human-readable]
+## DESCRIPTION         top
+           This counts the number of unpacked object files and disk space
+           consumed by them, to help you decide when it is a good time to
+           repack.
+## OPTIONS         top
+           -v, --verbose
+               Report in more detail:
+               count: the number of loose objects
+               size: disk space consumed by loose objects, in KiB (unless -H
+               is specified)
+               in-pack: the number of in-pack objects
+               size-pack: disk space consumed by the packs, in KiB (unless
+               -H is specified)
+               prune-packable: the number of loose objects that are also
+               present in the packs. These objects could be pruned using git
+               prune-packed.
+               garbage: the number of files in object database that are
+               neither valid loose objects nor valid packs
+               size-garbage: disk space consumed by garbage files, in KiB
+               (unless -H is specified)
+               alternate: absolute path of alternate object databases; may
+               appear multiple times, one line per path. Note that if the
+               path contains non-printable characters, it may be surrounded
+               by double-quotes and contain C-style backslashed escape
+               sequences.
+           -H, --human-readable
+               Print sizes in human readable format
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22           GIT-COUNT-OBJECTS(1)
+* * *
+Pages that refer to this page: git(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

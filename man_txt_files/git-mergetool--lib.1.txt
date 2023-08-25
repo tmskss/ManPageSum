@@ -1,0 +1,62 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-mergetool--lib(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | FUNCTIONS | GIT | COLOPHON  
+    GIT-MERGETOOL--LIB(1)          Git Manual          GIT-MERGETOOL--LIB(1)
+## NAME         top
+           git-mergetool--lib - Common Git merge tool shell scriptlets
+## SYNOPSIS         top
+           TOOL_MODE=(diff|merge) . "$(git --exec-path)/git-mergetool--lib"
+## DESCRIPTION         top
+           This is not a command the end user would want to run. Ever. This
+           documentation is meant for people who are studying the
+           Porcelain-ish scripts and/or are writing new ones.
+           The git-mergetool--lib scriptlet is designed to be sourced (using
+           .) by other shell scripts to set up functions for working with
+           Git merge tools.
+           Before sourcing git-mergetool--lib, your script must set
+           TOOL_MODE to define the operation mode for the functions listed
+           below. diff and merge are valid values.
+## FUNCTIONS         top
+           get_merge_tool
+               returns a merge tool. the return code is 1 if we returned a
+               guessed merge tool, else 0.  $GIT_MERGETOOL_GUI may be set to
+               true to search for the appropriate guitool.
+           get_merge_tool_cmd
+               returns the custom command for a merge tool.
+           get_merge_tool_path
+               returns the custom path for a merge tool.
+           initialize_merge_tool
+               bring merge tool specific functions into scope so they can be
+               used or overridden.
+           run_merge_tool
+               launches a merge tool given the tool name and a true/false
+               flag to indicate whether a merge base is present.  $MERGED,
+               $LOCAL, $REMOTE, and $BASE must be defined for use by the
+               merge tool.
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22          GIT-MERGETOOL--LIB(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

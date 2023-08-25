@@ -1,0 +1,148 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# chrt(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | POLICIES | SCHEDULING OPTIONS | OPTIONS |
+EXAMPLES | PERMISSIONS | NOTES | AUTHORS | SEE ALSO | REPORTING BUGS |
+AVAILABILITY  
+    CHRT(1)                       User Commands                      CHRT(1)
+## NAME         top
+           chrt - manipulate the real-time attributes of a process
+## SYNOPSIS         top
+           chrt [options] priority command argument ...
+           chrt [options] -p [priority] PID
+## DESCRIPTION         top
+           chrt sets or retrieves the real-time scheduling attributes of an
+           existing PID, or runs command with the given attributes.
+## POLICIES         top
+           -o, --other
+               Set scheduling policy to SCHED_OTHER (time-sharing
+               scheduling). This is the default Linux scheduling policy.
+           -f, --fifo
+               Set scheduling policy to SCHED_FIFO (first in-first out).
+           -r, --rr
+               Set scheduling policy to SCHED_RR (round-robin scheduling).
+               When no policy is defined, the SCHED_RR is used as the
+               default.
+           -b, --batch
+               Set scheduling policy to SCHED_BATCH (scheduling batch
+               processes). Linux-specific, supported since 2.6.16. The
+               priority argument has to be set to zero.
+           -i, --idle
+               Set scheduling policy to SCHED_IDLE (scheduling very low
+               priority jobs). Linux-specific, supported since 2.6.23. The
+               priority argument has to be set to zero.
+           -d, --deadline
+               Set scheduling policy to SCHED_DEADLINE (sporadic task model
+               deadline scheduling). Linux-specific, supported since 3.14.
+               The priority argument has to be set to zero. See also
+               --sched-runtime, --sched-deadline and --sched-period. The
+               relation between the options required by the kernel is
+               runtime ⇐ deadline ⇐ period. chrt copies period to deadline
+               if --sched-deadline is not specified and deadline to runtime
+               if --sched-runtime is not specified. It means that at least
+               --sched-period has to be specified. See sched(7) for more
+               details.
+## SCHEDULING OPTIONS         top
+           -T, --sched-runtime nanoseconds
+               Specifies runtime parameter for SCHED_DEADLINE policy
+               (Linux-specific).
+           -P, --sched-period nanoseconds
+               Specifies period parameter for SCHED_DEADLINE policy
+               (Linux-specific).
+           -D, --sched-deadline nanoseconds
+               Specifies deadline parameter for SCHED_DEADLINE policy
+               (Linux-specific).
+           -R, --reset-on-fork
+               Use SCHED_RESET_ON_FORK or SCHED_FLAG_RESET_ON_FORK flag.
+               Linux-specific, supported since 2.6.31.
+               Each thread has a reset-on-fork scheduling flag. When this
+               flag is set, children created by fork(2) do not inherit
+               privileged scheduling policies. After the reset-on-fork flag
+               has been enabled, it can be reset only if the thread has the
+               CAP_SYS_NICE capability. This flag is disabled in child
+               processes created by fork(2).
+               More precisely, if the reset-on-fork flag is set, the
+               following rules apply for subsequently created children:
+               •   If the calling thread has a scheduling policy of
+                   SCHED_FIFO or SCHED_RR, the policy is reset to
+                   SCHED_OTHER in child processes.
+               •   If the calling process has a negative nice value, the
+                   nice value is reset to zero in child processes.
+## OPTIONS         top
+           -a, --all-tasks
+               Set or retrieve the scheduling attributes of all the tasks
+               (threads) for a given PID.
+           -m, --max
+               Show minimum and maximum valid priorities, then exit.
+           -p, --pid
+               Operate on an existing PID and do not launch a new task.
+           -v, --verbose
+               Show status information.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## EXAMPLES         top
+           The default behavior is to run a new command:
+              chrt priority command [arguments]
+           You can also retrieve the real-time attributes of an existing
+           task:
+              chrt -p PID
+           Or set them:
+              chrt -r -p priority PID
+           This, for example, sets real-time scheduling to priority 30 for
+           the process PID with the SCHED_RR (round-robin) class:
+              chrt -r -p 30 PID
+           Reset priorities to default for a process:
+              chrt -o -p 0 PID
+           See sched(7) for a detailed discussion of the different scheduler
+           classes and how they interact.
+## PERMISSIONS         top
+           A user must possess CAP_SYS_NICE to change the scheduling
+           attributes of a process. Any user can retrieve the scheduling
+           information.
+## NOTES         top
+           Only SCHED_FIFO, SCHED_OTHER and SCHED_RR are part of POSIX
+           1003.1b Process Scheduling. The other scheduling attributes may
+           be ignored on some systems.
+           Linux' default scheduling policy is SCHED_OTHER.
+## AUTHORS         top
+           Robert Love <rml@tech9.net>, Karel Zak <kzak@redhat.com>
+## SEE ALSO         top
+           nice(1), renice(1), taskset(1), sched(7)
+           See sched_setscheduler(2) for a description of the Linux
+           scheduling scheme.
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The chrt command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                        CHRT(1)
+* * *
+Pages that refer to this page: renice(1),  taskset(1),  sched_setattr(2),
+sched_setscheduler(2),  sched(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

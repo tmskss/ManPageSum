@@ -1,0 +1,51 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pwdx(1) -- Linux manual page
+NAME | SYNOPSIS | OPTIONS | SEE ALSO | STANDARDS | AUTHOR | REPORTING BUGS |
+COLOPHON  
+    PWDX(1)                       User Commands                      PWDX(1)
+## NAME         top
+           pwdx - report current working directory of a process
+## SYNOPSIS         top
+           pwdx [options] pid [...]
+## OPTIONS         top
+           -V, --version
+                  Output version information and exit.
+           -h, --help
+                  Output help screen and exit.
+## SEE ALSO         top
+           ps(1), pgrep(1)
+## STANDARDS         top
+           No standards apply, but pwdx looks an awful lot like a SunOS
+           command.
+## AUTHOR         top
+           Nicholas Miell ⟨nmiell@gmail.com⟩ wrote pwdx in 2004.
+## REPORTING BUGS         top
+           Please send bug reports to ⟨procps@freelists.org⟩
+## COLOPHON         top
+           This page is part of the procps-ng (/proc filesystem utilities)
+           project.  Information about the project can be found at 
+           ⟨https://gitlab.com/procps-ng/procps⟩.  If you have a bug report
+           for this manual page, see
+           ⟨https://gitlab.com/procps-ng/procps/blob/master/Documentation/bugs.md⟩.
+           This page was obtained from the project's upstream Git repository
+           ⟨https://gitlab.com/procps-ng/procps.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-13.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    procps-ng                      2020-06-04                        PWDX(1)
+* * *
+Pages that refer to this page: pslog(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

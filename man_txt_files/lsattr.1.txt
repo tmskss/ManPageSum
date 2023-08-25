@@ -1,0 +1,64 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# lsattr(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | AUTHOR | BUGS | AVAILABILITY | SEE
+ALSO | COLOPHON  
+    LSATTR(1)                General Commands Manual               LSATTR(1)
+## NAME         top
+           lsattr - list file attributes on a Linux second extended file
+           system
+## SYNOPSIS         top
+           lsattr [ -RVadlpv ] [ files...  ]
+## DESCRIPTION         top
+           lsattr lists the file attributes on a second extended file
+           system.  See chattr(1) for a description of the attributes and
+           what they mean.
+## OPTIONS         top
+           -R     Recursively list attributes of directories and their
+                  contents.
+           -V     Display the program version.
+           -a     List all files in directories, including files that start
+                  with `.'.
+           -d     List directories like other files, rather than listing
+                  their contents.
+           -l     Print the options using long names instead of single
+                  character abbreviations.
+           -p     List the file's project number.
+           -v     List the file's version/generation number.
+## AUTHOR         top
+           lsattr was written by Remy Card <Remy.Card@linux.org>.  It is
+           currently being maintained by Theodore Ts'o <tytso@alum.mit.edu>.
+## BUGS         top
+           There are none :-).
+## AVAILABILITY         top
+           lsattr is part of the e2fsprogs package and is available from
+           http://e2fsprogs.sourceforge.net.
+## SEE ALSO         top
+           chattr(1)
+## COLOPHON         top
+           This page is part of the e2fsprogs (utilities for ext2/3/4
+           filesystems) project.  Information about the project can be found
+           at ⟨http://e2fsprogs.sourceforge.net/⟩.  It is not known how to
+           report bugs for this man page; if you know, please send a mail to
+           man-pages@man7.org.  This page was obtained from the project's
+           upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git⟩ on
+           2023-06-23.  (At that time, the date of the most recent commit
+           that was found in the repository was 2023-05-31.)  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    E2fsprogs version 1.47.0      February 2023                    LSATTR(1)
+* * *
+Pages that refer to this page: chattr(1),  ioctl_iflags(2),  btrfs-property(8)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

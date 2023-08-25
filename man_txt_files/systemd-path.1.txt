@@ -1,0 +1,59 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# systemd-path(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXIT STATUS | SEE ALSO | COLOPHON  
+    SYSTEMD-PATH(1)               systemd-path               SYSTEMD-PATH(1)
+## NAME         top
+           systemd-path - List and query system and user paths
+## SYNOPSIS         top
+           systemd-path [OPTIONS...] [NAME...]
+## DESCRIPTION         top
+           systemd-path may be used to query system and user paths. The tool
+           makes many of the paths described in file-hierarchy(7) available
+           for querying.
+           When invoked without arguments, a list of known paths and their
+           current values is shown. When at least one argument is passed,
+           the path with this name is queried and its value shown. The
+           variables whose name begins with "search-" do not refer to
+           individual paths, but instead to a list of colon-separated search
+           paths, in their order of precedence.
+## OPTIONS         top
+           The following options are understood:
+           --suffix=
+               Printed paths are suffixed by the specified string.
+           -h, --help
+               Print a short help text and exit.
+           --version
+               Print a short version string and exit.
+## EXIT STATUS         top
+           On success, 0 is returned, a non-zero failure code otherwise.
+## SEE ALSO         top
+           systemd(1), file-hierarchy(7)
+## COLOPHON         top
+           This page is part of the systemd (systemd system and service
+           manager) project.  Information about the project can be found at
+           ⟨http://www.freedesktop.org/wiki/Software/systemd⟩.  If you have
+           a bug report for this manual page, see
+           ⟨http://www.freedesktop.org/wiki/Software/systemd/#bugreports⟩.
+           This page was obtained from the project's upstream Git repository
+           ⟨https://github.com/systemd/systemd.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-23.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    systemd 253                                              SYSTEMD-PATH(1)
+* * *
+Pages that refer to this page: sd_path_lookup(3),  file-hierarchy(7),
+systemd.directives(7),  systemd.index(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

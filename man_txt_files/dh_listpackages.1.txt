@@ -1,0 +1,47 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# dh_listpackages(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | SEE ALSO | AUTHOR | COLOPHON  
+    DH_LISTPACKAGES(1)              Debhelper             DH_LISTPACKAGES(1)
+## NAME         top
+           dh_listpackages - list binary packages debhelper will act on
+## SYNOPSIS         top
+           dh_listpackages [debhelper options]
+## DESCRIPTION         top
+           dh_listpackages is a debhelper program that outputs a list of all
+           binary packages debhelper commands will act on. If you pass it
+           some options, it will change the list to match the packages other
+           debhelper commands would act on if passed the same options.
+           Packages are listed in the order they appear in debian/control.
+## SEE ALSO         top
+           debhelper(7)
+           This program is a part of debhelper.
+## AUTHOR         top
+           Joey Hess <joeyh@debian.org>
+## COLOPHON         top
+           This page is part of the debhelper (helper programs for
+           debian/rules) project.  Information about the project can be
+           found at [unknown -- if you know, please contact man-
+           pages@man7.org] If you have a bug report for this manual page,
+           send it to submit@bugs.debian.org.  This page was obtained from
+           the project's upstream Git repository
+           ⟨https://salsa.debian.org/debian/debhelper.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-03-05.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    13.6.1                         2022-01-30             DH_LISTPACKAGES(1)
+* * *
+Pages that refer to this page: dh(1),  debhelper(7)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

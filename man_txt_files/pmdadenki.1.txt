@@ -1,0 +1,79 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pmdadenki(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | INSTALLATION | FILES | PCP ENVIRONMENT | SEE
+ALSO | COLOPHON  
+    PMDADENKI(1)             General Commands Manual            PMDADENKI(1)
+## NAME         top
+           pmdadenki - metrics related to the systems electrical consumption
+## SYNOPSIS         top
+           $PCP_PMDAS_DIR/denki/pmdadenki [-d domain] [-l logfile]
+## DESCRIPTION         top
+           pmdadenki is a Performance Metrics Domain Agent (PMDA) which
+           extracts electricity related performance metrics.
+           Currently, metrics from RAPL (on Intel cpus) and battery charge
+           values are available, if supported by the hardware.
+           -l Location of the log file.  By default, a log file named
+           denki.log is written in the current directory of pmcd(1) when
+           pmdadenki is started, i.e.  $PCP_LOG_DIR/pmcd.  If the log file
+           cannot be created or is not writable, output is written to the
+           standard error instead.
+## INSTALLATION         top
+           The denki PMDA is installed and available by default on Linux.
+           If you want to undo the installation, do the following as root:
+                # cd $PCP_PMDAS_DIR/denki
+                # ./Remove
+           If you want to establish access to the names, help text and
+           values for the denki metrics once more, after removal, do the
+           following as root:
+                # cd $PCP_PMDAS_DIR/denki
+                # ./Install
+           pmdadenki is launched by pmcd(1) and should never be executed
+           directly.  The Install and Remove scripts notify pmcd(1) when the
+           agent is installed or removed.
+## FILES         top
+           $PCP_PMCDCONF_PATH
+                  command line options used to launch pmdadenki
+           $PCP_PMDAS_DIR/denki/help
+                  default help text file for the denki metrics
+           $PCP_PMDAS_DIR/denki/Install
+                  installation script for the pmdadenki agent
+           $PCP_PMDAS_DIR/denki/Remove
+                  undo installation script for the pmdadenki agent
+           $PCP_LOG_DIR/pmcd/denki.log
+                  default log file for error messages and other information
+                  from pmdadenki
+## PCP ENVIRONMENT         top
+           Environment variables with the prefix PCP_ are used to
+           parameterize the file and directory names used by PCP.  On each
+           installation, the file /etc/pcp.conf contains the local values
+           for these variables.  The $PCP_CONF variable may be used to
+           specify an alternative configuration file, as described in
+           pcp.conf(5).
+## SEE ALSO         top
+           PCPIntro(1), pmcd(1), denki/READMEfile pcp.conf(5) and
+           pcp.env(5).
+## COLOPHON         top
+           This page is part of the PCP (Performance Co-Pilot) project.
+           Information about the project can be found at 
+           ⟨http://www.pcp.io/⟩.  If you have a bug report for this manual
+           page, send it to pcp@groups.io.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/performancecopilot/pcp.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-06-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Performance Co-Pilot               PCP                      PMDADENKI(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

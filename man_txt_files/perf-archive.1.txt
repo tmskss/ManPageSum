@@ -1,0 +1,44 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# perf-archive(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | SEE ALSO | COLOPHON  
+    PERF-ARCHIVE(1)                perf Manual               PERF-ARCHIVE(1)
+## NAME         top
+           perf-archive - Create archive with object files with build-ids
+           found in perf.data file
+## SYNOPSIS         top
+           perf archive [file]
+## DESCRIPTION         top
+           This command runs perf-buildid-list --with-hits, and collects the
+           files with the buildids found so that analysis of perf.data
+           contents can be possible on another machine.
+## SEE ALSO         top
+           perf-record(1), perf-buildid-list(1), perf-report(1)
+## COLOPHON         top
+           This page is part of the perf (Performance analysis tools for
+           Linux (in Linux source tree)) project.  Information about the
+           project can be found at 
+           ⟨https://perf.wiki.kernel.org/index.php/Main_Page⟩.  If you have a
+           bug report for this manual page, send it to
+           linux-kernel@vger.kernel.org.  This page was obtained from the
+           project's upstream Git repository
+           ⟨http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git⟩
+           on 2023-06-23.  (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.)  If you
+           discover any rendering problems in this HTML version of the page,
+           or you believe there is a better or more up-to-date source for
+           the page, or you have corrections or improvements to the
+           information in this COLOPHON (which is not part of the original
+           manual page), send a mail to man-pages@man7.org
+    perf                           2013-12-09                PERF-ARCHIVE(1)
+* * *
+Pages that refer to this page: perf(1),  perf-inject(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

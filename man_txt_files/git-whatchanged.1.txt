@@ -1,0 +1,56 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# git-whatchanged(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | EXAMPLES | GIT | COLOPHON  
+    GIT-WHATCHANGED(1)             Git Manual             GIT-WHATCHANGED(1)
+## NAME         top
+           git-whatchanged - Show logs with difference each commit
+           introduces
+## SYNOPSIS         top
+           git whatchanged <option>...
+## DESCRIPTION         top
+           Shows commit logs and diff output each commit introduces.
+           New users are encouraged to use git-log(1) instead. The
+           whatchanged command is essentially the same as git-log(1) but
+           defaults to show the raw format diff output and to skip merges.
+           The command is kept primarily for historical reasons; fingers of
+           many people who learned Git long before git log was invented by
+           reading Linux kernel mailing list are trained to type it.
+## EXAMPLES         top
+           git whatchanged -p v2.6.12.. include/scsi drivers/scsi
+               Show as patches the commits since version v2.6.12 that
+               changed any file in the include/scsi or drivers/scsi
+               subdirectories
+           git whatchanged --since="2 weeks ago" -- gitk
+               Show the changes during the last two weeks to the file gitk.
+               The "--" is necessary to avoid confusion with the branch
+               named gitk
+## GIT         top
+           Part of the git(1) suite
+## COLOPHON         top
+           This page is part of the git (Git distributed version control
+           system) project.  Information about the project can be found at
+           ⟨http://git-scm.com/⟩.  If you have a bug report for this manual
+           page, see ⟨http://git-scm.com/community⟩.  This page was obtained
+           from the project's upstream Git repository
+           ⟨https://github.com/git/git.git⟩ on 2023-06-23.  (At that time,
+           the date of the most recent commit that was found in the
+           repository was 2023-06-22.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Git 2.41.0.159.g0bfa46         2023-06-22             GIT-WHATCHANGED(1)
+* * *
+Pages that refer to this page: git(1),  git-config(1),  git-log(1),  git-rev-
+list(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

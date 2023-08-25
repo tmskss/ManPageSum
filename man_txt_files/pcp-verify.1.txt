@@ -1,0 +1,76 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# pcp-verify(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | DIAGNOSTICS | PCP ENVIRONMENT | SEE
+ALSO | COLOPHON  
+    PCP-VERIFY(1)            General Commands Manual           PCP-VERIFY(1)
+## NAME         top
+           pcp-verify - verify aspects of a PCP installation
+## SYNOPSIS         top
+           pcp verify [-a archive] [-h host] [-csvV?]
+## DESCRIPTION         top
+           pcp-verify inspects various aspects of a PCP collector
+           installation and reports on whether it is configured correctly
+           for certain modes of operation.
+           By default, pcp-verify checks that PMCD is running and no agents
+           are in a failed state.  These checks can be extended and refined
+           using the command line options.
+## OPTIONS         top
+           The available command line options are:
+           -a archive, --archive=archive
+                Use the archive for verification.
+           -c, --containers
+                Verify the collector installation for monitoring containers.
+           -h host, --host=host
+                Connect to the PMCD on host for verification.
+           -s, --secure
+                Verify that the required components for encrypted
+                communication are in place.
+           -v, --verbose
+                Increase the verbosity, and report on each check as it is
+                made.  In the absence of any issues found, pcp-verify
+                operates silently.
+           -V, --version
+                Display version number and exit.
+           -?, --help
+                Display usage message and exit.
+## DIAGNOSTICS         top
+           pcp-verify will exit with a non-zero status if it finds anything
+           worth reporting, otherwise it is silent and returns zero.
+## PCP ENVIRONMENT         top
+           Environment variables with the prefix PCP_ are used to
+           parameterize the file and directory names used by PCP.  On each
+           installation, the file /etc/pcp.conf contains the local values
+           for these variables.  The $PCP_CONF variable may be used to
+           specify an alternative configuration file, as described in
+           pcp.conf(5).
+           For environment variables affecting PCP tools, see
+           pmGetOptions(3).
+## SEE ALSO         top
+           PCPIntro(1) and pcp(1).
+## COLOPHON         top
+           This page is part of the PCP (Performance Co-Pilot) project.
+           Information about the project can be found at 
+           ⟨http://www.pcp.io/⟩.  If you have a bug report for this manual
+           page, send it to pcp@groups.io.  This page was obtained from the
+           project's upstream Git repository
+           ⟨https://github.com/performancecopilot/pcp.git⟩ on 2023-06-23.
+           (At that time, the date of the most recent commit that was found
+           in the repository was 2023-06-21.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    Performance Co-Pilot               PCP                     PCP-VERIFY(1)
+* * *
+Pages that refer to this page: pcp(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

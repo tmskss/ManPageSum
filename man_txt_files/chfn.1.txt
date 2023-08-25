@@ -1,0 +1,105 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+Another version of this page is provided by the shadow-utils project
+* * *
+# chfn(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | CONFIG FILE ITEMS | EXIT STATUS |
+AUTHORS | SEE ALSO | REPORTING BUGS | AVAILABILITY  
+    CHFN(1)                       User Commands                      CHFN(1)
+## NAME         top
+           chfn - change your finger information
+## SYNOPSIS         top
+           chfn [-f full-name] [-o office] [-p office-phone] [-h home-phone]
+           [-u] [-V] [username]
+## DESCRIPTION         top
+           chfn is used to change your finger information. This information
+           is stored in the /etc/passwd file, and is displayed by the finger
+           program. The Linux finger command will display four pieces of
+           information that can be changed by chfn: your real name, your
+           work room and phone, and your home phone.
+           Any of the four pieces of information can be specified on the
+           command line. If no information is given on the command line,
+           chfn enters interactive mode.
+           In interactive mode, chfn will prompt for each field. At a
+           prompt, you can enter the new information, or just press return
+           to leave the field unchanged. Enter the keyword "none" to make
+           the field blank.
+           chfn supports non-local entries (kerberos, LDAP, etc.) if linked
+           with libuser, otherwise use ypchfn(1), lchfn(1) or any other
+           implementation for non-local entries.
+## OPTIONS         top
+           -f, --full-name full-name
+               Specify your real name.
+           -o, --office office
+               Specify your office room number.
+           -p, --office-phone office-phone
+               Specify your office phone number.
+           -h, --home-phone home-phone
+               Specify your home phone number.
+           -u, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit. The short options -V have been used
+               since version 2.39; old versions use deprecated -v.
+           -h, --help
+               Display help text and exit.
+           -V, --version
+               Print version and exit.
+## CONFIG FILE ITEMS         top
+           chfn reads the /etc/login.defs configuration file (see
+           login.defs(5)). Note that the configuration file could be
+           distributed with another package (e.g., shadow-utils). The
+           following configuration items are relevant for chfn:
+           CHFN_RESTRICT string
+               Indicate which fields are changeable by chfn.
+               The boolean setting "yes" means that only the Office, Office
+               Phone and Home Phone fields are changeable, and boolean
+               setting "no" means that also the Full Name is changeable.
+               Another way to specify changeable fields is by abbreviations:
+               f = Full Name, r = Office (room), w = Office (work) Phone, h
+               = Home Phone. For example, CHFN_RESTRICT "wh" allows changing
+               work and home phone numbers.
+               If CHFN_RESTRICT is undefined, then all finger information is
+               read-only. This is the default.
+## EXIT STATUS         top
+           Returns 0 if operation was successful, 1 if operation failed or
+           command syntax was not valid.
+## AUTHORS         top
+           Salvatore Valente <svalente@mit.edu>
+## SEE ALSO         top
+           chsh(1), finger(1), login.defs(5), passwd(5)
+## REPORTING BUGS         top
+           For bug reports, use the issue tracker at
+           https://github.com/util-linux/util-linux/issues.
+## AVAILABILITY         top
+           The chfn command is part of the util-linux package which can be
+           downloaded from Linux Kernel Archive
+           <https://www.kernel.org/pub/linux/utils/util-linux/>. This page
+           is part of the util-linux (a random collection of Linux
+           utilities) project. Information about the project can be found at
+           ⟨https://www.kernel.org/pub/linux/utils/util-linux/⟩. If you have
+           a bug report for this manual page, send it to
+           util-linux@vger.kernel.org. This page was obtained from the
+           project's upstream Git repository
+           ⟨git://git.kernel.org/pub/scm/utils/util-linux/util-linux.git⟩ on
+           2023-06-23. (At that time, the date of the most recent commit
+           that was found in the repository was 2023-06-22.) If you discover
+           any rendering problems in this HTML version of the page, or you
+           believe there is a better or more up-to-date source for the page,
+           or you have corrections or improvements to the information in
+           this COLOPHON (which is not part of the original manual page),
+           send a mail to man-pages@man7.org
+    util-linux 2.38.1062-a3b47     2023-02-02                        CHFN(1)
+* * *
+Pages that refer to this page: chsh(1@@shadow-utils),  passwd(5),
+groupadd(8),  groupdel(8),  groupmems(8),  groupmod(8),  useradd(8),
+userdel(8),  usermod(8)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

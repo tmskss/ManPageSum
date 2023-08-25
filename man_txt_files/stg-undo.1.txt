@@ -1,0 +1,46 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-undo(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-UNDO(1)                   StGit Manual                   STG-UNDO(1)
+## NAME         top
+           stg-undo - Undo the last command
+## SYNOPSIS         top
+           stg undo [OPTIONS]
+## DESCRIPTION         top
+           Reset the patch stack to the state before the last operation.
+           Consecutive undos will go back to yet older stack states.
+## OPTIONS         top
+           -n <n>, --number=<n>
+               Undo the last <n> commands
+           --hard
+               Discard changes in the index and worktree
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                    STG-UNDO(1)
+* * *
+Pages that refer to this page: stg(1),  stg-log(1),  stg-push(1),  stg-
+redo(1),  stg-repair(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

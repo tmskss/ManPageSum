@@ -1,0 +1,59 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stap-prep(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | EXAMPLES | SEE ALSO | BUGS | COLOPHON  
+    STAP-PREP(1)             General Commands Manual            STAP-PREP(1)
+## NAME         top
+           stap-prep - prepare system for systemtap use
+## SYNOPSIS         top
+           stap-prep [ KERNEL_VERSION ]
+## DESCRIPTION         top
+           The stap-prep executable prepares the system for systemtap use by
+           installing kernel headers, debug symbols and build tools that
+           match the currently running kernel or optionally the kernel
+           version given by the user.
+           If the debuginfod-find tool is installed and is able to fetch
+           debuginfo for a kernel component, it is assumed to remain
+           available later.  In this case, no debug symbols will be
+           downloaded during stap-prep.
+           The exact behavior of stap-prep may be customized by the
+           distribution maintainers. It might for example only give
+           suggestions and not actually install the required packages if
+           that is difficult to automate.
+## EXAMPLES         top
+                  $ stap-prep
+                  Please install linux-image-3.2.0-2-amd64-dbg
+## SEE ALSO         top
+           http://sourceware.org/elfutils/Debuginfod.html 
+           stap(1)
+## BUGS         top
+           Use the Bugzilla link of the project web page or our mailing
+           list.
+           http://sourceware.org/systemtap/ ,<systemtap@sourceware.org>.
+## COLOPHON         top
+           This page is part of the systemtap (a tracing and live-system
+           analysis tool) project.  Information about the project can be
+           found at ⟨https://sourceware.org/systemtap/⟩.  If you have a bug
+           report for this manual page, send it to systemtap@sourceware.org.
+           This page was obtained from the project's upstream Git repository
+           ⟨git://sourceware.org/git/systemtap.git⟩ on 2023-06-24.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-20.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+                                                                STAP-PREP(1)
+* * *
+Pages that refer to this page: stap(1),  error::pass2(7stap),
+warning::debuginfo(7stap)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,53 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# stg-sync(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | STGIT | COLOPHON  
+    STG-SYNC(1)                   StGit Manual                   STG-SYNC(1)
+## NAME         top
+           stg-sync - Synchronize patches with a branch or a series
+## SYNOPSIS         top
+           stg sync <--ref-branch=BRANCH|--series=SERIES> [<patch>...|--all]
+## DESCRIPTION         top
+           For each of the specified patches, perform a three-way merge with
+           the same patch in the specified branch or series. The command can
+           be used for keeping patches on several branches in sync. Note
+           that the operation may fail for some patches because of
+           conflicts. The patches in the series must apply cleanly.
+## OPTIONS         top
+           -a, --all
+               Synchronize all applied patches
+           -B <branch>, --ref-branch=<branch>
+               Synchronize patches with <branch>
+           -S <series>, --series=<series>
+               Synchronize patches with <series>
+           --committer-date-is-author-date
+               Instead of using the current time as the committer date, use
+               the author date of the commit as the committer date.
+## STGIT         top
+           Part of the StGit suite - see stg(1)
+## COLOPHON         top
+           This page is part of the stgit (Stacked Git) project.
+           Information about the project can be found at 
+           ⟨http://www.procode.org/stgit/⟩.  If you have a bug report for
+           this manual page, see ⟨http://www.procode.org/stgit/⟩.  This page
+           was obtained from the project's upstream Git repository
+           ⟨https://github.com/stacked-git/stgit.git⟩ on 2023-06-23.  (At
+           that time, the date of the most recent commit that was found in
+           the repository was 2023-06-19.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    StGit 2.3.0                    06/23/2023                    STG-SYNC(1)
+* * *
+Pages that refer to this page: stg(1)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *

@@ -1,0 +1,84 @@
+man7.org > Linux > man-pages
+Linux/UNIX system programming training  
+* * *
+# systemd-cgls(1) -- Linux manual page
+NAME | SYNOPSIS | DESCRIPTION | OPTIONS | EXIT STATUS | SEE ALSO | COLOPHON  
+    SYSTEMD-CGLS(1)               systemd-cgls               SYSTEMD-CGLS(1)
+## NAME         top
+           systemd-cgls - Recursively show control group contents
+## SYNOPSIS         top
+           systemd-cgls [OPTIONS...] [CGROUP...]
+           systemd-cgls [OPTIONS...] --unit|--user-unit [UNIT...]
+## DESCRIPTION         top
+           systemd-cgls recursively shows the contents of the selected Linux
+           control group hierarchy in a tree. If arguments are specified,
+           shows all member processes of the specified control groups plus
+           all their subgroups and their members. The control groups may
+           either be specified by their full file paths or are assumed in
+           the systemd control group hierarchy. If no argument is specified
+           and the current working directory is beneath the control group
+           mount point /sys/fs/cgroup/, shows the contents of the control
+           group the working directory refers to. Otherwise, the full
+           systemd control group hierarchy is shown.
+           By default, empty control groups are not shown.
+## OPTIONS         top
+           The following options are understood:
+           --all
+               Do not hide empty control groups in the output.
+           -l, --full
+               Do not ellipsize process tree members.
+           -u, --unit
+               Show cgroup subtrees for the specified units.
+           --user-unit
+               Show cgroup subtrees for the specified user units.
+           -k
+               Include kernel threads in output.
+           -M MACHINE, --machine=MACHINE
+               Limit control groups shown to the part corresponding to the
+               container MACHINE.
+           -x, --xattr=
+               Controls whether to include information about extended
+               attributes of the listed control groups in the output. With
+               the long option, expects a boolean value. Defaults to no.
+           -c, --cgroup-id=
+               Controls whether to include the numeric ID of the listed
+               control groups in the output. With the long option, expects a
+               boolean value. Defaults to no.
+           -h, --help
+               Print a short help text and exit.
+           --version
+               Print a short version string and exit.
+           --no-pager
+               Do not pipe output into a pager.
+## EXIT STATUS         top
+           On success, 0 is returned, a non-zero failure code otherwise.
+## SEE ALSO         top
+           systemd(1), systemctl(1), systemd-cgtop(1), systemd-nspawn(1),
+           ps(1)
+## COLOPHON         top
+           This page is part of the systemd (systemd system and service
+           manager) project.  Information about the project can be found at
+           ⟨http://www.freedesktop.org/wiki/Software/systemd⟩.  If you have
+           a bug report for this manual page, see
+           ⟨http://www.freedesktop.org/wiki/Software/systemd/#bugreports⟩.
+           This page was obtained from the project's upstream Git repository
+           ⟨https://github.com/systemd/systemd.git⟩ on 2023-06-23.  (At that
+           time, the date of the most recent commit that was found in the
+           repository was 2023-06-23.)  If you discover any rendering
+           problems in this HTML version of the page, or you believe there
+           is a better or more up-to-date source for the page, or you have
+           corrections or improvements to the information in this COLOPHON
+           (which is not part of the original manual page), send a mail to
+           man-pages@man7.org
+    systemd 253                                              SYSTEMD-CGLS(1)
+* * *
+Pages that refer to this page: systemd(1),  systemd-cgtop(1),  cgroups(7),
+systemd.directives(7),  systemd.index(7),  systemd-machined.service(8)
+* * *
+* * *
+HTML rendering created 2023-06-24 by Michael Kerrisk, author of The Linux
+Programming Interface.
+For details of in-depth Linux/UNIX system programming training courses that I
+teach, look here.
+Hosting by jambit GmbH.  
+* * *
