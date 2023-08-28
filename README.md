@@ -42,4 +42,4 @@ To Be Determined
 ## Training data
 The model was trained on all the man pages available on [man7.org](https://man7.org).
 The summarized texts were generated using the [TLDR GIthub repo](https://github.com/tldr-pages/tldr.git).
-The final dataset can be found on Huggingface [here](https://huggingface.co/datasets/tmskss/linux-man-pages-tldr-summarized).
+The final dataset can be found on HuggingFace [here](https://huggingface.co/datasets/tmskss/linux-man-pages-tldr-summarized).
