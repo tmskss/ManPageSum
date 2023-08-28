@@ -1,8 +1,8 @@
 # TODO
 ##  Gathering data
-- [ ] Get all man pages description and options, and convert to plain text
-- [ ] Get all TLDR files
-- [ ] Create dataset containing the prompt (`summarize: [man-page-txt]`) and the summary (`TLDR page`)
+- [x] Get all man pages description and options, and convert to plain text
+- [x] Get all TLDR files
+- [x] Create dataset containing the prompt (`summarize: [man-page-txt]`) and the summary (`TLDR page`)
 
 
 ## Training the model
