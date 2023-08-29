@@ -1,4 +1,4 @@
-transformers[tf,torch,sentencepiece,vision,optuna,sklearn,onnxruntime]==4.16.2
+transformers[tf,torch,sentencepiece,vision,optuna,sklearn,onnxruntime]
 datasets[audio]==1.16.1
 matplotlib
 ipywidgets
