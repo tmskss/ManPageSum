@@ -54,7 +54,7 @@ These are the results:
 
 
 ### Side note
-The whole code used to conclude this experiment can be found in [this notebook](colab/ModelComparison.ipynb)
+The whole code used to conclude this experiment can be found in [this notebook](../colab/ModelComparison.ipynb)
 
 
 
