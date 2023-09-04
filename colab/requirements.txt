@@ -2,5 +2,7 @@ transformers[tf,torch,sentencepiece,vision,optuna,sklearn,onnxruntime]==4.32.1
 datasets[audio]==1.16.1
 matplotlib
 ipywidgets
+einops
+accelerate
 nltk==3.6.6
 rouge-score==0.0.4
