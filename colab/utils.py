@@ -8,6 +8,8 @@ import matplotlib.font_manager as font_manager
 import matplotlib.pyplot as plt
 import torch
 import transformers
+import accelerate
+import bitsandbytes
 from IPython.display import set_matplotlib_formats
 
 is_gpu_available = torch.cuda.is_available()

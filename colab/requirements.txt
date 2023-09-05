@@ -4,5 +4,6 @@ matplotlib
 ipywidgets
 einops
 accelerate
+bitsandbytes
 nltk==3.6.6
 rouge-score==0.0.4
